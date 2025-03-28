@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Prolimza.Models.HistorialEstadoVenta>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstadoVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEstado)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEstado)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdHistorialEstadoVenta">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdHistorialEstadoVenta">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdHistorialEstadoVenta">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
