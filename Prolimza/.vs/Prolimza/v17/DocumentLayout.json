@@ -1,0 +1,495 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vse10\\source\\repos\\Prolimza\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\auditoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\auditoriascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\usuarioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\recetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\recetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\provinciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\provinciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\materiarecetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\materiarecetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\materiaprimascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\materiaprimascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\historialestadoventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\historialestadoventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\estadoventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\estadoventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\distritoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\distritoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\detalleventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\detalleventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\detallecompraproductoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\detallecompraproductoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\detallecompramateriaprimascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\detallecompramateriaprimascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\views\\auditorias\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\auditorias\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\cantonescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\cantonescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\controllers\\bodegascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\bodegascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\source\\repos\\prolimza\\prolimza\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 214,
+          "SelectedChildIndex": 14,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d562c6a0-d2fe-4c19-a8b3-e5cbc09bf375}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5c82a791-7c9f-441e-952b-8848655dd85e}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{5e929736-0e81-4d52-a78e-546a1649faca}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a34b1c5d-6d37-4a0c-a8b0-99f8e8158b48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VentasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\VentasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\VentasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\VentasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\VentasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:52:27.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuariosController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\UsuariosController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\UsuariosController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\UsuariosController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\UsuariosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:51:55.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RolesController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\RolesController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\RolesController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\RolesController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\RolesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:51:21.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RecetasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\RecetasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\RecetasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\RecetasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\RecetasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:50:26.132Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ProvinciasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\ProvinciasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\ProvinciasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\ProvinciasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\ProvinciasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:49:52.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuditoriasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\AuditoriasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\AuditoriasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\AuditoriasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\AuditoriasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:09:51.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\ProductosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:48:57.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MateriaRecetasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\MateriaRecetasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\MateriaRecetasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\MateriaRecetasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\MateriaRecetasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:48:24.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MateriaPrimasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\MateriaPrimasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\MateriaPrimasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\MateriaPrimasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\MateriaPrimasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:47:38.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "HistorialEstadoVentasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\HistorialEstadoVentasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\HistorialEstadoVentasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\HistorialEstadoVentasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\HistorialEstadoVentasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:46:31.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EstadoVentasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\EstadoVentasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\EstadoVentasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\EstadoVentasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\EstadoVentasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:45:54.987Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DistritosController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DistritosController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\DistritosController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DistritosController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\DistritosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:44:54.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "DetalleVentasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DetalleVentasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\DetalleVentasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DetalleVentasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\DetalleVentasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:44:05.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DetalleCompraProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DetalleCompraProductosController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\DetalleCompraProductosController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DetalleCompraProductosController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\DetalleCompraProductosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:43:31.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DetalleCompraMateriaPrimasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DetalleCompraMateriaPrimasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\DetalleCompraMateriaPrimasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\DetalleCompraMateriaPrimasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\DetalleCompraMateriaPrimasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:42:26.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Views\\Auditorias\\Create.cshtml",
+              "RelativeDocumentMoniker": "Prolimza\\Views\\Auditorias\\Create.cshtml",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Views\\Auditorias\\Create.cshtml",
+              "RelativeToolTip": "Prolimza\\Views\\Auditorias\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-28T01:41:36.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ComprasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\ComprasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\ComprasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\ComprasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\ComprasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:41:32.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "CantonesController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\CantonesController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\CantonesController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\CantonesController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\CantonesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:39:54.024Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "BodegasController.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\BodegasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\BodegasController.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Controllers\\BodegasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\BodegasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:21:17.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Prolimza\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Prolimza\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-28T01:13:52.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Program.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Program.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Program.cs",
+              "RelativeToolTip": "Prolimza\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:13:41.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\appsettings.json",
+              "RelativeDocumentMoniker": "Prolimza\\appsettings.json",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\appsettings.json",
+              "RelativeToolTip": "Prolimza\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-28T01:13:39.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Models\\Rol.cs",
+              "ToolTip": "C:\\Users\\vse10\\source\\repos\\Prolimza\\Prolimza\\Models\\Rol.cs",
+              "RelativeToolTip": "Prolimza\\Models\\Rol.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-28T01:15:47.156Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cdbdee54-b399-484b-b763-db2c3393d646}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{004be353-6879-467c-9d1e-9ac23cdf6d49}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d98f7c4d-b652-422c-bcdf-3d0e2b2da2c1}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:18:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:19:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:21:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 150,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
