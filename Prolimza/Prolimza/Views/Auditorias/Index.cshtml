@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Prolimza.Models.Auditoria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Log)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoEvento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MateriaPrima)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Log)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoEvento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Producto.IdProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MateriaPrima.IdMateriaPrima)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdAuditoria">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdAuditoria">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAuditoria">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
