@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="modal fade" id="estadoUsuarioModal" tabindex="-1" aria-labelledby="estadoUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="estadoUsuarioLabel">@SharedLocalizer.GetLocalizedHtmlString("Estado de usuario")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="estadoEmail" name="estadoEmail" placeholder="correo@ejemplo.com" required />
+                        <label for="estadoEmail">@SharedLocalizer.GetLocalizedHtmlString("Correo electrónico")</label>
+                    </div>
+                    <div class="form-floating">
+                        <select class="form-select" id="estadoDropdown" name="estado" required>
+                            <option selected disabled>@SharedLocalizer.GetLocalizedHtmlString("Seleccione estado")</option>
+                            <option value="activo">@SharedLocalizer.GetLocalizedHtmlString("Activo")</option>
+                            <option value="inactivo">@SharedLocalizer.GetLocalizedHtmlString("Inactivo")</option>
+                        </select>
+                        <label for="estadoDropdown">@SharedLocalizer.GetLocalizedHtmlString("Estado")</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Actualizar estado")</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedLocalizer.GetLocalizedHtmlString("Cancelar")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

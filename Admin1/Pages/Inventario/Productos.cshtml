@@ -1,0 +1,110 @@
+﻿@page
+@model BenjaminCamacho.Pages.Inventario.ProductosModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Productos");
+}
+<div class="container-fluid px-4">
+    <partial name="_Breadcrumb" />
+    <div class="d-flex flex-column align-items-start gap-2 mt-4 mb-3">
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#productoModal">
+            @SharedLocalizer.GetLocalizedHtmlString("Registrar producto")
+        </button>
+    </div>
+
+    @await Html.PartialAsync("_FormularioRegistroProducto")
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-box-open me-1"></i>
+            @SharedLocalizer.GetLocalizedHtmlString("Lista de productos")
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Nombre")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("SKU")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Cantidad")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Fecha de caducidad")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Bodega")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Acciones")</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Nombre")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("SKU")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Cantidad")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Fecha de caducidad")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Bodega")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Acciones")</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>Limpiador Multiusos</td>
+                        <td>LMU-001</td>
+                        <td>120</td>
+                        <td>2025-09-01</td>
+                        <td>Bodega Central</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary me-1" title="Editar" data-bs-toggle="modal" data-bs-target="#productoModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-info" onclick="location.href='/Inventario/DetalleProductos'">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Desinfectante Floral</td>
+                        <td>DFL-102</td>
+                        <td>85</td>
+                        <td>2025-07-15</td>
+                        <td>Bodega Norte</td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary me-1" data-bs-toggle="modal" data-bs-target="#productoModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-info" onclick="location.href='/Inventario/DetalleProductos'">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card shadow-sm mt-4">
+        <div class="card-header bg-warning text-dark">
+            <h5 class="mb-0">
+                <i class="fas fa-bell me-2"></i>
+                @SharedLocalizer.GetLocalizedHtmlString("Notificaciones")
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-warning d-flex align-items-center mb-3" role="alert">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                <div>
+                    @SharedLocalizer.GetLocalizedHtmlString("El producto") <strong>Desinfectante Floral</strong> @SharedLocalizer.GetLocalizedHtmlString("tiene un nivel de inventario bajo") — <strong>Stock actual: 7 unidades</strong>.
+                </div>
+            </div>
+
+            <div class="alert alert-warning d-flex align-items-center" role="alert">
+                <i class="fas fa-exclamation-circle me-2"></i>
+                <div>
+                    @SharedLocalizer.GetLocalizedHtmlString("El producto") <strong>Detergente concentrado</strong> @SharedLocalizer.GetLocalizedHtmlString("está por agotarse") — <strong>Stock actual: 4 unidades</strong>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="~/assets/demo/datatables-simple-demo.js"></script>
+}

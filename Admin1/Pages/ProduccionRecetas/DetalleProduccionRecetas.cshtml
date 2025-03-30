@@ -1,0 +1,55 @@
+﻿@page
+@model BenjaminCamacho.Pages.ProduccionRecetas.DetalleProduccionRecetasModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Producción y recetas");
+}
+<div class="container-fluid px-4">
+    <partial name="_Breadcrumb" />
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Nombre de la receta")</dt>
+                <dd class="col-sm-8">Limpiador Multiusos Premium</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Descripción")</dt>
+                <dd class="col-sm-8">Receta base para limpiador con alta concentración de fragancia.</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">@SharedLocalizer.GetLocalizedHtmlString("Materias primas utilizadas")</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Materia Prima")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Cantidad requerida")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Unidad")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ácido cítrico</td>
+                        <td>3.5</td>
+                        <td>kg</td>
+                    </tr>
+                    <tr>
+                        <td>Fragancia limón</td>
+                        <td>1.2</td>
+                        <td>litros</td>
+                    </tr>
+                    <tr>
+                        <td>Colorante verde</td>
+                        <td>0.3</td>
+                        <td>litros</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,7 @@
+@inject BenjaminCamacho.Resources.LocService SharedLocalizer
+
+<h1 class="mt-4">@ViewData["Title"]</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a asp-page="/Index">@SharedLocalizer.GetLocalizedHtmlString("Inicio")</a></li>
+    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+</ol>

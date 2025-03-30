@@ -1,0 +1,161 @@
+<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+    <div class="sb-sidenav-menu">
+        <div class="nav">
+            <!--
+            <a class="nav-link" asp-page="Index">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Análisis y monitoreo")
+            </a>
+            -->
+            <!-- Seguridad y accesos -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAuth" aria-expanded="false" aria-controls="collapseAuth">
+                <div class="sb-nav-link-icon"><i class="fas fa-key"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Seguridad y accesos")
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseAuth" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                        @SharedLocalizer.GetLocalizedHtmlString("Autenticación")
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" asp-page="/Account/Login">@SharedLocalizer.GetLocalizedHtmlString("Inicio de sesión")</a>
+                            <a class="nav-link" asp-page="/Account/ForgotPassword">@SharedLocalizer.GetLocalizedHtmlString("Cambiar contraseña")</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseUser" aria-expanded="false" aria-controls="pagesCollapseUser">
+                        @SharedLocalizer.GetLocalizedHtmlString("Manejo de usuarios")
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseUser" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" asp-page="/Account/Register">@SharedLocalizer.GetLocalizedHtmlString("Registro de usuarios")</a>
+                            <a class="nav-link" asp-page="/Account/UserActivity">@SharedLocalizer.GetLocalizedHtmlString("Actividad de usuarios")</a> <!--Aqui se van a poder hacer cambios de roles y modificar usuarios-->
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                        @SharedLocalizer.GetLocalizedHtmlString("Errores")
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" asp-page="/401">@SharedLocalizer.GetLocalizedHtmlString("401")</a>
+                            <a class="nav-link" asp-page="/404">@SharedLocalizer.GetLocalizedHtmlString("404")</a>
+                            <a class="nav-link" asp-page="/500">@SharedLocalizer.GetLocalizedHtmlString("500")</a>
+                        </nav>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Inventario y productos -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseInventario" aria-expanded="false" aria-controls="collapseInventario">
+                <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Inventario y productos")
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseInventario" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" asp-page="/Inventario/MateriaPrima">@SharedLocalizer.GetLocalizedHtmlString("Materia prima")</a>
+                    <a class="nav-link" asp-page="/Inventario/Productos">@SharedLocalizer.GetLocalizedHtmlString("Productos terminados")</a>
+                </nav>
+            </div>
+
+            <!-- Producción y recetas -->
+            <a class="nav-link" asp-page="/ProduccionRecetas/ProduccionRecetas">
+                <div class="sb-nav-link-icon"><i class="fas fa-industry"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Producción y recetas")
+            </a>
+
+            <!-- Compras y ventas -->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVentas" aria-expanded="false" aria-controls="collapseVentas">
+                <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Compras y ventas")
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseVentas" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" asp-page="/Ventas/Ventas">@SharedLocalizer.GetLocalizedHtmlString("Ventas")</a>
+                    <a class="nav-link" asp-page="/Compras/Compras">@SharedLocalizer.GetLocalizedHtmlString("Compras")</a>
+                </nav>
+            </div>
+
+            <!--Análisis y monitoreo-->
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAnalisisMonitoreo" aria-expanded="false" aria-controls="collapseAnalisisMonitoreo">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Análisis y monitoreo")
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseAnalisisMonitoreo" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" asp-page="/AnalisisMonitoreo/Inventario">@SharedLocalizer.GetLocalizedHtmlString("Inventario")</a>
+                    <a class="nav-link" asp-page="/AnalisisMonitoreo/Ventas">@SharedLocalizer.GetLocalizedHtmlString("Ventas")</a>
+                    <a class="nav-link" asp-page="/AnalisisMonitoreo/Alertas">@SharedLocalizer.GetLocalizedHtmlString("Alertas")</a>
+                    <a class="nav-link" asp-page="#">@SharedLocalizer.GetLocalizedHtmlString("Generar reporte de producción")</a>
+                </nav>
+            </div>
+            <!--
+            <div class="sb-sidenav-menu-heading">@SharedLocalizer.GetLocalizedHtmlString("Interface")</div>
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Layouts")
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" asp-page="/LayoutStatic">@SharedLocalizer.GetLocalizedHtmlString("Static Navigation")</a>
+                    <a class="nav-link" asp-page="/SidenavLight">@SharedLocalizer.GetLocalizedHtmlString("Light Sidenav")</a>
+                </nav>
+            </div>
+            
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Seguridad")
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                        @SharedLocalizer.GetLocalizedHtmlString("Autenticación")
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" asp-page="/Account/Login">@SharedLocalizer.GetLocalizedHtmlString("Inicio de sesión")</a>
+                            <a class="nav-link" asp-page="/Account/Register">@SharedLocalizer.GetLocalizedHtmlString("Registro")</a>
+                            <a class="nav-link" asp-page="/Account/ForgotPassword">@SharedLocalizer.GetLocalizedHtmlString("Olvidó contraseña")</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                        @SharedLocalizer.GetLocalizedHtmlString("Errores")
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" asp-page="/401">@SharedLocalizer.GetLocalizedHtmlString("401")</a>
+                            <a class="nav-link" asp-page="/404">@SharedLocalizer.GetLocalizedHtmlString("404")</a>
+                            <a class="nav-link" asp-page="/500">@SharedLocalizer.GetLocalizedHtmlString("500")</a>
+                        </nav>
+                    </div>
+                </nav>
+            </div>
+            -->
+            <!--
+            <div class="sb-sidenav-menu-heading">@SharedLocalizer.GetLocalizedHtmlString("Addons")</div>
+            <a class="nav-link" asp-page="/Charts">
+                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Charts")
+            </a>
+            <a class="nav-link" asp-page="Tables">
+                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                @SharedLocalizer.GetLocalizedHtmlString("Tables")
+            </a>
+            -->
+
+        </div> 
+    </div>
+    @await Html.PartialAsync("_LoginPartial")
+</nav>
+
+

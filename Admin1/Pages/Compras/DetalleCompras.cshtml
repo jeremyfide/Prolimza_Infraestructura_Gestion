@@ -1,0 +1,84 @@
+﻿@page
+@model BenjaminCamacho.Pages.Compras.DetalleComprasModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Detalle Compras");
+}
+
+<div class="container-fluid px-4">
+    <partial name="_Breadcrumb" />
+    <h2 class="mb-4">@SharedLocalizer.GetLocalizedHtmlString("Detalle de compra")</h2>
+
+    <div class="card shadow-sm mb-4">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Código de compra")</dt>
+                <dd class="col-sm-8">CMP-0001</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Proveedor")</dt>
+                <dd class="col-sm-8">Proveedores del Norte S.A.</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Fecha de compra")</dt>
+                <dd class="col-sm-8">2025-03-28</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">@SharedLocalizer.GetLocalizedHtmlString("Materias primas compradas")</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Materia prima")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Cantidad")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Unidad")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ácido cítrico</td>
+                        <td>10</td>
+                        <td>kg</td>
+                    </tr>
+                    <tr>
+                        <td>Fragancia limón</td>
+                        <td>5</td>
+                        <td>litros</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-light">
+            <h5 class="mb-0">@SharedLocalizer.GetLocalizedHtmlString("Productos comprados")</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Producto")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Cantidad")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Unidad")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Limpiador Multiusos</td>
+                        <td>15</td>
+                        <td>unidades</td>
+                    </tr>
+                    <tr>
+                        <td>Desinfectante Floral</td>
+                        <td>10</td>
+                        <td>unidades</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

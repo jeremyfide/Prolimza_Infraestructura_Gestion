@@ -1,0 +1,13 @@
+@using Microsoft.AspNetCore.Identity
+@using BenjaminCamacho.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="sb-sidenav-footer">
+        <div class="small">@SharedLocalizer.GetLocalizedHtmlString("Logged in as:")</div>
+        @UserManager.GetUserName(User)
+    </div>
+}

@@ -1,0 +1,37 @@
+﻿@page
+@model BenjaminCamacho.Pages.Inventario.DetalleProductosModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Detalle de productos");
+}
+<div class="container-fluid">
+    <partial name="_Breadcrumb" />
+
+    <div class="d-flex flex-column align-items-start gap-2 mt-4 mb-3">
+        <button type="button" class="btn btn-outline-danger">
+            @SharedLocalizer.GetLocalizedHtmlString("Exportar")
+        </button>
+    </div>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Nombre del producto")</dt>
+                <dd class="col-sm-8">Limpiador Multiusos</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Descripción")</dt>
+                <dd class="col-sm-8">Producto para limpieza general de superficies.</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("SKU")</dt>
+                <dd class="col-sm-8">LMU-001</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Cantidad disponible")</dt>
+                <dd class="col-sm-8">120</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Fecha de caducidad")</dt>
+                <dd class="col-sm-8">2025-09-01</dd>
+
+                <dt class="col-sm-4">@SharedLocalizer.GetLocalizedHtmlString("Bodega")</dt>
+                <dd class="col-sm-8">Bodega Central</dd>
+            </dl>
+        </div>
+    </div>
+</div>

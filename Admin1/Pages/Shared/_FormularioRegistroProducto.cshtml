@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productoModalLabel">@SharedLocalizer.GetLocalizedHtmlString("Registrar producto")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" placeholder="Nombre del producto" required />
+                        <label for="nombreProducto">@SharedLocalizer.GetLocalizedHtmlString("Nombre del producto")</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="descripcionProducto" name="descripcionProducto" placeholder="Descripción" />
+                        <label for="descripcionProducto">@SharedLocalizer.GetLocalizedHtmlString("Descripción")</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="skuProducto" name="skuProducto" placeholder="SKU" />
+                        <label for="skuProducto">@SharedLocalizer.GetLocalizedHtmlString("SKU")</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="number" class="form-control" id="cantidadProducto" name="cantidadProducto" placeholder="Cantidad" required min="0" />
+                        <label for="cantidadProducto">@SharedLocalizer.GetLocalizedHtmlString("Cantidad")</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="fechaCaducidadProducto" name="fechaCaducidadProducto" />
+                        <label for="fechaCaducidadProducto">@SharedLocalizer.GetLocalizedHtmlString("Fecha de caducidad")</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <select class="form-select" id="bodegaProducto" name="bodegaProducto" required>
+                            <option selected disabled>@SharedLocalizer.GetLocalizedHtmlString("Seleccione una bodega")</option>
+                            <!-- Aquí puedes poblar dinámicamente las bodegas -->
+                            <option value="1">Bodega Central</option>
+                            <option value="2">Bodega Norte</option>
+                        </select>
+                        <label for="bodegaProducto">@SharedLocalizer.GetLocalizedHtmlString("Bodega")</label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Guardar producto")</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedLocalizer.GetLocalizedHtmlString("Cancelar")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

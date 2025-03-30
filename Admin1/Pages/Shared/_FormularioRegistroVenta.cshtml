@@ -1,0 +1,60 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="modal fade" id="ventaModal" tabindex="-1" aria-labelledby="ventaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ventaModalLabel">@SharedLocalizer.GetLocalizedHtmlString("Registrar venta")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-floating mb-3">
+                        <input type="date" class="form-control" id="fechaVenta" name="fechaVenta" required />
+                        <label for="fechaVenta">@SharedLocalizer.GetLocalizedHtmlString("Fecha de venta")</label>
+                    </div>
+
+                    <h6 class="text-primary">@SharedLocalizer.GetLocalizedHtmlString("Productos vendidos")</h6>
+                    <div id="productosVendidosContainer">
+                        <div id="plantillaProductoVenta" class="d-none">
+                            <div class="row mb-3 producto-item">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="producto[]" required>
+                                            <option selected disabled>Seleccione producto</option>
+                                            <option value="1">Limpiador Multiusos</option>
+                                            <option value="2">Desinfectante Floral</option>
+                                        </select>
+                                        <label>Producto</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" name="cantidad[]" placeholder="Cantidad" min="1" required />
+                                        <label>Cantidad</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-outline-danger btn-sm remove-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-outline-success btn-sm mb-4" id="addProductoVentaBtn">
+                        <i class="fas fa-plus"></i> @SharedLocalizer.GetLocalizedHtmlString("Agregar producto")
+                    </button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Registrar venta")</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedLocalizer.GetLocalizedHtmlString("Cancelar")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

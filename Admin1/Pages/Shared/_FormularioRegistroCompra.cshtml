@@ -1,0 +1,105 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="modal fade" id="compraModal" tabindex="-1" aria-labelledby="compraModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="compraModalLabel">@SharedLocalizer.GetLocalizedHtmlString("Registrar nueva compra")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+
+                    <!-- Proveedor y fecha -->
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="proveedor" name="proveedor" required>
+                            <option selected disabled>@SharedLocalizer.GetLocalizedHtmlString("Seleccione un proveedor")</option>
+                            <option value="1">Proveedores del Norte S.A.</option>
+                            <option value="2">Materias Primas Tico</option>
+                        </select>
+                        <label for="proveedor">@SharedLocalizer.GetLocalizedHtmlString("Proveedor")</label>
+                    </div>
+
+                    <div class="form-floating mb-4">
+                        <input type="date" class="form-control" id="fechaCompra" name="fechaCompra" required />
+                        <label for="fechaCompra">@SharedLocalizer.GetLocalizedHtmlString("Fecha de compra")</label>
+                    </div>
+
+                    <!-- Materias primas -->
+                    <h6 class="text-primary">@SharedLocalizer.GetLocalizedHtmlString("Materias primas compradas")</h6>
+                    <div id="materiasCompradasContainer">
+                        <div id="plantillaMateria" class="d-none">
+                            <div class="row mb-3 materia-item">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="materiaPrima[]" required>
+                                            <option selected disabled>@SharedLocalizer.GetLocalizedHtmlString("Seleccione materia prima")</option>
+                                            <option value="1">Ácido cítrico</option>
+                                            <option value="2">Fragancia limón</option>
+                                        </select>
+                                        <label>@SharedLocalizer.GetLocalizedHtmlString("Materia prima")</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" name="cantidadMateriaPrima[]" placeholder="Cantidad" required min="0" />
+                                        <label>@SharedLocalizer.GetLocalizedHtmlString("Cantidad")</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-outline-danger btn-sm remove-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-outline-success btn-sm mb-4" id="addMateriaCompraBtn">
+                        <i class="fas fa-plus"></i> @SharedLocalizer.GetLocalizedHtmlString("Agregar materia prima")
+                    </button>
+
+                    <!-- Productos -->
+                    <h6 class="text-primary">@SharedLocalizer.GetLocalizedHtmlString("Productos comprados")</h6>
+                    <div id="productosCompradosContainer">
+                        <div id="plantillaProducto" class="d-none">
+                            <div class="row mb-3 producto-item">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="producto[]" required>
+                                            <option selected disabled>@SharedLocalizer.GetLocalizedHtmlString("Seleccione producto")</option>
+                                            <option value="1">Limpiador Multiusos</option>
+                                            <option value="2">Desinfectante Floral</option>
+                                            <option value="3">Jabón líquido</option>
+                                        </select>
+                                        <label>@SharedLocalizer.GetLocalizedHtmlString("Producto")</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input type="number" class="form-control" name="cantidadProducto[]" placeholder="Cantidad" min="0" required />
+                                        <label>@SharedLocalizer.GetLocalizedHtmlString("Cantidad")</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                                    <button type="button" class="btn btn-outline-danger btn-sm remove-item">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button type="button" class="btn btn-outline-success btn-sm" id="addProductoCompraBtn">
+                        <i class="fas fa-plus"></i> @SharedLocalizer.GetLocalizedHtmlString("Agregar producto")
+                    </button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Registrar compra")</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedLocalizer.GetLocalizedHtmlString("Cancelar")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

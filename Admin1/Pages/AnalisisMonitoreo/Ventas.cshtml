@@ -1,0 +1,141 @@
+﻿@page
+@model BenjaminCamacho.Pages.AnalisisMonitoreo.VentasModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Ventas");
+}
+<div class="container-fluid px-4">
+    <partial name="_Breadcrumb" />
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-warning shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@SharedLocalizer.GetLocalizedHtmlString("Ventas pendientes")</h5>
+                    <h3>12</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-danger shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">@SharedLocalizer.GetLocalizedHtmlString("Tiempo promedio en estado pendiente")</h5>
+                    <h3>2 días 6 horas</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-clock me-2"></i>
+            @SharedLocalizer.GetLocalizedHtmlString("Órdenes de venta pendientes")
+        </div>
+        <div class="card-body">
+            <div class="row g-3">
+                <!-- Tarjeta 1 -->
+                <div class="col-md-4">
+                    <div class="card border-warning shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">
+                                <i class="fas fa-file-invoice me-1"></i> VENTA-00125
+                            </h5>
+                            <p class="mb-1">@SharedLocalizer.GetLocalizedHtmlString("Fecha de venta"): 2025-03-28</p>
+                            <p class="mb-1">@SharedLocalizer.GetLocalizedHtmlString("Cliente"): Distribuciones Lara</p>
+                            <p class="mb-0 text-muted small">@SharedLocalizer.GetLocalizedHtmlString("Tiempo pendiente"):<br><strong>3 días 4 horas</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="col-md-4">
+                    <div class="card border-warning shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">
+                                <i class="fas fa-file-invoice me-1"></i> VENTA-00126
+                            </h5>
+                            <p class="mb-1">@SharedLocalizer.GetLocalizedHtmlString("Fecha de venta"): 2025-03-29</p>
+                            <p class="mb-1">@SharedLocalizer.GetLocalizedHtmlString("Cliente"): Supermercado La Costa</p>
+                            <p class="mb-0 text-muted small">@SharedLocalizer.GetLocalizedHtmlString("Tiempo pendiente"):<br><strong>1 día 12 horas</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="col-md-4">
+                    <div class="card border-warning shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title text-warning">
+                                <i class="fas fa-file-invoice me-1"></i> VENTA-00127
+                            </h5>
+                            <p class="mb-1">@SharedLocalizer.GetLocalizedHtmlString("Fecha de venta"): 2025-03-30</p>
+                            <p class="mb-1">@SharedLocalizer.GetLocalizedHtmlString("Cliente"): Farmacia San José</p>
+                            <p class="mb-0 text-muted small">@SharedLocalizer.GetLocalizedHtmlString("Tiempo pendiente"):<br><strong>6 horas</strong></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Más tarjetas dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+            <div>
+                <i class="fas fa-chart-line me-2"></i>
+                @SharedLocalizer.GetLocalizedHtmlString("Tendencia de ventas por mes")
+            </div>
+            <div class="d-flex gap-2 mt-2 mt-md-0">
+                <input type="date" class="form-control form-control-sm" id="ventasFechaInicio" />
+                <input type="date" class="form-control form-control-sm" id="ventasFechaFin" />
+                <select class="form-select form-select-sm" id="filtroProductoVentasMes">
+                    <option value="all" selected>@SharedLocalizer.GetLocalizedHtmlString("Todos los productos")</option>
+                    <option value="Limpiador">Limpiador Multiusos</option>
+                    <option value="Desinfectante">Desinfectante Floral</option>
+                    <option value="Jabon">Jabón líquido</option>
+                </select>
+                <button class="btn btn-sm btn-outline-primary" onclick="filtrarTendenciaVentas()">
+                    <i class="fas fa-filter me-1"></i> @SharedLocalizer.GetLocalizedHtmlString("Filtrar")
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <canvas id="graficoTendenciaVentas" width="100%" height="40"></canvas>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-clock me-2"></i>
+            @SharedLocalizer.GetLocalizedHtmlString("Tiempo promedio: entregas vs cancelaciones")
+        </div>
+        <div class="card-body">
+            <canvas id="graficoTiempoEntregasCancelaciones" width="100%" height="40"></canvas>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-calendar-alt me-2"></i> @SharedLocalizer.GetLocalizedHtmlString("Ventas por semana / día")</span>
+            <div>
+                <div class="btn-group btn-group-sm" role="group">
+                    <input type="radio" class="btn-check" name="vistaVentas" id="vistaSemana" autocomplete="off" checked onchange="actualizarGraficoFrecuencia('semana')">
+                    <label class="btn btn-outline-primary" for="vistaSemana">@SharedLocalizer.GetLocalizedHtmlString("Semana")</label>
+
+                    <input type="radio" class="btn-check" name="vistaVentas" id="vistaDia" autocomplete="off" onchange="actualizarGraficoFrecuencia('dia')">
+                    <label class="btn btn-outline-primary" for="vistaDia">@SharedLocalizer.GetLocalizedHtmlString("Día")</label>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <canvas id="graficoFrecuenciaVentas" width="100%" height="40"></canvas>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="~/assets/demo/analisis-ventas.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="~/assets/demo/datatables-simple-demo.js"></script>
+}

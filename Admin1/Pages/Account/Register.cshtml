@@ -1,0 +1,69 @@
+﻿@page
+@model BenjaminCamacho.Pages.Account.RegisterModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Register");
+    Layout = "_LoginLayout";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">@SharedLocalizer.GetLocalizedHtmlString("Registrar cuenta")</h3></div>
+                <div class="card-body">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" id="inputFirstName" type="text" placeholder="@SharedLocalizer.GetLocalizedHtmlString("Ingrese el primer nombre")" />
+                                    <label for="inputFirstName">
+                                        @SharedLocalizer.GetLocalizedHtmlString("Primer nombre")
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input class="form-control" id="inputLastName" type="text" placeholder="@SharedLocalizer.GetLocalizedHtmlString("Ingrese el apellido")" />
+                                    <label for="inputLastName">@SharedLocalizer.GetLocalizedHtmlString("Apellido")</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input class="form-control" asp-for="Input.Email" placeholder="@SharedLocalizer.GetLocalizedHtmlString("prolimza@gmail.com")" />
+                            <label asp-for="Input.Email">@SharedLocalizer.GetLocalizedHtmlString("Correo electrónico")</label>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" asp-for="Input.Password" placeholder="@SharedLocalizer.GetLocalizedHtmlString("Cree una contraseña")" />
+                                    <label asp-for="Input.Password">@SharedLocalizer.GetLocalizedHtmlString("Contraseña")</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" asp-for="Input.ConfirmPassword" placeholder="@SharedLocalizer.GetLocalizedHtmlString("Confirmar Contraseña")" />
+                                    <label asp-for="Input.ConfirmPassword">@SharedLocalizer.GetLocalizedHtmlString("Confirmar Contraseña")</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select class="form-select" id="inputRole" name="role">
+                                <option selected disabled>@SharedLocalizer.GetLocalizedHtmlString("Seleccione un rol")</option>
+                                <option value="administrador">@SharedLocalizer.GetLocalizedHtmlString("Administrador")</option>
+                                <option value="operador">@SharedLocalizer.GetLocalizedHtmlString("Operador")</option>
+                                <option value="productor">@SharedLocalizer.GetLocalizedHtmlString("Productor")</option>
+                                <option value="contador">@SharedLocalizer.GetLocalizedHtmlString("Contador")</option>
+                            </select>
+                        </div>
+                        <div class="mt-4 mb-0">
+                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">@SharedLocalizer.GetLocalizedHtmlString("Crear Cuenta")</button></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-center py-3">
+                    <div class="small"><a asp-page="./Login">@SharedLocalizer.GetLocalizedHtmlString("Ir a inicio de sesión")</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

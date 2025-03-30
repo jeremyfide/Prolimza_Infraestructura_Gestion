@@ -1,0 +1,81 @@
+﻿@page
+@model BenjaminCamacho.Pages.Ventas.VentasModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Ventas");
+}
+<div class="container-fluid px-4">
+    <partial name="_Breadcrumb" />
+    <div class="d-flex flex-column align-items-start gap-2 mt-4 mb-3">
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#ventaModal">
+            @SharedLocalizer.GetLocalizedHtmlString("Registrar venta")
+        </button>
+
+        <button type="button" class="btn btn-outline-primary" onclick="location.href='/Ventas/ReporteVentas'">
+            @SharedLocalizer.GetLocalizedHtmlString("Generar reporte")
+        </button>
+    </div>
+
+    @await Html.PartialAsync("_FormularioRegistroVenta")
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-box-open me-1"></i>
+            @SharedLocalizer.GetLocalizedHtmlString("Lista de recetas")
+        </div>
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                    <tr>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Código de venta")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Fecha")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Estado")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Acciones")</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Código de venta")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Fecha")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Estado")</th>
+                        <th>@SharedLocalizer.GetLocalizedHtmlString("Acciones")</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>VENTA-001</td>
+                        <td>2025-03-30</td>
+                        <td><span class="badge bg-success">@SharedLocalizer.GetLocalizedHtmlString("Completada")</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary me-1" title="Modificar" data-bs-toggle="modal" data-bs-target="#ventaModal">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-danger" title="Cancelar venta">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>VENTA-002</td>
+                        <td>2025-03-29</td>
+                        <td><span class="badge bg-danger">@SharedLocalizer.GetLocalizedHtmlString("Cancelada")</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-secondary me-1" disabled>
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="btn btn-sm btn-outline-secondary" disabled>
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="~/assets/demo/datatables-simple-demo.js"></script>
+    <script src="~/assets/demo/ventas-registro.js"></script>
+}

@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<div class="modal fade" id="asignarRolModal" tabindex="-1" aria-labelledby="asignarRolLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="asignarRolLabel">@SharedLocalizer.GetLocalizedHtmlString("Asignar rol")</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="rolEmail" name="rolEmail" placeholder="correo@ejemplo.com" required />
+                        <label for="rolEmail">@SharedLocalizer.GetLocalizedHtmlString("Correo electrónico")</label>
+                    </div>
+                    <div class="form-floating">
+                        <select class="form-select" id="rolDropdown" name="rol" required>
+                            <option selected disabled>@SharedLocalizer.GetLocalizedHtmlString("Seleccione rol")</option>
+                            <option value="administrador">@SharedLocalizer.GetLocalizedHtmlString("Administrador")</option>
+                            <option value="operador">@SharedLocalizer.GetLocalizedHtmlString("Operador")</option>
+                            <option value="productor">@SharedLocalizer.GetLocalizedHtmlString("Productor")</option>
+                            <option value="contador">@SharedLocalizer.GetLocalizedHtmlString("Contador")</option>
+                        </select>
+                        <label for="rolDropdown">@SharedLocalizer.GetLocalizedHtmlString("Rol")</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">@SharedLocalizer.GetLocalizedHtmlString("Guardar roles")</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@SharedLocalizer.GetLocalizedHtmlString("Cancelar")</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

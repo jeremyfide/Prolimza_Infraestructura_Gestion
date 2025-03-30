@@ -1,0 +1,61 @@
+﻿@page
+@model TablesModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Tables");
+}
+
+<div class="container-fluid">
+    <partial name="_Breadcrumb" />
+    <div class="card mb-4">
+        <div class="card-body">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net/">official DataTables documentation</a>.</div>
+    </div>
+    <div class="card mb-4">
+        <div class="card-header"><i class="fas fa-table mr-1"></i>@SharedLocalizer.GetLocalizedHtmlString("DataTable Example")</div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Name")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Position")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Office")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Age")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Start date")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Salary")</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Name")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Position")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Office")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Age")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Start date")</th>
+                            <th>@SharedLocalizer.GetLocalizedHtmlString("Salary")</th>
+                            <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model.Employees)
+                    {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Position</td>
+                                <td>@item.Office</td>
+                                <td>@item.Age</td>
+                                <td>@item.StartDate</td>
+                                <td>@item.Salary</td>
+                                <td>Editar | Activar</td>
+                            </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="~/js/datatables-simple-demo.js"></script>
+}

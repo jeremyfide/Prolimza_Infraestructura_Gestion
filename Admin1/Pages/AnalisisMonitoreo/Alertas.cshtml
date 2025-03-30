@@ -1,0 +1,59 @@
+﻿@page
+@model BenjaminCamacho.Pages.AnalisisMonitoreo.AlertasModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Alertas");
+}
+<div class="container-fluid px-4">
+    <partial name="_Breadcrumb" />
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-bell me-2"></i>
+            @SharedLocalizer.GetLocalizedHtmlString("Alertas del sistema")
+        </div>
+        <div class="card-body">
+            <div class="list-group">
+
+                <!-- Alerta de vencimiento -->
+                <div class="list-group-item list-group-item-danger d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-exclamation-circle me-2 text-danger"></i>
+                        <strong>@SharedLocalizer.GetLocalizedHtmlString("Producto por vencer"):</strong>
+                        Limpiador Multiusos expira en 3 días (Lote LMU-102)
+                    </div>
+                    <span class="badge bg-danger">Alta</span>
+                </div>
+
+                <!-- Alerta de stock bajo -->
+                <div class="list-group-item list-group-item-warning d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-box-open me-2 text-warning"></i>
+                        <strong>@SharedLocalizer.GetLocalizedHtmlString("Stock bajo"):</strong>
+                        Fragancia limón tiene solo 5 litros disponibles
+                    </div>
+                    <span class="badge bg-warning text-dark">Media</span>
+                </div>
+
+                <!-- Alerta de orden retrasada -->
+                <div class="list-group-item list-group-item-info d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-clock me-2 text-info"></i>
+                        <strong>@SharedLocalizer.GetLocalizedHtmlString("Orden retrasada"):</strong>
+                        VENTA-00124 lleva más de 48 horas en estado pendiente
+                    </div>
+                    <span class="badge bg-info text-dark">Media</span>
+                </div>
+
+                <!-- Alerta general -->
+                <div class="list-group-item d-flex justify-content-between align-items-center">
+                    <div>
+                        <i class="fas fa-info-circle me-2 text-secondary"></i>
+                        @SharedLocalizer.GetLocalizedHtmlString("Sistema actualizado correctamente a la versión 1.2.3")
+                    </div>
+                    <span class="badge bg-secondary">Info</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

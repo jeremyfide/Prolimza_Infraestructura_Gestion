@@ -1,0 +1,15 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Privacy Policy");
+}
+
+<div class="container-fluid">
+    <partial name="_Breadcrumb" />
+    <div class="card mb-4">
+        <div class="card-body">
+            <p class="mb-0">@SharedLocalizer.GetLocalizedHtmlString("This page is an example of using static navigation. By removing the ")<code>.sb-nav-fixed</code> @SharedLocalizer.GetLocalizedHtmlString("class from the") <code>body</code>@SharedLocalizer.GetLocalizedHtmlString(", the top navigation and side navigation will become static on scroll. Scroll down this page to see an example.")</p>
+            <p>@SharedLocalizer.GetLocalizedHtmlString("Use this page to detail your site's privacy policy.")</p>
+        </div>
+    </div>
+</div>

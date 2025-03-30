@@ -1,0 +1,45 @@
+﻿@page
+@model BenjaminCamacho.Pages.Ventas.ReporteVentasModel
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("Reporte de ventas");
+}
+<div class="container-fluid px-4">
+    <partial name="_Breadcrumb" />
+
+    <div class="d-flex flex-column align-items-start gap-2 mt-4 mb-3">
+        <button type="button" class="btn btn-outline-danger">
+            @SharedLocalizer.GetLocalizedHtmlString("Exportar")
+        </button>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+            <div>
+                <i class="fas fa-chart-pie me-2"></i>
+                @SharedLocalizer.GetLocalizedHtmlString("Productos más vendidos")
+            </div>
+            <div class="d-flex gap-2 mt-2 mt-md-0">
+                <input type="date" class="form-control form-control-sm" id="fechaInicioVentas" />
+                <input type="date" class="form-control form-control-sm" id="fechaFinVentas" />
+                <select class="form-select form-select-sm" id="filtroProductoVentas">
+                    <option value="all" selected>@SharedLocalizer.GetLocalizedHtmlString("Todos los productos")</option>
+                    <option value="Limpiador">Limpiador Multiusos</option>
+                    <option value="Desinfectante">Desinfectante Floral</option>
+                    <option value="Jabon">Jabón líquido</option>
+                </select>
+                <button class="btn btn-sm btn-outline-primary" onclick="filtrarGraficoVentas()">
+                    <i class="fas fa-filter me-1"></i> @SharedLocalizer.GetLocalizedHtmlString("Filtrar")
+                </button>
+            </div>
+        </div>
+        <div class="card-body">
+            <canvas id="graficoVentas" width="100%" height="40"></canvas>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script src="~/assets/demo/reporte-ventas.js"></script>
+}

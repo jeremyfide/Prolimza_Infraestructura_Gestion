@@ -1,0 +1,23 @@
+﻿@page
+@model Page404Model
+
+@{
+    ViewData["Title"] = SharedLocalizer.GetLocalizedHtmlString("404 Error");
+    Layout = "_LayoutError";
+}
+
+<main>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center mt-4">
+                    <img class="mb-4 img-error" src="~/img/error-404-monochrome.svg" />
+                    <p class="lead">@SharedLocalizer.GetLocalizedHtmlString("El URL no fue encontrado en el servidor.")</p>
+                    <a asp-page="Index"><i class="fas fa-arrow-left mr-1"></i>@SharedLocalizer.GetLocalizedHtmlString("Volver al inicio")</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
