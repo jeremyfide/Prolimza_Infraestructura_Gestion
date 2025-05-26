@@ -1,0 +1,128 @@
+﻿@model Prolimza.Models.Receta
+
+@{
+    ViewData["Title"] = "Crear Receta";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #f7fdf9;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.7s ease-in-out;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2e8644;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .form-control-custom {
+            border-radius: 10px;
+            border: 1px solid #cdd9d2;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            width: 100%;
+            transition: border-color 0.3s ease;
+        }
+
+            .form-control-custom:focus {
+                border-color: #34974d;
+                outline: none;
+                box-shadow: 0 0 0 0.2rem rgba(52, 151, 77, 0.25);
+            }
+
+        .text-danger {
+            font-size: 0.85rem;
+            color: red;
+            margin-top: -15px;
+            margin-bottom: 10px;
+        }
+
+        .btn-crear {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #3aa856;
+            border: none;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+            .btn-crear:hover {
+                background-color: #2e8644;
+            }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .back-link a {
+                text-decoration: none;
+                color: #2e8644;
+                font-weight: 500;
+            }
+
+                .back-link a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
+
+<form asp-action="Create" class="form-container animate__animated animate__fadeInUp">
+    <p class="form-title">Registrar nueva receta</p>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <select asp-for="IdProducto" asp-items="ViewBag.IdProducto" class="form-control-custom">
+        <option value="">Seleccione un Producto</option>
+    </select>
+    <span asp-validation-for="IdProducto" class="text-danger"></span>
+
+    <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" />
+    <span asp-validation-for="Nombre" class="text-danger"></span>
+
+    <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" />
+    <span asp-validation-for="Descripcion" class="text-danger"></span>
+
+    <button type="submit" class="btn-crear">
+        <svg class="icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"></path>
+        </svg>
+        Crear
+    </button>
+</form>
+
+<div class="back-link">
+    <a asp-action="Index">← Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

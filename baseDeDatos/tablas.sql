@@ -148,6 +148,7 @@ CREATE TABLE auditoria (
     log NVARCHAR(1000),
     tipoEvento VARCHAR(60),
     categoriaEvento VARCHAR(60),
-	modulo VARCHAR(60),
-	fechaLog DATETIME
+    modulo VARCHAR(60),
+    fechaLog DATETIME,
+    idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
 );
