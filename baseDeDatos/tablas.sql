@@ -11,27 +11,27 @@ GO
 
 -- Tabla: provincia
 CREATE TABLE provincia (
-    idProvincia INT PRIMARY KEY,
+    idProvincia INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(30)
 );
 
 -- Tabla: canton
 CREATE TABLE canton (
-    idCanton INT PRIMARY KEY,
+    idCanton INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(40),
     idProvincia INT FOREIGN KEY REFERENCES provincia(idProvincia)
 );
 
 -- Tabla: distrito
 CREATE TABLE distrito (
-    idDistrito INT PRIMARY KEY,
+    idDistrito INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(60),
     idCanton INT FOREIGN KEY REFERENCES canton(idCanton)
 );
 
 -- Tabla: bodega
 CREATE TABLE bodega (
-    idBodega INT PRIMARY KEY,
+    idBodega INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(60),
     detalleDireccion VARCHAR(256),
     idDistrito INT FOREIGN KEY REFERENCES distrito(idDistrito)
@@ -39,7 +39,7 @@ CREATE TABLE bodega (
 
 -- Tabla: materiaPrima
 CREATE TABLE materiaPrima (
-    idMateriaPrima INT PRIMARY KEY,
+    idMateriaPrima INT PRIMARY KEY IDENTITY(1,1),
     nombre VARCHAR(60),
     descripcion VARCHAR(256),
     sku VARCHAR(10),
@@ -50,7 +50,7 @@ CREATE TABLE materiaPrima (
 
 -- Tabla: producto
 CREATE TABLE producto (
-    idProducto INT PRIMARY KEY,
+    idProducto INT PRIMARY KEY IDENTITY(1,1),
     nombreProducto VARCHAR(60),
     descripcion VARCHAR(256),
     sku VARCHAR(10),
@@ -59,9 +59,36 @@ CREATE TABLE producto (
     bodega_idBodega INT FOREIGN KEY REFERENCES bodega(idBodega)
 );
 
+-- Tabla: roles
+CREATE TABLE roles (
+    idRol INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(60),
+    descripcion VARCHAR(256)
+);
+
+-- Tabla: usuario
+CREATE TABLE usuario (
+    idUsuario INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(60),
+    correo VARCHAR(60),
+    contrasenaEncryptada VARCHAR(512),
+    idRol INT FOREIGN KEY REFERENCES roles(idRol)
+);
+
+-- Tabla: auditoria
+CREATE TABLE auditoria (
+    idAuditoria INT PRIMARY KEY IDENTITY(1,1),
+    log NVARCHAR(1000) NULL,
+    tipoEvento VARCHAR(60),
+    categoriaEvento VARCHAR(60),
+    modulo VARCHAR(60),
+    fechaLog DATETIME,
+    idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
+);
+
 -- Tabla: receta
 CREATE TABLE receta (
-    idReceta INT PRIMARY KEY,
+    idReceta INT PRIMARY KEY IDENTITY(1,1),
     idProducto INT FOREIGN KEY REFERENCES producto(idProducto),
     nombre VARCHAR(60),
     descripcion VARCHAR(256)
@@ -74,25 +101,9 @@ CREATE TABLE materiaReceta (
     cantidad INT,
     PRIMARY KEY (idReceta, idMateriaPrima)
 );
--- Tabla: roles
-CREATE TABLE roles (
-    idRol INT PRIMARY KEY,
-    nombre VARCHAR(60),
-    descripcion VARCHAR(256)
-);
-
--- Tabla: usuario
-CREATE TABLE usuario (
-    idUsuario INT PRIMARY KEY,
-    nombre VARCHAR(60),
-    correo VARCHAR(60),
-    contrasenaEncryptada VARCHAR(512),
-    idRol INT FOREIGN KEY REFERENCES roles(idRol)
-);
-
 -- Tabla: compra
 CREATE TABLE compra (
-    idCompra INT PRIMARY KEY,
+    idCompra INT PRIMARY KEY IDENTITY(1,1),
     fechaCompra DATETIME,
     idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
 );
@@ -119,7 +130,7 @@ CREATE TABLE detalleCompraMateriaPrima (
 
 -- Tabla: venta
 CREATE TABLE venta (
-    idVenta INT PRIMARY KEY,
+    idVenta INT PRIMARY KEY IDENTITY(1,1),
     fechaVenta DATETIME,
     idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
 );
@@ -136,7 +147,7 @@ CREATE TABLE detalleVenta (
 
 -- Tabla: estadoVenta
 CREATE TABLE estadoVenta (
-    idEstadoVenta INT PRIMARY KEY,
+    idEstadoVenta INT PRIMARY KEY IDENTITY(1,1),
     descripcion VARCHAR(60)
 );
 
@@ -148,15 +159,4 @@ CREATE TABLE historialEstadoVenta (
     PRIMARY KEY (idEstadoVenta, idVenta),
     FOREIGN KEY (idEstadoVenta) REFERENCES estadoVenta(idEstadoVenta),
     FOREIGN KEY (idVenta) REFERENCES venta(idVenta)
-);
-
--- Tabla: auditoria
-CREATE TABLE auditoria (
-    idAuditoria INT PRIMARY KEY,
-    log NVARCHAR(1000),
-    tipoEvento VARCHAR(60),
-    categoriaEvento VARCHAR(60),
-    modulo VARCHAR(60),
-    fechaLog DATETIME,
-    idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
 );
