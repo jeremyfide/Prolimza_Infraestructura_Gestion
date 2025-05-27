@@ -1,0 +1,141 @@
+﻿@model Prolimza.Models.Venta
+
+@{
+    ViewData["Title"] = "Editar Venta";
+}
+
+<style>
+    .form {
+        background-color: #2b7a4b;
+        display: block;
+        padding: 1.5rem;
+        max-width: 400px;
+        border-radius: 0.75rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        margin: auto;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .form:hover {
+            transform: translateY(-5px);
+        }
+
+    .form-title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        font-weight: 700;
+        text-align: center;
+        color: #ffffff;
+        margin-bottom: 1.5rem;
+    }
+
+    .input-container {
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+        .input-container input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border-radius: 0.5rem;
+            border: 2px solid #4f9f75;
+            outline: none;
+            transition: border-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+            .input-container input:focus {
+                border-color: #97BF7A;
+                box-shadow: 0 0 8px rgba(0, 183, 89, 0.6);
+            }
+
+            .input-container input::placeholder {
+                color: #999;
+            }
+
+        .input-container span {
+            color: red;
+            font-size: 0.875rem;
+        }
+
+    .submit {
+        background-color: #325935;
+        color: #fff;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 100%;
+        border-radius: 0.5rem;
+        border: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+        .submit:hover {
+            background-color: #26922c;
+            transform: translateY(-2px);
+        }
+
+        .submit:active {
+            transform: translateY(2px);
+        }
+
+    .signup-link {
+        color: #97BF7A;
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 1.5rem;
+        transition: color 0.3s ease;
+    }
+
+        .signup-link a {
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .signup-link:hover {
+            color: #4f9f75;
+        }
+
+    .text-danger {
+        font-size: 0.75rem;
+        color: red;
+    }
+</style>
+
+<form asp-action="Edit" class="form mt-5">
+    <p class="form-title">Editar venta</p>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="IdVenta" />
+
+    <div class="input-container">
+        <input asp-for="IdVenta" placeholder="ID de la venta" readonly />
+        <span asp-validation-for="IdVenta" class="text-danger"></span>
+    </div>
+
+    <div class="input-container">
+        <input asp-for="FechaVenta" placeholder="Fecha de la venta" />
+        <span asp-validation-for="FechaVenta" class="text-danger"></span>
+    </div>
+
+    <div class="input-container">
+        <input asp-for="IdUsuario" placeholder="ID del usuario" />
+        <span asp-validation-for="IdUsuario" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="submit">Guardar</button>
+
+    <p class="signup-link">
+        <a asp-action="Index">← Volver a la lista</a>
+    </p>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
