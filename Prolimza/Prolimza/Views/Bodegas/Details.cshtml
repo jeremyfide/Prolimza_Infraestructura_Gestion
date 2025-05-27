@@ -1,0 +1,80 @@
+﻿@model Prolimza.Models.Bodega
+
+@{
+    ViewData["Title"] = "Detalles de la Bodega";
+}
+
+<head>
+    <style>
+        .btn-green {
+            background-color: #34974d;
+            color: white;
+            border-color: #34974d;
+            transition: all 0.3s ease;
+        }
+
+            .btn-green:hover {
+                background-color: #2e8644;
+                border-color: #2e8644;
+                transform: scale(1.05);
+            }
+
+        .card {
+            background-color: #34974d;
+            color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-title {
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .card hr {
+            border-color: #e5e7eb;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-3 {
+            margin-bottom: 1rem;
+        }
+
+        .me-2 {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+
+<h1 class="text-center mb-4">Detalles de la Bodega</h1>
+
+<div class="card text-white mb-3">
+    <div class="card-body">
+        <h4 class="card-title text-center">Información de la Bodega</h4>
+        <hr class="border-light">
+
+        <p><strong>@Html.DisplayNameFor(model => model.Nombre):</strong></p>
+        <p>@Html.DisplayFor(model => model.Nombre)</p>
+
+        <p><strong>@Html.DisplayNameFor(model => model.DetalleDireccion):</strong></p>
+        <p>@Html.DisplayFor(model => model.DetalleDireccion)</p>
+
+        <p><strong>@Html.DisplayNameFor(model => model.Distrito):</strong></p>
+        <p>@Html.DisplayFor(model => model.Distrito.IdDistrito)</p>
+    </div>
+</div>
+
+<div class="text-center mt-3">
+    <a asp-action="Edit" asp-route-id="@Model?.IdBodega" class="btn btn-green me-2">Editar</a>
+    <a asp-action="Index" class="btn btn-green">Volver a la lista</a>
+</div>
