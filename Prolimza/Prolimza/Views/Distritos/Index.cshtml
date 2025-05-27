@@ -1,0 +1,180 @@
+﻿@model IEnumerable<Prolimza.Models.Distrito>
+
+@{
+    ViewData["Title"] = "Distritos";
+}
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        body {
+            background-color: #f4f6f9;
+        }
+
+        .container-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            min-height: 80vh;
+            padding-top: 40px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #2e8644;
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeInDown 1s;
+        }
+
+        .custom-table {
+            width: 90%;
+            max-width: 900px;
+            margin-top: 20px;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .btn-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .button {
+            position: relative;
+            width: 150px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border: 1px solid #34974d;
+            background-color: #3aa856;
+            text-decoration: none;
+        }
+
+        .button, .button__icon, .button__text {
+            transition: all 0.3s;
+        }
+
+            .button .button__text {
+                transform: translateX(30px);
+                color: #fff;
+                font-weight: 600;
+            }
+
+            .button .button__icon {
+                position: absolute;
+                transform: translateX(109px);
+                height: 100%;
+                width: 39px;
+                background-color: #34974d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .button .svg {
+                width: 30px;
+                stroke: #fff;
+            }
+
+            .button:hover {
+                background: #34974d;
+            }
+
+                .button:hover .button__text {
+                    color: transparent;
+                }
+
+                .button:hover .button__icon {
+                    width: 148px;
+                    transform: translateX(0);
+                }
+
+            .button:active .button__icon {
+                background-color: #2e8644;
+            }
+
+            .button:active {
+                border: 1px solid #2e8644;
+            }
+
+        .btn-green {
+            background-color: #34974d;
+            color: white;
+            border-color: #34974d;
+        }
+
+            .btn-green:hover {
+                background-color: #2e8644;
+                border-color: #2e8644;
+            }
+
+        .dropdown-menu a {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<div class="container-center animate__animated animate__fadeIn">
+    <h1 class="animate__animated animate__fadeInDown">🏙️ DISTRITOS</h1>
+
+    @if (!User.IsInRole("Lector"))
+    {
+        <div class="btn-wrapper">
+            <a asp-action="Create" class="button">
+                <span class="button__text">Agregar</span>
+                <span class="button__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
+                        <line y2="19" y1="5" x2="12" x1="12"></line>
+                        <line y2="12" y1="12" x2="19" x1="5"></line>
+                    </svg>
+                </span>
+            </a>
+        </div>
+    }
+
+    <table class="table table-hover table-bordered align-middle text-center custom-table animate__animated animate__fadeIn">
+        <thead class="table-success">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                <th>@Html.DisplayNameFor(model => model.Canton)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Canton.IdCanton)</td>
+                    <td>
+                        <div class="dropdown">
+                            <a class="btn btn-green dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Acciones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-action="Details" asp-route-id="@item.IdDistrito">Detalles</a>
+                                </li>
+                                @if (!User.IsInRole("Lector"))
+                                {
+                                    <li>
+                                        <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.IdDistrito">Editar</a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.IdDistrito">Eliminar</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
