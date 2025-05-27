@@ -1,0 +1,144 @@
+﻿@model Prolimza.Models.Distrito
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<head>
+    <style>
+        /* Estilo general del formulario */
+        .form-container {
+            background-color: #34974d;
+            padding: 2rem;
+            max-width: 400px;
+            margin: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+            .form-container:hover {
+                transform: translateY(-5px);
+            }
+
+        .form-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Contenedor de inputs */
+        .input-container {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+            .input-container input,
+            .input-container select,
+            .form button {
+                outline: none;
+                border: 2px solid #e5e7eb;
+                margin: 8px 0;
+                width: 100%;
+                padding: 1rem;
+                font-size: 1rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+
+                .input-container input:focus,
+                .input-container select:focus {
+                    border-color: #97BF7A;
+                    box-shadow: 0 0 8px rgba(0, 183, 89, 0.6);
+                }
+
+            .input-container span {
+                color: red;
+                font-size: 0.875rem;
+            }
+
+        /* Botón de enviar */
+        .submit {
+            background-color: #325935;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 1rem;
+            width: 100%;
+            border-radius: 0.5rem;
+            border: none;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+            .submit:hover {
+                background-color: #26922c;
+                transform: translateY(-2px);
+            }
+
+            .submit:active {
+                transform: translateY(2px);
+            }
+
+        /* Estilo del enlace de volver */
+        .back-link {
+            color: #97BF7A;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: color 0.3s ease;
+        }
+
+            .back-link a {
+                text-decoration: none;
+            }
+
+            .back-link:hover {
+                color: #4f9f75;
+            }
+
+        /* Mensajes de validación */
+        .text-danger {
+            font-size: 0.75rem;
+            color: red;
+        }
+    </style>
+</head>
+
+<h1 class="text-center mb-4">Editar Distrito</h1>
+
+<form asp-action="Edit" class="form-container mt-5">
+    <p class="form-title">Editar distrito</p>
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="IdDistrito" />
+
+    <div class="input-container">
+        <input asp-for="Nombre" placeholder="Nombre del distrito" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="input-container">
+        <select asp-for="IdCanton" asp-items="ViewBag.IdCanton" class="form-control">
+            <option value="">Seleccione un cantón</option>
+        </select>
+        <span asp-validation-for="IdCanton" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="submit">Guardar</button>
+
+    <p class="back-link">
+        <a asp-action="Index">← Volver a la lista</a>
+    </p>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

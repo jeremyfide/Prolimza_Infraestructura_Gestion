@@ -1,0 +1,193 @@
+﻿@using System.Security.Claims
+@{
+    var nombreUsuario = User.Identity?.Name;
+    var rolUsuario = User.FindFirst(ClaimTypes.Role)?.Value;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Prolimza</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Prolimza.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+        }
+
+        .sidebar {
+            width: 250px;
+            min-height: 100vh;
+            position: fixed;
+            background: linear-gradient(180deg, #5E8C5D 0%, #4e754d 100%);
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.15);
+            border-right: 3px solid #3e5f3d;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .sidebar .nav-link {
+                color: white;
+                padding: 12px 15px;
+                margin-bottom: 8px;
+                border-radius: 10px;
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 500;
+                text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+            }
+
+                .sidebar .nav-link:hover {
+                    background-color: #3e5f3d;
+                    transform: translateX(5px);
+                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                }
+
+                .sidebar .nav-link i {
+                    font-size: 1.1rem;
+                    transition: transform 0.2s ease;
+                }
+
+                .sidebar .nav-link:hover i {
+                    transform: scale(1.2);
+                }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .sidebar img {
+            border-radius: 50%;
+            border: 3px solid #ffffffbb;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+            .sidebar img:hover {
+                transform: scale(1.05);
+            }
+
+        .btn-outline-light.btn-sm {
+            margin-top: 5px;
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+            .btn-outline-light.btn-sm:hover {
+                background-color: white;
+                color: #4c734b;
+                font-weight: bold;
+            }
+
+        .sidebar hr {
+            border-top: 1px solid rgba(255, 255, 255, 0.5);
+            margin: 20px 0;
+        }
+
+        .sidebar .text-white p {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <nav class="sidebar text-white" style="background-color:#5E8C5D !important;">
+            <div class="text-center mb-4">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmiPiRye7T_qZ22a5KL8xuwTC1F6D4y_bjgA&s" style="height: 80px;" />
+                </a>
+            </div>
+
+            <ul class="nav flex-column">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    if (rolUsuario == "Propietario" || rolUsuario == "Lector")
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">
+                                <i class="fas fa-home"></i> Inicio
+                            </a>
+                        </li>
+
+                        <!-- Dropdown Ubicaciones -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="ubicacionesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-map-marker-alt"></i> Ubicaciones
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="ubicacionesDropdown">
+                                <li><a class="dropdown-item" asp-controller="Cantones" asp-action="Index">Cantones</a></li>
+                                <li><a class="dropdown-item" asp-controller="Distritos" asp-action="Index">Distritos</a></li>
+                                <li><a class="dropdown-item" asp-controller="Provincias" asp-action="Index">Provincias</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" asp-controller="Roles" asp-action="Index"><i class="fas fa-user-tag"></i> Roles</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Bodegas" asp-action="Index"><i class="fas fa-warehouse"></i> Bodegas</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Recetas" asp-action="Index"><i class="fas fa-utensils"></i> Recetas</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index"><i class="fas fa-box-open"></i> Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Usuarios" asp-action="Index"><i class="fas fa-users"></i> Usuarios</a></li>
+
+                        <!-- Dropdown Ventas -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="ventasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-cash-register"></i> Ventas
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="ventasDropdown">
+                                <li><a class="dropdown-item" asp-controller="EstadoVentas" asp-action="Index">EstadoVentas</a></li>
+                                <li><a class="dropdown-item" asp-controller="HistorialEstadoVentas" asp-action="Index">HistorialVentas</a></li>
+                                <li><a class="dropdown-item" asp-controller="DetalleVentas" asp-action="Index">Detalle de Ventas</a></li>
+                                <li class="nav-item"><a class="nav-link" asp-controller="Ventas" asp-action="Index"><i class="fas fa-cash-register"></i> Crear Ventas</a></li>
+                            </ul>
+                        </li>
+                    }
+
+                    if ( rolUsuario == "Funcionario")
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-controller="Ventas" asp-action="Index"><i class="fas fa-cash-register"></i> Ventas Funcionario</a></li>
+                    }
+                }
+            </ul>
+
+            <hr />
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="text-white">
+                    <p>Hola, @nombreUsuario (@rolUsuario)</p>
+                    <a class="btn btn-outline-light btn-sm" href="/Auth/Logout">Cerrar sesión</a>
+                </div>
+            }
+            else
+            {
+                <a class="btn btn-outline-light btn-sm mb-2" href="/Auth/Login">Iniciar sesión</a>
+                <a class="btn btn-outline-light btn-sm" href="/Usuarios/Create">Crear Usuario</a>
+            }
+        </nav>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

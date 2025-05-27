@@ -1,3 +1,11 @@
+
+IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'ProlimzaGestionInventarioDB')
+BEGIN
+    CREATE DATABASE ProlimzaGestionInventarioDB;
+END;
+GO
+
+
 USE ProlimzaGestionInventarioDB;
 GO
 

@@ -1,0 +1,138 @@
+﻿@model Prolimza.Models.Producto
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        font-weight: 700;
+        color: #2f6846;
+        margin-top: 2rem;
+    }
+
+    .card-custom {
+        background-color: #2b7a4b;
+        color: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        max-width: 700px;
+        margin: 0 auto;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+        .card-custom.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-row {
+        margin-bottom: 1rem;
+    }
+
+    .info-label {
+        font-weight: bold;
+        color: #c6f0d5;
+    }
+
+    .info-value {
+        margin-left: 0.5rem;
+    }
+
+    .btn-green {
+        background-color: #2e8644;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-decoration: none;
+    }
+
+        .btn-green:hover {
+            background-color: #26a155;
+            transform: translateY(-2px);
+        }
+
+        .btn-green:active {
+            transform: translateY(2px);
+        }
+</style>
+
+<h1 class="text-center mb-4">Detalles del Producto</h1>
+
+<div class="card-custom" id="cardDetails">
+    <h4 class="card-title">Información del Producto</h4>
+    <hr class="border-light">
+
+    <div class="info-row">
+        <span class="info-label">@Html.DisplayNameFor(model => model.NombreProducto):</span>
+        <span class="info-value">@Html.DisplayFor(model => model.NombreProducto)</span>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">@Html.DisplayNameFor(model => model.Descripcion):</span>
+        <span class="info-value">@Html.DisplayFor(model => model.Descripcion)</span>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">@Html.DisplayNameFor(model => model.Sku):</span>
+        <span class="info-value">@Html.DisplayFor(model => model.Sku)</span>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">@Html.DisplayNameFor(model => model.Cantidad):</span>
+        <span class="info-value">@Html.DisplayFor(model => model.Cantidad)</span>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">@Html.DisplayNameFor(model => model.FechaCaducidad):</span>
+        <span class="info-value">@Html.DisplayFor(model => model.FechaCaducidad)</span>
+    </div>
+
+    <div class="info-row">
+        <span class="info-label">@Html.DisplayNameFor(model => model.Bodega):</span>
+        <span class="info-value">@Html.DisplayFor(model => model.Bodega.IdBodega)</span>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="Edit" asp-route-id="@Model?.IdProducto" class="btn-green">Editar</a>
+    <a asp-action="Index" class="btn-green">Volver a la lista</a>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const card = document.getElementById('cardDetails');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    card.classList.add('show');
+                    observer.unobserve(card);
+                }
+            });
+        });
+
+        observer.observe(card);
+    });
+</script>
