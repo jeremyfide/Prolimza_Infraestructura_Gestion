@@ -29,7 +29,7 @@ namespace Prolimza.Controllers
         {
             var usuario = _context.Usuarios.Include(u => u.Rol).FirstOrDefault(u => u.Correo == correo);
 
-            if (usuario == null || !PasswordHelper.VerifyPassword(contrasena, usuario.ContrasenaEncriptada))
+            if (usuario == null || !PasswordHelper.VerifyPassword(contrasena, usuario.contrasenaEncriptada))
             {
                 ViewBag.Error = "Correo o contraseña incorrectos.";
                 return View();
