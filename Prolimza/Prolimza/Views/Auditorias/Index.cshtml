@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Prolimza.Models.Auditoria>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Auditorías</h1>
+
+@if (!User.IsInRole("Lector"))
+{
+    <p>
+        <a asp-action="Create" class="btn btn-primary">Crear nuevo</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Log)</th>
+            <th>@Html.DisplayNameFor(model => model.TipoEvento)</th>
+            <th>@Html.DisplayNameFor(model => model.Producto)</th>
+            <th>@Html.DisplayNameFor(model => model.MateriaPrima)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Log)</td>
+                <td>@Html.DisplayFor(modelItem => item.TipoEvento)</td>
+                <td>@Html.DisplayFor(modelItem => item.Producto.IdProducto)</td>
+                <td>@Html.DisplayFor(modelItem => item.MateriaPrima.IdMateriaPrima)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.IdAuditoria">Detalles</a>
+
+                    @if (!User.IsInRole("Lector"))
+                    {                     
+                        <a asp-action="Edit" asp-route-id="@item.IdAuditoria">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.IdAuditoria">Eliminar</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
