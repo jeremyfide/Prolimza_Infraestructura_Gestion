@@ -431,7 +431,7 @@ namespace Prolimza.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuario"));
 
-                    b.Property<string>("ContrasenaEncriptada")
+                    b.Property<string>("contrasenaEncriptada")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
