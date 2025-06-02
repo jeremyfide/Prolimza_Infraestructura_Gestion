@@ -82,7 +82,7 @@ CREATE TABLE auditoria (
 
 -- Tabla: receta
 CREATE TABLE receta (
-    idReceta INT PRIMARY KEY IDENTITY(1,1) ON DELETE CASCADE,
+    idReceta INT PRIMARY KEY IDENTITY(1,1),
     idProducto INT FOREIGN KEY REFERENCES producto(idProducto) ON DELETE CASCADE,
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(255)
@@ -90,8 +90,8 @@ CREATE TABLE receta (
 
 -- Tabla: materiaReceta
 CREATE TABLE materiaReceta (
-    idReceta INT FOREIGN KEY REFERENCES receta(idReceta),
-    idMateriaPrima INT FOREIGN KEY REFERENCES materiaPrima(idMateriaPrima),
+    idReceta INT FOREIGN KEY REFERENCES receta(idReceta) ON DELETE CASCADE,
+    idMateriaPrima INT FOREIGN KEY REFERENCES materiaPrima(idMateriaPrima) ON DELETE CASCADE,
     cantidad INT NOT NULL,
     PRIMARY KEY (idReceta, idMateriaPrima)
 );
@@ -201,7 +201,7 @@ INSERT INTO usuario (nombre, correo, contrasenaEncriptada, idRol) VALUES
 ('María Gómez', 'maria@prolimza.com', 'abcdhash', 2),
 ('Pedro Ruiz', 'pedro@prolimza.com', 'efghhash', 3),
 ('Ana Vargas', 'ana@prolimza.com', 'ijklhash', 4),
-('Luis Mora', 'luis@prolimza.com', 'mnophash', 5);
+('Luis Mora', 'luis@prolimza.com', 'mnophash', 4);
 
 -- auditoria (actualizada)
 INSERT INTO auditoria (log, tipoEvento, idUsuario) VALUES 
