@@ -31,33 +31,33 @@
             transition: all 0.3s ease-in-out;
         }
 
-            .sidebar .nav-link {
-                color: white;
-                padding: 12px 15px;
-                margin-bottom: 8px;
-                border-radius: 10px;
-                transition: all 0.3s ease;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-weight: 500;
-                text-shadow: 0 1px 1px rgba(0,0,0,0.2);
-            }
+        .sidebar .nav-link {
+            color: white;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+        }
 
-                .sidebar .nav-link:hover {
-                    background-color: #3e5f3d;
-                    transform: translateX(5px);
-                    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-                }
+        .sidebar .nav-link:hover {
+            background-color: #3e5f3d;
+            transform: translateX(5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
 
-                .sidebar .nav-link i {
-                    font-size: 1.1rem;
-                    transition: transform 0.2s ease;
-                }
+        .sidebar .nav-link i {
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
 
-                .sidebar .nav-link:hover i {
-                    transform: scale(1.2);
-                }
+        .sidebar .nav-link:hover i {
+            transform: scale(1.2);
+        }
 
         .main-content {
             margin-left: 250px;
@@ -72,9 +72,9 @@
             transition: transform 0.3s ease-in-out;
         }
 
-            .sidebar img:hover {
-                transform: scale(1.05);
-            }
+        .sidebar img:hover {
+            transform: scale(1.05);
+        }
 
         .btn-outline-light.btn-sm {
             margin-top: 5px;
@@ -82,11 +82,11 @@
             transition: all 0.3s ease-in-out;
         }
 
-            .btn-outline-light.btn-sm:hover {
-                background-color: white;
-                color: #4c734b;
-                font-weight: bold;
-            }
+        .btn-outline-light.btn-sm:hover {
+            background-color: white;
+            color: #4c734b;
+            font-weight: bold;
+        }
 
         .sidebar hr {
             border-top: 1px solid rgba(255, 255, 255, 0.5);
@@ -114,7 +114,7 @@
             <ul class="nav flex-column">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    if (rolUsuario == "Propietario" || rolUsuario == "Lector")
+                    if (rolUsuario == "Administrador")
                     {
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Home" asp-action="Index">
@@ -122,7 +122,6 @@
                             </a>
                         </li>
 
-                        <!-- Dropdown Ubicaciones -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="ubicacionesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-map-marker-alt"></i> Ubicaciones
@@ -140,23 +139,31 @@
                         <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index"><i class="fas fa-box-open"></i> Productos</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Usuarios" asp-action="Index"><i class="fas fa-users"></i> Usuarios</a></li>
 
-                        <!-- Dropdown Ventas -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="ventasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-cash-register"></i> Ventas
                             </a>
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="ventasDropdown">
-                                <li><a class="dropdown-item" asp-controller="EstadoVentas" asp-action="Index">EstadoVentas</a></li>
-                                <li><a class="dropdown-item" asp-controller="HistorialEstadoVentas" asp-action="Index">HistorialVentas</a></li>
+                                <li><a class="dropdown-item" asp-controller="EstadoVentas" asp-action="Index">Estado de Ventas</a></li>
+                                <li><a class="dropdown-item" asp-controller="HistorialEstadoVentas" asp-action="Index">Historial de Ventas</a></li>
                                 <li><a class="dropdown-item" asp-controller="DetalleVentas" asp-action="Index">Detalle de Ventas</a></li>
-                                <li class="nav-item"><a class="nav-link" asp-controller="Ventas" asp-action="Index"><i class="fas fa-cash-register"></i> Crear Ventas</a></li>
+                                <li><a class="dropdown-item" asp-controller="Ventas" asp-action="Index">Crear Venta</a></li>
                             </ul>
                         </li>
                     }
-
-                    if ( rolUsuario == "Funcionario")
+                    else if (rolUsuario == "Contador")
                     {
-                        <li class="nav-item"><a class="nav-link" asp-controller="Ventas" asp-action="Index"><i class="fas fa-cash-register"></i> Ventas Funcionario</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index"><i class="fas fa-boxes"></i> Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Bodegas" asp-action="Index"><i class="fas fa-warehouse"></i> Inventario</a></li>
+                    }
+                    else if (rolUsuario == "Productor")
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-controller="Recetas" asp-action="Index"><i class="fas fa-utensils"></i> Recetas</a></li>
+                    }
+                    else if (rolUsuario == "Operador")
+                    {
+                        <li class="nav-item"><a class="nav-link" asp-controller="Compras" asp-action="Index"><i class="fas fa-shopping-cart"></i> Compras</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Ventas" asp-action="Index"><i class="fas fa-cash-register"></i> Ventas</a></li>
                     }
                 }
             </ul>
@@ -172,7 +179,7 @@
             else
             {
                 <a class="btn btn-outline-light btn-sm mb-2" href="/Auth/Login">Iniciar sesión</a>
-                <a class="btn btn-outline-light btn-sm" href="/Usuarios/Create">Crear Usuario</a>
+                <a class="btn btn-outline-light btn-sm mb-2" href="/Usuarios/Create">Crear Usuario</a>
             }
         </nav>
 
@@ -183,7 +190,6 @@
             </main>
         </div>
     </div>
-
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
