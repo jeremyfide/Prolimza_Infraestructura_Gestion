@@ -95,7 +95,7 @@
 </div>
 
 <div class="text-center mt-4">
-    @if (!User.IsInRole("Lector"))
+    @if (!User.IsInRole("Operador"))
     {
         <a asp-action="Edit" asp-route-id="@Model?.IdVenta" class="btn-green">Editar</a>
     }

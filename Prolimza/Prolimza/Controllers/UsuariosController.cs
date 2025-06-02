@@ -54,25 +54,31 @@ namespace Prolimza.Controllers
             return View();
         }
 
-        // POST: Usuarios/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdUsuario,Nombre,Correo,contrasenaEncriptada,IdRol")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
-                // Aquí se hashea la contraseña antes de guardarla
+                // Hashear la contraseña antes de guardar
                 usuario.contrasenaEncriptada = PasswordHelper.HashPassword(usuario.contrasenaEncriptada);
 
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
+
+                // Si el usuario YA está autenticado, no lo envíes al login
+                if (User.Identity != null && User.Identity.IsAuthenticated)
+                {
+                    return RedirectToAction("Index", "Usuarios"); // o el destino que prefieras
+                }
+
+                // Si NO está autenticado, probablemente fue desde un registro público, así que va al login
                 return RedirectToAction("Login", "Auth");
             }
 
+            // Si hay errores de validación, volver a mostrar el formulario
             ViewData["IdRol"] = new SelectList(_context.Roles, "IdRol", "Nombre", usuario.IdRol);
-            return RedirectToAction("Login", "Auth");
+            return View(usuario);
         }
 
         // GET: Usuarios/Edit/5
@@ -108,6 +114,7 @@ namespace Prolimza.Controllers
             {
                 try
                 {
+                    usuario.contrasenaEncriptada = PasswordHelper.HashPassword(usuario.contrasenaEncriptada);
                     _context.Update(usuario);
                     await _context.SaveChangesAsync();
                 }

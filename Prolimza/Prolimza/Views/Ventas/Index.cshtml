@@ -162,7 +162,7 @@
                                 <li>
                                     <a class="dropdown-item" asp-action="Details" asp-route-id="@item.IdVenta">Detalles</a>
                                 </li>
-                                @if (!User.IsInRole("Lector"))
+                                @if (!User.IsInRole("Operador"))
                                 {
                                     <li>
                                         <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.IdVenta">Editar</a>
