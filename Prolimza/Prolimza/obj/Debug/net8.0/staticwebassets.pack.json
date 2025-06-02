@@ -13,6 +13,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia1.png",
+      "PackagePath": "staticwebassets\\img\\Multimedia1.png"
+    },
+    {
+      "Id": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia2.png",
+      "PackagePath": "staticwebassets\\img\\Multimedia2.png"
+    },
+    {
+      "Id": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia3.png",
+      "PackagePath": "staticwebassets\\img\\Multimedia3.png"
+    },
+    {
       "Id": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
