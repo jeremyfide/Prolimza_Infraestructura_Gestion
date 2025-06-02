@@ -59,12 +59,12 @@ namespace Prolimza.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdUsuario,Nombre,Correo,ContrasenaEncriptada,IdRol")] Usuario usuario)
+        public async Task<IActionResult> Create([Bind("IdUsuario,Nombre,Correo,contrasenaEncriptada,IdRol")] Usuario usuario)
         {
             if (ModelState.IsValid)
             {
                 // Aquí se hashea la contraseña antes de guardarla
-                usuario.ContrasenaEncriptada = PasswordHelper.HashPassword(usuario.ContrasenaEncriptada);
+                usuario.contrasenaEncriptada = PasswordHelper.HashPassword(usuario.contrasenaEncriptada);
 
                 _context.Add(usuario);
                 await _context.SaveChangesAsync();
@@ -97,7 +97,7 @@ namespace Prolimza.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Nombre,Correo,ContrasenaEncriptada,IdRol")] Usuario usuario)
+        public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,Nombre,Correo,contrasenaEncriptada,IdRol")] Usuario usuario)
         {
             if (id != usuario.IdUsuario)
             {

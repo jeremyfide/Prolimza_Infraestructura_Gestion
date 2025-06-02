@@ -1,0 +1,37 @@
+﻿@model List<Prolimza.Models.Producto>
+
+@{
+    ViewData["Title"] = "Agregar Productos a la Venta";
+    int idVenta = (int)ViewBag.IdVenta;
+}
+
+<h2>Agregar productos a la venta #@idVenta</h2>
+
+<form asp-action="CreateMultiple" method="post">
+    <input type="hidden" name="idVenta" value="@idVenta" />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Model[i].NombreProducto
+                        <input type="hidden" name="detalles[@i].IdProducto" value="@Model[i].IdProducto" />
+                    </td>
+                    <td>
+                        <input type="number" name="detalles[@i].Cantidad" class="form-control" min="0" value="0" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-success">Guardar Detalles</button>
+</form>

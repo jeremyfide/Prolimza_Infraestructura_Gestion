@@ -79,7 +79,7 @@ namespace Prolimza.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Correo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ContrasenaEncriptada = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    contrasenaEncriptada = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IdRol = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
