@@ -8145,23 +8145,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\andri\\.nuget\\packages\\": {},
+    "C:\\Users\\vse10\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andri\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Prolimza.csproj",
+      "projectUniqueName": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Prolimza.csproj",
       "projectName": "Prolimza",
-      "projectPath": "C:\\Users\\andri\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Prolimza.csproj",
-      "packagesPath": "C:\\Users\\andri\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andri\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\obj\\",
+      "projectPath": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Prolimza.csproj",
+      "packagesPath": "C:\\Users\\vse10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\andri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vse10\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -8188,7 +8188,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -8240,7 +8240,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
@@ -8249,7 +8249,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "El paquete \"Microsoft.AspNet.Identity.Core 2.2.4\" se restauró con \".NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1\" en lugar de la plataforma de destino del proyecto \"net8.0\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Identity.Core",
       "targetGraphs": [
         "net8.0"
