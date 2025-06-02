@@ -8,5 +8,7 @@ namespace Prolimza.Models
         public string contrasenaEncriptada { get; set; }
         public int IdRol { get; set; } = 1;
         public Rol? Rol { get; set; }
+        public ICollection<Auditoria> Auditorias { get; set; }
+
     }
 }

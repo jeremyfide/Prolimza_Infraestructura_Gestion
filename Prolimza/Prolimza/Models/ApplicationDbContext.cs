@@ -1,5 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using Prolimza.Models;
+ï»¿using Microsoft.EntityFrameworkCore;
 
 namespace Prolimza.Models
 {
@@ -7,7 +6,7 @@ namespace Prolimza.Models
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-        // Tablas o Entidades
+        // Entidades
         public DbSet<Provincia> Provincias { get; set; }
         public DbSet<Canton> Cantones { get; set; }
         public DbSet<Distrito> Distritos { get; set; }
@@ -29,6 +28,7 @@ namespace Prolimza.Models
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Llaves primarias
             modelBuilder.Entity<Provincia>().HasKey(p => p.IdProvincia);
             modelBuilder.Entity<Canton>().HasKey(c => c.IdCanton);
             modelBuilder.Entity<Distrito>().HasKey(d => d.IdDistrito);
@@ -44,11 +44,13 @@ namespace Prolimza.Models
             modelBuilder.Entity<EstadoVenta>().HasKey(ev => ev.IdEstadoVenta);
             modelBuilder.Entity<HistorialEstadoVenta>().HasKey(he => he.IdHistorialEstadoVenta);
 
+            // Llaves compuestas
             modelBuilder.Entity<MateriaReceta>().HasKey(mr => new { mr.IdReceta, mr.IdMateriaPrima });
             modelBuilder.Entity<DetalleCompraProducto>().HasKey(dcp => new { dcp.IdCompra, dcp.IdProducto });
             modelBuilder.Entity<DetalleCompraMateriaPrima>().HasKey(dcm => new { dcm.IdCompra, dcm.IdMateriaPrima });
             modelBuilder.Entity<DetalleVenta>().HasKey(dv => new { dv.IdVenta, dv.IdProducto });
 
+            // Nombres de tablas
             modelBuilder.Entity<Venta>().ToTable("venta");
             modelBuilder.Entity<Compra>().ToTable("compra");
             modelBuilder.Entity<EstadoVenta>().ToTable("estadoVenta");
@@ -68,6 +70,7 @@ namespace Prolimza.Models
             modelBuilder.Entity<DetalleCompraMateriaPrima>().ToTable("detalleCompraMateriaPrima");
             modelBuilder.Entity<DetalleVenta>().ToTable("detalleVenta");
 
+            // Relaciones
             modelBuilder.Entity<Canton>()
                 .HasOne(c => c.Provincia)
                 .WithMany(p => p.Cantones)
@@ -98,24 +101,19 @@ namespace Prolimza.Models
                 .WithMany(r => r.Usuarios)
                 .HasForeignKey(u => u.IdRol);
 
+            // ðŸ”„ RelaciÃ³n actualizada: Auditoria -> Usuario
             modelBuilder.Entity<Auditoria>()
-                .HasOne(a => a.Producto)
-                .WithMany()
-                .HasForeignKey(a => a.IdProducto);
+                .HasOne(a => a.Usuario)
+                .WithMany(u => u.Auditorias)
+                .HasForeignKey(a => a.IdUsuario)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Auditoria>()
-                .HasOne(a => a.MateriaPrima)
-                .WithMany()
-                .HasForeignKey(a => a.IdMateriaPrima);
-
-            // Relación Receta -> Producto
             modelBuilder.Entity<Receta>()
                 .HasOne(r => r.Producto)
                 .WithMany(p => p.Recetas)
                 .HasForeignKey(r => r.IdProducto)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            // Relación Receta -> MateriasReceta
             modelBuilder.Entity<Receta>()
                 .HasMany(r => r.MateriasReceta)
                 .WithOne(mr => mr.Receta)
@@ -142,8 +140,6 @@ namespace Prolimza.Models
                 .HasMany(e => e.HistorialesEstadoVenta)
                 .WithOne(h => h.EstadoVenta)
                 .HasForeignKey(h => h.IdEstadoVenta);
-
-
-        }
+            }
     }
 }
