@@ -26,7 +26,7 @@
 </div>
 
 <div>
-    @if (!User.IsInRole("Lector"))
+    @if (!User.IsInRole("Operador"))
     {
         <a asp-action="Edit" asp-route-id="@Model?.IdCompra">Editar</a>
     }
