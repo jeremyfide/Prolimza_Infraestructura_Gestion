@@ -191,10 +191,9 @@ INSERT INTO producto (nombreProducto, descripcion, sku, cantidad, fechaCaducidad
 -- roles
 INSERT INTO roles (nombre, descripcion) VALUES 
 ('Administrador', 'Acceso total al sistema'),
-('Encargado de Producción', 'Gestión de recetas y materias primas'),
-('Vendedor', 'Manejo de ventas'),
-('Comprador', 'Gestión de compras'),
-('Auditor', 'Revisión de transacciones');
+('Contador', 'Acceso a Modulo de inventario y productos'),
+('Productor', 'Acceso a funcionalidades de produccion y recetas'),
+('Operador', 'Puede registrar compras y ventas, sin permiso de modificacion');
 
 -- usuario
 INSERT INTO usuario (nombre, correo, contrasenaEncriptada, idRol) VALUES 
