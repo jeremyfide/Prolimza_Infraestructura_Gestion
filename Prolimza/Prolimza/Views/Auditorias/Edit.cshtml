@@ -24,14 +24,14 @@
                 <span asp-validation-for="TipoEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdProducto" class="control-label"></label>
-                <select asp-for="IdProducto" class="form-control" asp-items="ViewBag.IdProducto"></select>
-                <span asp-validation-for="IdProducto" class="text-danger"></span>
+                <label asp-for="FechaEvento" class="control-label"></label>
+                <input asp-for="FechaEvento" class="form-control" />
+                <span asp-validation-for="FechaEvento" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdMateriaPrima" class="control-label"></label>
-                <select asp-for="IdMateriaPrima" class="form-control" asp-items="ViewBag.IdMateriaPrima"></select>
-                <span asp-validation-for="IdMateriaPrima" class="text-danger"></span>
+                <label asp-for="IdUsuario" class="control-label"></label>
+                <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"></select>
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
