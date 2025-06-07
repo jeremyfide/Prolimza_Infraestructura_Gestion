@@ -35,7 +35,7 @@
                 </td>
                 <td>
                     <a asp-action="Details" asp-route-id="@item.IdCompra">Detalles</a> 
-                    @if (!User.IsInRole("Lector"))
+                    @if (!User.IsInRole("Operador"))
                     {
                         <a asp-action="Edit" asp-route-id="@item.IdCompra">Editar</a>
                         <a asp-action="Delete" asp-route-id="@item.IdCompra">Eliminar</a>

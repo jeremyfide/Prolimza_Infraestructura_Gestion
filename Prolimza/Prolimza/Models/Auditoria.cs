@@ -5,9 +5,10 @@ namespace Prolimza.Models
         public int IdAuditoria { get; set; }
         public string Log { get; set; }
         public string TipoEvento { get; set; }
-        public int? IdProducto { get; set; }
-        public Producto? Producto { get; set; }
-        public int? IdMateriaPrima { get; set; }
-        public MateriaPrima? MateriaPrima { get; set; }
+        public DateTime FechaEvento { get; set; }
+
+        // Relación con Usuario
+        public int IdUsuario { get; set; }
+        public Usuario? Usuario { get; set; }
     }
 }

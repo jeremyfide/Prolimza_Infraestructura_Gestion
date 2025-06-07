@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "go+S33f1YvyQhq28UhHAS8Aar19z05GkFGGbjLV0aq4=",
+  "Hash": "+xthji3p0MvIwelDYZDvDTmQbaF23hrvS9XP2uDd5WY=",
   "Source": "Prolimza",
   "BasePath": "_content/Prolimza",
   "Mode": "Default",
@@ -99,6 +99,69 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia1.png",
+      "SourceId": "Prolimza",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\",
+      "BasePath": "_content/Prolimza",
+      "RelativePath": "img/Multimedia1#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gd2qw03ts9",
+      "Integrity": "hB4Ba1BuM9MmKiXdoOUkDkvF4gehgM437LMu1BgAQow=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Multimedia1.png"
+    },
+    {
+      "Identity": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia2.png",
+      "SourceId": "Prolimza",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\",
+      "BasePath": "_content/Prolimza",
+      "RelativePath": "img/Multimedia2#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "oxalbue2h7",
+      "Integrity": "ZFILOULjq7DUHRPyjVOgh6eMPXZmP8L3QnJVVB5Qmjo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Multimedia2.png"
+    },
+    {
+      "Identity": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia3.png",
+      "SourceId": "Prolimza",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\",
+      "BasePath": "_content/Prolimza",
+      "RelativePath": "img/Multimedia3#[.{fingerprint}]?.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "o76oovmz2z",
+      "Integrity": "jLbxNUAc1p6gBWtNQ723HU6cD/NseWaFEX3pq9WwjLE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Multimedia3.png"
     },
     {
       "Identity": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\site.js",
@@ -1481,6 +1544,252 @@
         {
           "Name": "integrity",
           "Value": "sha256-Jtxf9L+5ITKRc1gIRl4VbUpGkRNfOBXjYTdhJD4facM="
+        }
+      ]
+    },
+    {
+      "Route": "img/Multimedia1.gd2qw03ts9.png",
+      "AssetFile": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407185"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hB4Ba1BuM9MmKiXdoOUkDkvF4gehgM437LMu1BgAQow=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 22:31:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gd2qw03ts9"
+        },
+        {
+          "Name": "label",
+          "Value": "img/Multimedia1.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-hB4Ba1BuM9MmKiXdoOUkDkvF4gehgM437LMu1BgAQow="
+        }
+      ]
+    },
+    {
+      "Route": "img/Multimedia1.png",
+      "AssetFile": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia1.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407185"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"hB4Ba1BuM9MmKiXdoOUkDkvF4gehgM437LMu1BgAQow=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 22:31:48 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-hB4Ba1BuM9MmKiXdoOUkDkvF4gehgM437LMu1BgAQow="
+        }
+      ]
+    },
+    {
+      "Route": "img/Multimedia2.oxalbue2h7.png",
+      "AssetFile": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "279262"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZFILOULjq7DUHRPyjVOgh6eMPXZmP8L3QnJVVB5Qmjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 22:32:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "oxalbue2h7"
+        },
+        {
+          "Name": "label",
+          "Value": "img/Multimedia2.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZFILOULjq7DUHRPyjVOgh6eMPXZmP8L3QnJVVB5Qmjo="
+        }
+      ]
+    },
+    {
+      "Route": "img/Multimedia2.png",
+      "AssetFile": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia2.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "279262"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZFILOULjq7DUHRPyjVOgh6eMPXZmP8L3QnJVVB5Qmjo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 22:32:05 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZFILOULjq7DUHRPyjVOgh6eMPXZmP8L3QnJVVB5Qmjo="
+        }
+      ]
+    },
+    {
+      "Route": "img/Multimedia3.o76oovmz2z.png",
+      "AssetFile": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "354014"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jLbxNUAc1p6gBWtNQ723HU6cD/NseWaFEX3pq9WwjLE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 22:32:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "o76oovmz2z"
+        },
+        {
+          "Name": "label",
+          "Value": "img/Multimedia3.png"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-jLbxNUAc1p6gBWtNQ723HU6cD/NseWaFEX3pq9WwjLE="
+        }
+      ]
+    },
+    {
+      "Route": "img/Multimedia3.png",
+      "AssetFile": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia3.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "354014"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"jLbxNUAc1p6gBWtNQ723HU6cD/NseWaFEX3pq9WwjLE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 02 Jun 2025 22:32:20 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-jLbxNUAc1p6gBWtNQ723HU6cD/NseWaFEX3pq9WwjLE="
         }
       ]
     },
