@@ -101,7 +101,7 @@ namespace Prolimza.Models
                 .WithMany(r => r.Usuarios)
                 .HasForeignKey(u => u.IdRol);
 
-            // 🔄 Relación actualizada: Auditoria -> Usuario
+            // Relación actualizada: Auditoria -> Usuario
             modelBuilder.Entity<Auditoria>()
                 .HasOne(a => a.Usuario)
                 .WithMany(u => u.Auditorias)
