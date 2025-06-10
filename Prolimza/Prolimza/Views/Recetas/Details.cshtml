@@ -76,6 +76,46 @@
         .btn-green:active {
             transform: translateY(2px);
         }
+
+    .materia-list {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+
+        .materia-list li {
+            background-color: #ffffff22;
+            padding: 0.75rem 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+
+        .materia-list .cantidad {
+            font-weight: normal;
+            color: #cdecd9;
+        }
+
+    .card-section {
+        background-color: #2b7a4b;
+        color: #2f6846;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .section-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        text-align: center;
+        color: #fff;
+    }
+
 </style>
 
 <h1 class="text-center mb-4">Detalles de la Receta</h1>
@@ -85,8 +125,8 @@
     <hr class="border-light">
 
     <div class="info-row">
-        <span class="info-label">@Html.DisplayNameFor(model => model.IdProducto):</span>
-        <span class="info-value">@Html.DisplayFor(model => model.IdProducto)</span>
+        <span class="info-label">Producto:</span>
+        <span class="info-value">@((Model.Producto?.NombreProducto) ?? $"ID: {Model.IdProducto}")</span>
     </div>
     <div class="info-row">
         <span class="info-label">@Html.DisplayNameFor(model => model.Nombre):</span>
@@ -96,6 +136,27 @@
         <span class="info-label">@Html.DisplayNameFor(model => model.Descripcion):</span>
         <span class="info-value">@Html.DisplayFor(model => model.Descripcion)</span>
     </div>
+    @if (Model.MateriasReceta?.Any() == true)
+    {
+        <div class="card-section mt-4">
+            <h4 class="section-title">Materias Primas</h4>
+            <ul class="materia-list">
+                @foreach (var item in Model.MateriasReceta)
+                {
+                    <li>
+                        <strong>@(item.MateriaPrima?.Nombre ?? $"ID: {item.IdMateriaPrima}")</strong>
+                        <span class="cantidad"> — @item.Cantidad unidades</span>
+                    </li>
+                }
+            </ul>
+        </div>
+    }
+    else
+    {
+        <span class="info-label">No se han agregado materias primas.</span>
+    }
+
+
 </div>
 
 @if (!User.IsInRole("Lector"))
