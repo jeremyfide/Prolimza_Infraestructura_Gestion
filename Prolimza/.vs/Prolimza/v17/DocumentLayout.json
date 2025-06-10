@@ -1,22 +1,30 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\",
+  "WorkspaceRootPath": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\documents\\github\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\auditorias\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\auditorias\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\controllers\\recetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\recetascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\documents\\github\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\roles\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\roles\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\recetas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\recetas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\documents\\github\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\auditorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\auditorias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\materiareceta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\materiareceta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\users\\vse10\\documents\\github\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\roles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\roles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\receta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\receta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\rol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +34,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 61,
+          "SelectedChildIndex": 63,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -123,10 +139,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -254,10 +266,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
@@ -274,54 +282,80 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Auditorias\\Details.cshtml",
-              "RelativeDocumentMoniker": "Prolimza\\Views\\Auditorias\\Details.cshtml",
-              "ToolTip": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Auditorias\\Details.cshtml",
-              "RelativeToolTip": "Prolimza\\Views\\Auditorias\\Details.cshtml",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAuwHAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-02T23:14:56.666Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Roles\\Details.cshtml",
-              "RelativeDocumentMoniker": "Prolimza\\Views\\Roles\\Details.cshtml",
-              "ToolTip": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Roles\\Details.cshtml",
-              "RelativeToolTip": "Prolimza\\Views\\Roles\\Details.cshtml",
-              "ViewState": "AgIAAFIAAAAAAAAAAAAuwHIAAAAAAAAAAAAAAA==",
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Recetas\\Create.cshtml",
+              "RelativeDocumentMoniker": "Prolimza\\Views\\Recetas\\Create.cshtml",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Recetas\\Create.cshtml",
+              "RelativeToolTip": "Prolimza\\Views\\Recetas\\Create.cshtml",
+              "ViewState": "AQIAAMAAAAAAAAAAAAAAANwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-02T23:14:35.397Z",
+              "WhenOpened": "2025-06-09T02:31:01.844Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Roles\\Index.cshtml",
-              "RelativeDocumentMoniker": "Prolimza\\Views\\Roles\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Roles\\Index.cshtml",
-              "RelativeToolTip": "Prolimza\\Views\\Roles\\Index.cshtml",
-              "ViewState": "AgIAAIoAAAAAAAAAAAAuwKoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-02T23:10:13.685Z",
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Models\\ApplicationDbContext.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "Prolimza\\Models\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T20:47:32.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RecetasController.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\RecetasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\RecetasController.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\RecetasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\RecetasController.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAA9wJAAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T20:10:23.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Rol.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Rol.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Models\\Rol.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Rol.cs",
+              "RelativeToolTip": "Prolimza\\Models\\Rol.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T19:28:54.655Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Auditorias\\Index.cshtml",
-              "RelativeDocumentMoniker": "Prolimza\\Views\\Auditorias\\Index.cshtml",
-              "ToolTip": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Auditorias\\Index.cshtml",
-              "RelativeToolTip": "Prolimza\\Views\\Auditorias\\Index.cshtml",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJEAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-02T23:09:58.456Z",
+              "Title": "MateriaReceta.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\MateriaReceta.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Models\\MateriaReceta.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\MateriaReceta.cs",
+              "RelativeToolTip": "Prolimza\\Models\\MateriaReceta.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T18:07:39.671Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Receta.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Receta.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Models\\Receta.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Receta.cs",
+              "RelativeToolTip": "Prolimza\\Models\\Receta.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-08T17:23:48.042Z",
               "EditorCaption": ""
             }
           ]
