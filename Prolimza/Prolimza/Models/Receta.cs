@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
+
 namespace Prolimza.Models
 {
     public class Receta
@@ -7,7 +9,7 @@ namespace Prolimza.Models
         public Producto? Producto { get; set; }
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
-        public ICollection<MateriaReceta>? MateriasReceta { get; set; }
+        public ICollection<MateriaReceta>? MateriasReceta { get; set; } = new List<MateriaReceta>();
     }
 
 }

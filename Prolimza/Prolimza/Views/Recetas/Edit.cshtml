@@ -4,146 +4,272 @@
     ViewData["Title"] = "Edit";
 }
 
-<style>
-    /* Diseño general del formulario */
-    .form-container {
-        background-color: #2b7a4b;
-        display: block;
-        padding: 1.5rem;
-        max-width: 380px;
-        border-radius: 0.75rem;
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        margin: auto;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        transition: transform 0.3s ease-in-out;
-    }
-
-        .form-container:hover {
-            transform: translateY(-5px);
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: #f7fdf9;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.7s ease-in-out;
         }
 
-    .form-title {
-        font-size: 1.5rem;
-        line-height: 2rem;
-        font-weight: 700;
-        text-align: center;
-        color: #ffffff;
-        margin-bottom: 1.5rem;
-    }
+        .form-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2e8644;
+            text-align: center;
+            margin-bottom: 25px;
+        }
 
-    /* Estilo del contenedor de los inputs */
-    .input-container {
-        position: relative;
-        margin-bottom: 1rem;
-    }
-
-        .input-container input {
-            width: 100%;
-            padding: 1rem;
+        .form-control-custom {
+            border-radius: 10px;
+            border: 1px solid #cdd9d2;
+            padding: 12px 15px;
+            margin-bottom: 20px;
             font-size: 1rem;
-            border-radius: 0.5rem;
-            border: 2px solid #4f9f75;
-            outline: none;
+            width: 100%;
             transition: border-color 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-            .input-container input:focus {
-                border-color: #97BF7A;
-                box-shadow: 0 0 8px rgba(0, 183, 89, 0.6);
+            .form-control-custom:focus {
+                border-color: #34974d;
+                outline: none;
+                box-shadow: 0 0 0 0.2rem rgba(52, 151, 77, 0.25);
             }
 
-            .input-container input::placeholder {
-                color: #999;
-            }
-
-        .input-container span {
+        .text-danger {
+            font-size: 0.85rem;
             color: red;
-            font-size: 0.875rem;
+            margin-top: -15px;
+            margin-bottom: 10px;
         }
 
-    /* Botón de guardar */
-    .submit {
-        background-color: #325935;
-        color: #fff;
-        padding: 1rem;
-        font-size: 1rem;
-        font-weight: 600;
-        width: 100%;
-        border-radius: 0.5rem;
-        border: none;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-        .submit:hover {
-            background-color: #26922c;
-            transform: translateY(-2px);
+        .btn-crear {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #3aa856;
+            border: none;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-radius: 10px;
+            transition: background 0.3s ease;
         }
 
-        .submit:active {
-            transform: translateY(2px);
+            .btn-crear:hover {
+                background-color: #2e8644;
+            }
+
+        .btn-opciones {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #3aa856;
+            border: none;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+            margin-bottom: 25px;
         }
 
-    /* Estilo del enlace de vuelta */
-    .back-link {
-        color: #97BF7A;
-        font-size: 1rem;
-        text-align: center;
-        margin-top: 1.5rem;
-        transition: color 0.3s ease;
-    }
+            .btn-opciones:hover {
+                background-color: #2e8644;
+            }
 
-        .back-link a {
-            text-decoration: none;
-            font-weight: 600;
+        .submit {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #3aa856;
+            border: none;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            font-weight: bold;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+            margin-bottom: 25px;
         }
 
-        .back-link:hover {
-            color: #4f9f75;
+            .submit:hover {
+                background-color: #2e8644;
+            }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            stroke: white;
         }
 
-    /* Resumen de validación */
-    .text-danger {
-        font-size: 0.75rem;
-        color: red;
-    }
-</style>
+        .back-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .back-link a {
+                text-decoration: none;
+                color: #2e8644;
+                font-weight: 500;
+            }
+
+                .back-link a:hover {
+                    text-decoration: underline;
+                }
+    </style>
+</head>
 
 <!-- Formulario Editar Receta -->
-<div class="form-container mt-5">
+<form asp-action="Edit" class="form-container animate__animated animate__fadeInUp">
     <p class="form-title">Editar receta</p>
 
-    <form asp-action="Edit">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="IdReceta" />
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="IdReceta" />
 
-        <div class="input-container">
-            <input asp-for="IdProducto" placeholder="ID del producto" />
-            <span asp-validation-for="IdProducto" class="text-danger"></span>
-        </div>
-
-        <div class="input-container">
-            <input asp-for="Nombre" placeholder="Nombre de la receta" />
-            <span asp-validation-for="Nombre" class="text-danger"></span>
-        </div>
-
-        <div class="input-container">
-            <input asp-for="Descripcion" placeholder="Descripción" />
-            <span asp-validation-for="Descripcion" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="submit">Guardar</button>
-    </form>
-
-    <div class="back-link">
-        <a asp-action="Index">← Volver a la lista</a>
+    <div class="input-container">
+        <select asp-for="IdProducto" asp-items="ViewBag.Productos" class="form-control-custom">
+            <option value="">Seleccione un producto</option>
+        </select>
+        <span asp-validation-for="IdProducto" class="text-danger"></span>
     </div>
+
+    <div class="input-container">
+        <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" />
+        <span asp-validation-for="Nombre" class="text-danger"></span>
+    </div>
+
+    <div class="input-container">
+        <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" />
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <div class="input-container">
+        <!-- Template oculto para opciones -->
+        <template id="materiaPrimaOptionsTemplate">
+            @foreach (var item in (SelectList)ViewBag.MateriasPrimas)
+            {
+                <option value="@item.Value">@item.Text</option>
+            }
+        </template>
+
+        <div id="materiaRecetaContainer">
+            @{
+                var listaMaterias = Model.MateriasReceta?.ToList() ?? new List<Prolimza.Models.MateriaReceta>();
+            }
+
+            @for (int i = 0; i < listaMaterias.Count; i++)
+            {
+                <div class="materia-receta-row mb-2">
+                    <div class="row mb-2 align-items-end">
+                        <div class="col">
+                            <select name="MateriasReceta[@i].IdMateriaPrima" class="form-control">
+                                <option value="">Seleccione una materia prima</option>
+                                @foreach (SelectListItem item in ViewBag.MateriasPrimas)
+                                {
+                                    var isSelected = item.Value == listaMaterias[i].IdMateriaPrima.ToString();
+                                    <option value="@item.Value" selected="@(isSelected ? "selected" : null)">
+                                        @item.Text
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col">
+                            <input name="MateriasReceta[@i].Cantidad"
+                                   value="@listaMaterias[i].Cantidad"
+                                   class="form-control"
+                                   placeholder="Cantidad" />
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">
+                                ❌
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <button type="button" class="btn-opciones mt-2" onclick="addMateriaReceta()">+ Materia Prima</button>
+    </div>
+
+    <button type="submit" class="submit">Guardar</button>
+</form>
+
+<div class="back-link">
+    <a asp-action="Index">← Volver a la lista</a>
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+
+    <!-- Hidden template for select options -->
+    <template id="materiaPrimaOptionsTemplate">
+        @foreach (var item in (SelectList)ViewBag.MateriasPrimas)
+        {
+            <option value="@item.Value">@item.Text</option>
+        }
+    </template>
+
+    <script>
+        let index = @(Model.MateriasReceta?.Count() ?? 0);
+
+        function addMateriaReceta() {
+            const container = document.getElementById("materiaRecetaContainer");
+
+            const div = document.createElement("div");
+            div.classList.add("materia-receta-row");
+
+            div.innerHTML = `
+                    <div class="row mb-2 align-items-end">
+                        <div class="col">
+                            <select name="MateriasReceta[${index}].IdMateriaPrima" class="form-control">
+                                <option value="">Seleccione una materia prima</option>
+                                ${getOptionsHtml()}
+                            </select>
+                        </div>
+                        <div class="col">
+                            <input name="MateriasReceta[${index}].Cantidad" class="form-control" placeholder="Cantidad" />
+                        </div>
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">
+                                ❌
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+            container.appendChild(div);
+            index++;
+        }
+
+        function removeMateriaReceta(button) {
+            const row = button.closest('.materia-receta-row');
+            if (row) row.remove();
+        }
+
+        function getOptionsHtml() {
+            const template = document.getElementById("materiaPrimaOptionsTemplate");
+            return template.innerHTML;
+        }
+    </script>
+
 }

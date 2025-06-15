@@ -135,9 +135,11 @@
 
                         <li class="nav-item"><a class="nav-link" asp-controller="Roles" asp-action="Index"><i class="fas fa-user-tag"></i> Roles</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Bodegas" asp-action="Index"><i class="fas fa-warehouse"></i> Bodegas</a></li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Recetas" asp-action="Index"><i class="fas fa-utensils"></i> Recetas</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Recetas" asp-action="Index"><i class="fas fa-flask"></i> Recetas</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Productos" asp-action="Index"><i class="fas fa-box-open"></i> Productos</a></li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Usuarios" asp-action="Index"><i class="fas fa-users"></i> Usuarios</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="MateriaPrimas" asp-action="Index"><i class="fas fa-solid fa-boxes-stacked"></i> Materia Prima</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Auditorias" asp-action="Index"><i class="fas fa-solid fa-toolbox"></i> Historial de Eventos</a></li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="ventasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -169,18 +171,20 @@
             </ul>
 
             <hr />
-            @if (User.Identity.IsAuthenticated)
-            {
-                <div class="text-white">
-                    <p>Hola, @nombreUsuario (@rolUsuario)</p>
-                    <a class="btn btn-outline-light btn-sm" href="/Auth/Logout">Cerrar sesión</a>
-                </div>
-            }
-            else
-            {
-                <a class="btn btn-outline-light btn-sm mb-2" href="/Auth/Login">Iniciar sesión</a>
-                <a class="btn btn-outline-light btn-sm mb-2" href="/Usuarios/Create">Crear Usuario</a>
-            }
+            <div style="min-height: 100px;">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="text-white">
+                        <p>Hola, @nombreUsuario (@rolUsuario)</p>
+                        <a class="btn btn-outline-light btn-sm w-100" href="/Auth/Logout">Cerrar sesión</a>
+                    </div>
+                }
+                else
+                {
+                    <a class="btn btn-outline-light btn-sm w-100 mb-2" href="/Auth/Login">Iniciar sesión</a>
+                    <a class="btn btn-outline-light btn-sm w-100" href="/Usuarios/Create">Crear Usuario</a>
+                }
+            </div>
         </nav>
 
         <!-- Contenido principal -->
