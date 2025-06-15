@@ -25,4 +25,9 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Shared\Partials\" />
+    <Folder Include="wwwroot\fonts\" />
+  </ItemGroup>
+
 </Project>

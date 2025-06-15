@@ -3,6 +3,52 @@
     var nombreUsuario = User.Identity?.Name;
     var rolUsuario = User.FindFirst(ClaimTypes.Role)?.Value;
 }
+<!doctype html>
+<html lang="en" dir="ltr">
+
+
+<partial name="~/Views/Shared/Partials/_Head.cshtml" />
+
+<body class="geex-dashboard">
+
+
+    <partial name="~/Views/Shared/Partials/_Header.cshtml" />
+
+    <main class="geex-main-content">
+
+        <partial name="~/Views/Shared/Partials/_Sidebar.cshtml" />
+
+        <partial name="~/Views/Shared/Partials/_Customizer.cshtml" />
+
+
+        <div class="geex-content">
+            <div class="geex-content__header">
+                <div class="geex-content__header__content">
+                    <h2 class="geex-content__header__title">@ViewData["title"]</h2>
+                    <p class="geex-content__header__subtitle">@ViewData["subTitle"]</p>
+                </div>
+
+                <partial name="~/Views/Shared/Partials/_ContentHeader.cshtml" />
+            </div>
+            @RenderBody()
+
+        </div>
+    </main>
+
+    <!-- inject:js-->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.27.0/dist/apexcharts.min.js"></script>
+    <script src="~/js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="~/js/datatables/datatables.css" rel="stylesheet" />
+    <script src="~/js/datatables/datatables.js"></script>
+    <script src="~/js/tablas.js"></script>
+    <!-- endinject-->
+</body>
+
+</html>
+
+@*
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -201,3 +247,4 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+*@
