@@ -41,7 +41,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(canton);
+            return PartialView(canton);
         }
 
         // GET: Cantones/Create

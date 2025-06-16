@@ -1,4 +1,4 @@
-/*---------------------------------
+﻿/*---------------------------------
 CSS INDEX
 ===================================
 #. Header CSS
@@ -6124,6 +6124,29 @@ blockquote span:before {
           flex: 1;
 }
 
+/*Custom forms*/
+.form-container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.geex-validation-block {
+    display: inline-block;
+    text-align: left;
+    color: var(--danger-color);
+    padding-bottom: 26px;
+}
+
+.geex-validation-block span {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
 .geex-content__form__single {
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -6378,61 +6401,78 @@ blockquote span:before {
 }
 
 .geex-content__form__single__box input,
-.geex-content__form__single__box textarea {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  position: relative;
-  width: 100%;
-  min-width: 200px;
-  padding: 24px;
-  border: none;
-  outline: none;
-  border-radius: 18px;
-  color: var(--body-color);
-  background-color: var(--white-color);
-  border: 1px solid var(--sec-color);
-  resize: none;
+.geex-content__form__single__box textarea,
+.geex-content__form__single__box select {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    width: 100%;
+    min-width: 200px;
+    padding: 24px;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    color: var(--body-color);
+    background-color: var(--white-color);
+    border: 1px solid var(--sec-color);
+    resize: none;
 }
 
-.geex-content__form__single__box input::-webkit-input-placeholder,
-.geex-content__form__single__box textarea::-webkit-input-placeholder {
-  color: var(--sec-color);
+.geex-content__form__single__box select option:hover {
+    background-color: var(--body-color);
+    color: var(--white-color);
 }
+
+    .contenedorMateria {
+        width: 100%;
+    }
+
+    .geex-content__form__single__box input::-webkit-input-placeholder,
+    .geex-content__form__single__box textarea::-webkit-input-placeholder,
+    .geex-content__form__single__box select::-webkit-input-placeholder {
+        color: var(--sec-color);
+    }
 
 .geex-content__form__single__box input::-moz-placeholder,
-.geex-content__form__single__box textarea::-moz-placeholder {
-  color: var(--sec-color);
+.geex-content__form__single__box textarea::-moz-placeholder,
+.geex-content__form__single__box select::-moz-placeholder {
+    color: var(--sec-color);
 }
 
-.geex-content__form__single__box input::-ms-input-placeholder,
-.geex-content__form__single__box textarea::-ms-input-placeholder {
-  color: var(--sec-color);
-}
+    .geex-content__form__single__box input::-ms-input-placeholder,
+    .geex-content__form__single__box textarea::-ms-input-placeholder,
+    .geex-content__form__single__box select::-ms-input-placeholder {
+        color: var(--sec-color);
+    }
 
-.geex-content__form__single__box input::placeholder,
-.geex-content__form__single__box textarea::placeholder {
-  color: var(--sec-color);
-}
+    .geex-content__form__single__box input::placeholder,
+    .geex-content__form__single__box textarea::placeholder,
+    .geex-content__form__single__box select::placeholder {
+        color: var(--sec-color);
+    }
 
-.geex-content__form__single__box input:focus,
-.geex-content__form__single__box textarea:focus {
-  border-color: var(--primary-color);
-}
+    .geex-content__form__single__box input:focus,
+    .geex-content__form__single__box textarea:focus,
+    .geex-content__form__single__box select:focus {
+        border-color: var(--primary-color);
+    }
 
 @media only screen and (max-width: 1440px) {
-  .geex-content__form__single__box input,
-  .geex-content__form__single__box textarea {
-    padding: 15px 24px;
-  }
+    .geex-content__form__single__box input,
+    .geex-content__form__single__box textarea,
+    .geex-content__form__single__box select {
+        padding: 15px 24px;
+    }
 }
 
 @media only screen and (max-width: 767px) {
-  .geex-content__form__single__box input,
-  .geex-content__form__single__box textarea {
-    padding: 12px 20px;
-    border-radius: 12px;
-  }
+    .geex-content__form__single__box input,
+    .geex-content__form__single__box textarea,
+    .geex-content__form__single__box select {
+        padding: 12px 20px;
+        border-radius: 12px;
+    }
 }
 
 .geex-content__form__single__left {
@@ -11099,6 +11139,36 @@ html[data-nav="top"] .swiper-container {
     background-color: var(--secondary-color) !important; /* o cualquier color que quieras */
 }
 
+/*Vista parcial*/
+.custom-modal .modal-content {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+}
+.custom-modal .modal-header {
+    display: none;
+}
+
+.geex-btn--small-center {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 14px;
+    background-color: var(--dark-color-transparent);
+    color: var(--body-color);
+    border: 2px solid var(--dark-color);
+    margin: 10px auto 0;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .geex-btn--small-center:hover {
+        background-color: var(--dark-color);
+        color: var(--white-color);
+    }
+
+
 
 /*---------------------------------------
 #. DarkMode
@@ -11335,14 +11405,15 @@ html[data-theme="dark"] .geex-content__calendar__content .geex-calendar .fc-popo
 html[data-theme="dark"] .geex-content__calendar__content .geex-calendar .fc-header-toolbar .fc-right .fc-button-group .ui-button,
 html[data-theme="dark"] .geex-content__form__single__box input,
 html[data-theme="dark"] .geex-content__form__single__box textarea,
+html[data-theme="dark"] .geex-content__form__single__box select,
 html[data-theme="dark"] .geex-content__header__searchform,
 html[data-theme="dark"] .geex-content__authentication__form-group input,
 html[data-theme="dark"] .geex-content__header__popup__title,
 html[data-theme="dark"] .geex-content__header__popup__header,
 html[data-theme="dark"] .geex-content__header__popup__footer {
-  background: var(--dark-color);
-  color: var(--grayThree-color);
-  border-color: var(--desc-color);
+    background: var(--dark-color);
+    color: var(--grayThree-color);
+    border-color: var(--desc-color);
 }
 
 html[data-theme="dark"] .geex-content__invoice .geex-content__todo__list__single {
@@ -11448,4 +11519,27 @@ html[data-theme="dark"] .dt-column-title {
 html[data-theme="dark"] .dt-paging-button.disabled {
     color: var(--body-color) !important;
     cursor: not-allowed;
+}
+
+html[data-theme="dark"] table.dataTable thead > tr > th.dt-orderable-asc span.dt-column-order:before,
+html[data-theme="dark"] table.dataTable thead > tr > th.dt-ordering-asc span.dt-column-order:before,
+html[data-theme="dark"] table.dataTable thead > tr > td.dt-orderable-asc span.dt-column-order:before,
+html[data-theme="dark"] table.dataTable thead > tr > td.dt-ordering-asc span.dt-column-order:before,
+html[data-theme="dark"] table.dataTable thead > tr > th.dt-orderable-desc span.dt-column-order:after,
+html[data-theme="dark"] table.dataTable thead > tr > th.dt-ordering-desc span.dt-column-order:after,
+html[data-theme="dark"] table.dataTable thead > tr > td.dt-orderable-desc span.dt-column-order:after,
+html[data-theme="dark"] table.dataTable thead > tr > td.dt-ordering-desc span.dt-column-order:after {
+    color: var(--white-color) !important;
+}
+
+html[data-theme="dark"] table.dataTable th,
+html[data-theme="dark"] table.dataTable td,
+html[data-theme="dark"] table.dataTable tfoot td {
+    border-color: #fff;
+}
+
+html[data-theme="dark"] table.dataTable,
+html[data-theme="dark"] table.dataTable th,
+html[data-theme="dark"] table.dataTable td {
+    border-color: rgba(255, 255, 255, 0.2)!important;
 }

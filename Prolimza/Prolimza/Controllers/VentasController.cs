@@ -39,7 +39,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(venta);
+            return PartialView(venta);
         }
 
         // GET: Ventas/Create

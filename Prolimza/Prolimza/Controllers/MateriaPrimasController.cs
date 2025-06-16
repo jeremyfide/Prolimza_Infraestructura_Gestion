@@ -41,7 +41,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(materiaPrima);
+            return PartialView(materiaPrima);
         }
 
         // GET: MateriaPrimas/Create

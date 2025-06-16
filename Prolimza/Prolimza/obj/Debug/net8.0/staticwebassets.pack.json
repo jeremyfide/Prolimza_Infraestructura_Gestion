@@ -177,6 +177,18 @@
       "PackagePath": "staticwebassets\\icons\\side-ventas.svg"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\tbl-delete.svg",
+      "PackagePath": "staticwebassets\\icons\\tbl-delete.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\tbl-details.svg",
+      "PackagePath": "staticwebassets\\icons\\tbl-details.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\tbl-edit.svg",
+      "PackagePath": "staticwebassets\\icons\\tbl-edit.svg"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\th-list-solid.svg",
       "PackagePath": "staticwebassets\\icons\\th-list-solid.svg"
     },
@@ -315,6 +327,10 @@
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\maintanence.svg",
       "PackagePath": "staticwebassets\\img\\maintanence.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Ajax\\vistaParcial.js",
+      "PackagePath": "staticwebassets\\js\\Ajax\\vistaParcial.js"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\DataTables\\dataTables.css",

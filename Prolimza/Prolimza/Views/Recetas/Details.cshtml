@@ -1,123 +1,54 @@
 ﻿@model Prolimza.Models.Receta
 
-@{
-    ViewData["Title"] = "Details";
-}
+<div class="geex-content__double-column mb-40">
+    <div class="geex-content__section geex-content__market">
+        <div class="geex-content__section__header">
+            <h4 class="geex-content__section__header__title">Información de la Receta</h4>
+        </div>
+        <div class="geex-content__section__content geex-content__market__content">
+            <div class="geex-content__market__single">
+                <div class="geex-content__market__single__wrapper">
+                    <div class="geex-content__market__single__content">
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Nombre)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Nombre)</p>
 
-<style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Descripcion)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Descripcion)</p>
 
-    h1 {
-        font-weight: 700;
-        color: #2f6846;
-        margin-top: 2rem;
-    }
+                        <h4 class="geex-content__market__single__title">@Model.Producto?.NombreProducto</h4>
+                        <p class="geex-content__market__single__subtitle">Producto</p>
 
-    .card-custom {
-        background-color: #2b7a4b;
-        color: white;
-        border-radius: 1rem;
-        padding: 2rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        max-width: 700px;
-        margin: 0 auto;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+                        @if (Model.MateriasReceta?.Any() == true)
+                        {
+                            <h4 class="geex-content__market__single__title mt-4">Materias Primas</h4>
+                            <ul style="padding-left: 1.2rem;">
+                                @foreach (var item in Model.MateriasReceta)
+                                {
+                                    <li class="mb-2">
+                                        @(item.MateriaPrima?.Nombre ?? $"ID: {item.IdMateriaPrima}")
+                                        <span class="ms-2">— @item.Cantidad unidades</span>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                        else
+                        {
+                            <p class="geex-content__market__single__subtitle mt-3">No se han agregado materias primas.</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        .card-custom.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        <div class="text-center mt-3">
+            <button class="geex-btn--small-center" onclick="cerrarDetalle()">Cerrar</button>
+        </div>
+    </div>
+</div>
 
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 1.5rem;
-    }
 
-    .info-row {
-        margin-bottom: 1rem;
-    }
 
-    .info-label {
-        font-weight: bold;
-        color: #c6f0d5;
-    }
-
-    .info-value {
-        margin-left: 0.5rem;
-    }
-
-    .btn-green {
-        background-color: #2e8644;
-        color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.5rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0.5rem;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-        .btn-green:hover {
-            background-color: #26a155;
-            transform: translateY(-2px);
-        }
-
-        .btn-green:active {
-            transform: translateY(2px);
-        }
-
-    .materia-list {
-        list-style: none;
-        padding-left: 0;
-        margin-top: 1rem;
-    }
-
-        .materia-list li {
-            background-color: #ffffff22;
-            padding: 0.75rem 1rem;
-            margin-bottom: 0.5rem;
-            border-radius: 8px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-        }
-
-        .materia-list .cantidad {
-            font-weight: normal;
-            color: #cdecd9;
-        }
-
-    .card-section {
-        background-color: #2b7a4b;
-        color: #2f6846;
-        border-radius: 1rem;
-        padding: 1.5rem;
-        margin-top: 2rem;
-    }
-
-    .section-title {
-        font-size: 1.3rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        text-align: center;
-        color: #fff;
-    }
-
-</style>
-
+@*
 <h1 class="text-center mb-4">Detalles de la Receta</h1>
 
 <div class="card-custom" id="cardDetails">
@@ -158,27 +89,4 @@
 
 
 </div>
-
-@if (!User.IsInRole("Lector"))
-{
-    <div class="text-center mt-4">
-        <a asp-action="Edit" asp-route-id="@Model?.IdReceta" class="btn-green">Editar</a>
-        <a asp-action="Index" class="btn-green">Volver a la lista</a>
-    </div>
-}
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const card = document.getElementById('cardDetails');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    card.classList.add('show');
-                    observer.unobserve(card);
-                }
-            });
-        });
-
-        observer.observe(card);
-    });
-</script>
+*@
