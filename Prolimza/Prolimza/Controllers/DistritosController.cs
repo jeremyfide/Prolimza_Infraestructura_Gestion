@@ -41,7 +41,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(distrito);
+            return PartialView(distrito);
         }
 
         // GET: Distritos/Create

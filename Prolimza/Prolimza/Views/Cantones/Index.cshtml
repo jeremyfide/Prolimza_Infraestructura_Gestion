@@ -4,124 +4,15 @@
     ViewData["Title"] = "Cantones";
 }
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <style>
-        h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #2e8644;
-            text-align: center;
-            margin: 40px 0 30px;
-            animation: fadeInDown 1s;
-        }
+<div class="geex-content__section geex-content__blank">
+    <div class="container-center animate__animated animate__fadeIn">
+        <div class="btn-wrapper">
+            <a asp-action="Create" class="geex-btn geex-btn--primary-transparent">
+                <i class="uil-plus"></i> Nuevo
+            </a>
+        </div>
 
-        .custom-table {
-            width: 90%;
-            max-width: 1000px;
-            margin: auto;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .button {
-            position: relative;
-            width: 150px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            border: 1px solid #34974d;
-            background-color: #3aa856;
-            text-decoration: none;
-        }
-
-        .button, .button__icon, .button__text {
-            transition: all 0.3s;
-        }
-
-            .button .button__text {
-                transform: translateX(30px);
-                color: #fff;
-                font-weight: 600;
-            }
-
-            .button .button__icon {
-                position: absolute;
-                transform: translateX(109px);
-                height: 100%;
-                width: 39px;
-                background-color: #34974d;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-
-            .button .svg {
-                width: 30px;
-                stroke: #fff;
-            }
-
-            .button:hover {
-                background: #34974d;
-            }
-
-                .button:hover .button__text {
-                    color: transparent;
-                }
-
-                .button:hover .button__icon {
-                    width: 148px;
-                    transform: translateX(0);
-                }
-
-            .button:active .button__icon {
-                background-color: #2e8644;
-            }
-
-            .button:active {
-                border: 1px solid #2e8644;
-            }
-
-        .btn-green {
-            background-color: #34974d;
-            color: white;
-            border-color: #34974d;
-        }
-
-            .btn-green:hover {
-                background-color: #2e8644;
-                border-color: #2e8644;
-            }
-
-        .btn-wrapper {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 20px;
-        }
-    </style>
-</head>
-
-<h1 class="animate__animated animate__fadeInDown">🗺️ CANTONES</h1>
-
-@if (!User.IsInRole("Lector"))
-{
-    <div class="btn-wrapper">
-        <a asp-action="Create" class="button">
-            <span class="button__text">Agregar</span>
-            <span class="button__icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg">
-                    <line y2="19" y1="5" x2="12" x1="12"></line>
-                    <line y2="12" y1="12" x2="19" x1="5"></line>
-                </svg>
-            </span>
-        </a>
-    </div>
-}
-
-<table class="table table-hover table-bordered align-middle text-center custom-table animate__animated animate__fadeIn">
+        <table id="miTabla" class="display">
     <thead class="table-success">
         <tr>
             <th>@Html.DisplayNameFor(model => model.Nombre)</th>
@@ -136,21 +27,44 @@
                 <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
                 <td>@Html.DisplayFor(modelItem => item.Provincia.Nombre)</td>
                 <td>
-                    <div class="dropdown">
-                        <a class="btn btn-green dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Acciones
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-action="Details" asp-route-id="@item.IdCanton">Detalles</a></li>
-                            @if (!User.IsInRole("Lector"))
-                            {
-                                <li><a class="dropdown-item" asp-action="Edit" asp-route-id="@item.IdCanton">Editar</a></li>
-                                <li><a class="dropdown-item" asp-action="Delete" asp-route-id="@item.IdCanton">Eliminar</a></li>
-                            }
-                        </ul>
-                    </div>
+                            <div>
+                                <div class="geex-content__todo__list__single__action">
+                                    <a href="#" id="btn-detalle-@item.IdCanton" data-id="@item.IdCanton" data-controller="Cantones" class="geex-content__todo__list__single__action__btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.51488 1.13472C5.04115 1.41155 4.87883 2.02467 5.15234 2.50416L6.6805 5.18317C4.16417 6.44212 2.46869 8.41363 1.57511 9.90004C0.808296 11.1756 0.808296 12.7543 1.57511 14.0298C2.99629 16.3939 6.44581 19.9849 12 19.9849C13.0492 19.9849 14.0234 19.8568 14.9229 19.6329L16.5577 22.4988C16.8312 22.9783 17.437 23.1426 17.9107 22.8658C18.3844 22.5889 18.5467 21.9758 18.2732 21.4963L16.8352 18.9754C19.6195 17.7375 21.4751 15.6097 22.4249 14.0298C23.1917 12.7543 23.1917 11.1756 22.4249 9.90004C21.0037 7.53602 17.5542 3.94495 12 3.94495C10.7406 3.94495 9.58938 4.12959 8.5455 4.44269L6.86788 1.50166C6.59437 1.02217 5.98861 0.857889 5.51488 1.13472ZM7.67072 6.91912C7.36686 7.06498 7.07579 7.22391 6.79758 7.39346L12.8184 17.9485C13.1843 17.9201 13.539 17.873 13.8826 17.8092L7.67072 6.91912ZM15.8394 17.2296C18.1627 16.267 19.8016 14.5363 20.7326 12.9876C21.1146 12.3523 21.1146 11.5776 20.7326 10.9423C19.3523 8.64619 16.416 5.94995 12 5.94995C11.1327 5.94995 10.3224 6.05395 9.56986 6.2385L10.6791 8.1832C11.0923 8.03538 11.5369 7.95494 12 7.95494C14.1881 7.95494 15.9619 9.75028 15.9619 11.9649C15.9619 13.1847 15.4238 14.2772 14.5748 15.0127L15.8394 17.2296ZM13.5551 13.225C13.8285 12.8799 13.992 12.4417 13.992 11.9649C13.992 10.8514 13.1001 9.94875 12 9.94875C11.8978 9.94875 11.7973 9.95654 11.6993 9.97157L13.5551 13.225ZM10.4866 17.8706L5.19674 8.59703C4.93679 8.83443 4.69445 9.07927 4.46981 9.32772L9.1814 17.5876C9.59782 17.7081 10.0329 17.8039 10.4866 17.8706ZM5.97689 15.9798L3.18711 11.089C2.88764 11.6942 2.9144 12.4005 3.26738 12.9876C3.87309 13.9952 4.77841 15.0798 5.97689 15.9798Z" fill="#A3A3A3" />
+                                        </svg>
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.IdCanton" class="geex-content__todo__list__single__action__btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                            <path d="M1 22C1 21.4477 1.44772 21 2 21H22C22.5523 21 23 21.4477 23 22C23 22.5523 22.5523 23 22 23H2C1.44772 23 1 22.5523 1 22Z" fill="#A3A3A3" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M18.3056 1.87868C17.1341 0.707107 15.2346 0.707107 14.063 1.87868L3.38904 12.5526C2.9856 12.9561 2.70557 13.4662 2.5818 14.0232L2.04903 16.4206C1.73147 17.8496 3.00627 19.1244 4.43526 18.8069L6.83272 18.2741C7.38969 18.1503 7.89981 17.8703 8.30325 17.4669L18.9772 6.79289C20.1488 5.62132 20.1488 3.72183 18.9772 2.55025L18.3056 1.87868ZM15.4772 3.29289C15.8677 2.90237 16.5009 2.90237 16.8914 3.29289L17.563 3.96447C17.9535 4.35499 17.9535 4.98816 17.563 5.37868L15.6414 7.30026L13.5556 5.21448L15.4772 3.29289ZM12.1414 6.62869L4.80325 13.9669C4.66877 14.1013 4.57543 14.2714 4.53417 14.457L4.0014 16.8545L6.39886 16.3217C6.58452 16.2805 6.75456 16.1871 6.88904 16.0526L14.2272 8.71448L12.1414 6.62869Z" fill="#A3A3A3" />
+                                        </svg>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.IdCanton" class="geex-content__todo__list__single__action__btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                            <path d="M9 11C9 10.4477 9.44771 10 10 10C10.5523 10 11 10.4477 11 11V17C11 17.5523 10.5523 18 10 18C9.44771 18 9 17.5523 9 17V11Z" fill="#A3A3A3" />
+                                            <path d="M14 10C13.4477 10 13 10.4477 13 11V17C13 17.5523 13.4477 18 14 18C14.5523 18 15 17.5523 15 17V11C15 10.4477 14.5523 10 14 10Z" fill="#A3A3A3" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.53113 1C5.52364 1 3.19671 3.63591 3.56974 6.62017L5.28873 20.3721C5.47639 21.8734 6.7526 23 8.26557 23H15.7344C17.2474 23 18.5236 21.8734 18.7113 20.3721L20.4303 6.62017C20.8033 3.63591 18.4764 1 15.4689 1H8.53113ZM5.70148 5C6.11066 3.8455 7.21175 3 8.53113 3H15.4689C16.7883 3 17.8893 3.8455 18.2985 5H5.70148ZM5.63279 7L7.27329 20.124C7.33584 20.6245 7.76124 21 8.26557 21H15.7344C16.2388 21 16.6642 20.6245 16.7267 20.124L18.3672 7H5.63279Z" fill="#A3A3A3" />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+        <div class="modal fade custom-modal" id="detalleModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body p-0" id="detalle-container">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

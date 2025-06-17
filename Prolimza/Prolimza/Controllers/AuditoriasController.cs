@@ -41,7 +41,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(auditoria);
+            return PartialView(auditoria);
         }
 
         // GET: Auditorias/Create

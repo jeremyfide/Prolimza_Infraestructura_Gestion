@@ -41,7 +41,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(rol);
+            return PartialView(rol);
         }
 
         // GET: Roles/Create

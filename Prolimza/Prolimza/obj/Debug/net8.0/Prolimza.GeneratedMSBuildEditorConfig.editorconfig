@@ -50,6 +50,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Auth/Registro.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Ryby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Bodegas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9kZWdhc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -368,6 +372,30 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/Partials/_ContentHeader.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXF9Db250ZW50SGVhZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/Partials/_Customizer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXF9DdXN0b21pemVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/Partials/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/Partials/_Head.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXF9IZWFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/Partials/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXF9IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/Partials/_Sidebar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFBhcnRpYWxzXF9TaWRlYmFyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Shared/_ValidationScriptsPartial.cshtml]

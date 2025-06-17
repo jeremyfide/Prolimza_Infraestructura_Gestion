@@ -45,7 +45,7 @@ namespace Prolimza.Controllers
 
             receta.MateriasReceta ??= new List<MateriaReceta>(); // ✅ Ensures it's never null
 
-            return View(receta);
+            return PartialView(receta);
         }
 
         // GET: Recetas/Create

@@ -41,7 +41,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(bodega);
+            return PartialView(bodega);
         }
 
         // GET: Bodegas/Create
