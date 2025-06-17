@@ -1,55 +1,45 @@
 ﻿@model Prolimza.Models.MateriaPrima
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Materia Prima";
+    ViewData["subTitle"] = "Formulario para editar roles desde la perspectiva de administrador.";
 }
 
-<h1>Create</h1>
-
-<h4>MateriaPrima</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Create" class="form-container">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Nombre" class="control-label"></label>
-                <input asp-for="Nombre" class="form-control" />
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Nombre" class="form-control" placeholder="Nombre de la materia prima" />
+            </div>
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Descripcion" class="form-control" placeholder="Descripción" />
+                
+            </div>
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Sku" class="form-control" placeholder="SKU" />
+            </div>
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Cantidad" class="form-control" placeholder="Cantidad" type="number" />
+            </div>
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="FechaCaducidad" class="form-control" type="date" />
+            </div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
                 <span asp-validation-for="Nombre" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Descripcion" class="control-label"></label>
-                <input asp-for="Descripcion" class="form-control" />
                 <span asp-validation-for="Descripcion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sku" class="control-label"></label>
-                <input asp-for="Sku" class="form-control" />
                 <span asp-validation-for="Sku" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Cantidad" class="control-label"></label>
-                <input asp-for="Cantidad" class="form-control" />
                 <span asp-validation-for="Cantidad" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FechaCaducidad" class="control-label"></label>
-                <input asp-for="FechaCaducidad" class="form-control" />
                 <span asp-validation-for="FechaCaducidad" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="IdBodega" class="control-label"></label>
-                <select asp-for="IdBodega" class ="form-control" asp-items="ViewBag.IdBodega"></select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Crear</button>
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

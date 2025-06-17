@@ -1,57 +1,32 @@
 ﻿@model Prolimza.Models.MateriaPrima
 
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Details</h1>
-
-<div>
-    <h4>MateriaPrima</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Sku)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Sku)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Cantidad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Cantidad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaCaducidad)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaCaducidad)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Bodega)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bodega.IdBodega)
-        </dd>
-    </dl>
-</div>
-<div>
-    @if (!User.IsInRole("Lector"))
-    {
-        <a asp-action="Edit" asp-route-id="@Model?.IdMateriaPrima">Editar</a>
-    }
-    <a asp-action="Index">Back to List</a>
+<div class="geex-content__double-column mb-40">
+    <div class="geex-content__section geex-content__market">
+        <div class="geex-content__section__header">
+            <h4 class="geex-content__section__header__title">Información de la Materia Prima</h4>
+        </div>
+        <div class="geex-content__section__content geex-content__market__content">
+            <div class="geex-content__market__single">
+                <div class="geex-content__market__single__wrapper">
+                    <div class="geex-content__market__single__content">
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Nombre)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Nombre)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Descripcion)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Descripcion)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Sku)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Sku)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Cantidad)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Cantidad)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.FechaCaducidad)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.FechaCaducidad)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Bodega.Nombre)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Bodega)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="geex-btn--small-center" onclick="cerrarDetalle()">Cerrar</button>
+        </div>
+    </div>
 </div>

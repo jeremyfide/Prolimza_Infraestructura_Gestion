@@ -1,83 +1,31 @@
 ﻿@model Prolimza.Models.Venta
 
-@{
-    ViewData["Title"] = "Detalles de la Venta";
-}
+<div class="geex-content__double-column mb-40">
+    <div class="geex-content__section geex-content__market">
+        <div class="geex-content__section__header">
+            <h4 class="geex-content__section__header__title">Información de la Venta</h4>
+        </div>
+        <div class="geex-content__section__content geex-content__market__content">
+            <div class="geex-content__market__single">
+                <div class="geex-content__market__single__wrapper">
+                    <div class="geex-content__market__single__content">
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.IdVenta)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.IdVenta)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.FechaVenta)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.FechaVenta)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.IdUsuario)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.IdUsuario)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="geex-btn--small-center" onclick="cerrarDetalle()">Cerrar</button>
+        </div>
+    </div>
+</div>
 
-<style>
-    /* Estilo general */
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-    }
-
-    h1 {
-        font-weight: 700;
-        color: #2f6846;
-        margin-top: 2rem;
-    }
-
-    /* Tarjeta personalizada */
-    .card-custom {
-        background-color: #2b7a4b;
-        color: white;
-        border-radius: 1rem;
-        padding: 2rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        max-width: 600px;
-        margin: 0 auto;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-        .card-custom.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    p {
-        font-size: 1rem;
-        margin: 0.5rem 0;
-    }
-
-    strong {
-        color: #c6f0d5;
-    }
-
-    /* Botones personalizados */
-    .btn-green {
-        background-color: #2e8644;
-        color: white;
-        border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 0.5rem;
-        font-weight: bold;
-        text-transform: uppercase;
-        margin: 0.5rem;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        text-decoration: none;
-    }
-
-        .btn-green:hover {
-            background-color: #26a155;
-            transform: translateY(-2px);
-        }
-
-        .btn-green:active {
-            transform: translateY(2px);
-        }
-</style>
-
+@*
 <h1 class="text-center mb-4">Detalles de la Venta</h1>
 
 <div class="card-custom" id="cardDetails">
@@ -119,3 +67,4 @@
         observer.observe(card);
     });
 </script>
+*@

@@ -41,7 +41,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(producto);
+            return PartialView(producto);
         }
 
         // GET: Productos/Create
