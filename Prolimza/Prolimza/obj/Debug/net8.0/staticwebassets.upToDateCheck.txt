@@ -3,6 +3,8 @@ wwwroot\favicon.ico
 wwwroot\img\Multimedia1.png
 wwwroot\img\Multimedia2.png
 wwwroot\img\Multimedia3.png
+wwwroot\img\Recetas\lab-icon.svg
+wwwroot\js\Recetas\MateriaReceta.js
 wwwroot\js\site.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

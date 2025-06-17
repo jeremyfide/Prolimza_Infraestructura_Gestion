@@ -9,6 +9,7 @@ namespace Prolimza.Models
         public int IdRol { get; set; } = 4;
         public Rol? Rol { get; set; }
         public ICollection<Auditoria>? Auditorias { get; set; }
+        public ICollection<Alerta>? Alertas { get; set; }
 
     }
 }
