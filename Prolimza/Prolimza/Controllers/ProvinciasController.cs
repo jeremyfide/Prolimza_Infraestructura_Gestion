@@ -39,7 +39,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(provincia);
+            return PartialView(provincia);
         }
 
         // GET: Provincias/Create

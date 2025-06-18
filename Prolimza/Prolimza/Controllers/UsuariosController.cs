@@ -27,7 +27,7 @@ namespace Prolimza.Controllers
             var applicationDbContext = _context.Usuarios.Include(u => u.Rol);
             return View(await applicationDbContext.ToListAsync());
         }
-
+        
         // GET: Usuarios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -44,7 +44,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            return View(usuario);
+            return PartialView(usuario);
         }
 
         // GET: Usuarios/Create

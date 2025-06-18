@@ -1,219 +1,85 @@
 ﻿@model Prolimza.Models.Receta
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Receta";
+    ViewData["subTitle"] = "Formulario para editar recetas desde la perspectiva de administrador.";
 }
 
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <style>
-        .form-container {
-            max-width: 500px;
-            margin: 50px auto;
-            background: #f7fdf9;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.7s ease-in-out;
-        }
+<!-- Formulario Editar -->
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Edit" class="form-container">
 
-        .form-title {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #2e8644;
-            text-align: center;
-            margin-bottom: 25px;
-        }
+            <input type="hidden" asp-for="IdReceta" />
 
-        .form-control-custom {
-            border-radius: 10px;
-            border: 1px solid #cdd9d2;
-            padding: 12px 15px;
-            margin-bottom: 20px;
-            font-size: 1rem;
-            width: 100%;
-            transition: border-color 0.3s ease;
-        }
+            <div class="geex-content__form__single__box mb-20">
+                <select asp-for="IdProducto" asp-items="ViewBag.Productos" class="form-control-custom">
+                    <option value="">Seleccione un producto</option>
+                </select>
+            </div>
 
-            .form-control-custom:focus {
-                border-color: #34974d;
-                outline: none;
-                box-shadow: 0 0 0 0.2rem rgba(52, 151, 77, 0.25);
-            }
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" />
+            </div>
 
-        .text-danger {
-            font-size: 0.85rem;
-            color: red;
-            margin-top: -15px;
-            margin-bottom: 10px;
-        }
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" />
+            </div>
 
-        .btn-crear {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #3aa856;
-            border: none;
-            color: white;
-            padding: 12px;
-            width: 100%;
-            font-weight: bold;
-            font-size: 1rem;
-            text-transform: uppercase;
-            border-radius: 10px;
-            transition: background 0.3s ease;
-        }
+            <div class="geex-content__form__single__box mb-20">
+                <!-- Template oculto para opciones -->
+                <template id="materiaPrimaOptionsTemplate">
+                    @foreach (var item in (SelectList)ViewBag.MateriasPrimas)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </template>
 
-            .btn-crear:hover {
-                background-color: #2e8644;
-            }
+                <div class="contenedorMateria" id="materiaRecetaContainer">
+                    @{
+                        var listaMaterias = Model.MateriasReceta?.ToList() ?? new List<Prolimza.Models.MateriaReceta>();
+                    }
 
-        .btn-opciones {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #3aa856;
-            border: none;
-            color: white;
-            padding: 12px;
-            width: 100%;
-            font-weight: bold;
-            font-size: 1rem;
-            text-transform: uppercase;
-            border-radius: 10px;
-            transition: background 0.3s ease;
-            margin-bottom: 25px;
-        }
+                    @for (int i = 0; i < listaMaterias.Count; i++)
+                    {
+                        <div class="materia-receta-row mb-2">
+                            <div class="geex-content__form__single__box d-flex gap-20">
+                                <select name="MateriasReceta[@i].IdMateriaPrima" class="form-control-custom w-100">
+                                    <option value="">Seleccione una materia prima</option>
+                                    @foreach (SelectListItem item in ViewBag.MateriasPrimas)
+                                    {
+                                        var isSelected = item.Value == listaMaterias[i].IdMateriaPrima.ToString();
+                                        <option value="@item.Value" selected="@(isSelected ? "selected" : null)">
+                                            @item.Text
+                                        </option>
+                                    }
+                                </select>
 
-            .btn-opciones:hover {
-                background-color: #2e8644;
-            }
+                                <input name="MateriasReceta[@i].Cantidad"
+                                       value="@listaMaterias[i].Cantidad"
+                                       class="form-control-custom w-100"
+                                       placeholder="Cantidad" />
 
-        .submit {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            background-color: #3aa856;
-            border: none;
-            color: white;
-            padding: 12px;
-            width: 100%;
-            font-weight: bold;
-            font-size: 1rem;
-            text-transform: uppercase;
-            border-radius: 10px;
-            transition: background 0.3s ease;
-            margin-bottom: 25px;
-        }
-
-            .submit:hover {
-                background-color: #2e8644;
-            }
-
-        .icon {
-            width: 18px;
-            height: 18px;
-            stroke: white;
-        }
-
-        .back-link {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-            .back-link a {
-                text-decoration: none;
-                color: #2e8644;
-                font-weight: 500;
-            }
-
-                .back-link a:hover {
-                    text-decoration: underline;
-                }
-    </style>
-</head>
-
-<!-- Formulario Editar Receta -->
-<form asp-action="Edit" class="form-container animate__animated animate__fadeInUp">
-    <p class="form-title">Editar receta</p>
-
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-    <input type="hidden" asp-for="IdReceta" />
-
-    <div class="input-container">
-        <select asp-for="IdProducto" asp-items="ViewBag.Productos" class="form-control-custom">
-            <option value="">Seleccione un producto</option>
-        </select>
-        <span asp-validation-for="IdProducto" class="text-danger"></span>
-    </div>
-
-    <div class="input-container">
-        <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" />
-        <span asp-validation-for="Nombre" class="text-danger"></span>
-    </div>
-
-    <div class="input-container">
-        <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" />
-        <span asp-validation-for="Descripcion" class="text-danger"></span>
-    </div>
-
-    <div class="input-container">
-        <!-- Template oculto para opciones -->
-        <template id="materiaPrimaOptionsTemplate">
-            @foreach (var item in (SelectList)ViewBag.MateriasPrimas)
-            {
-                <option value="@item.Value">@item.Text</option>
-            }
-        </template>
-
-        <div id="materiaRecetaContainer">
-            @{
-                var listaMaterias = Model.MateriasReceta?.ToList() ?? new List<Prolimza.Models.MateriaReceta>();
-            }
-
-            @for (int i = 0; i < listaMaterias.Count; i++)
-            {
-                <div class="materia-receta-row mb-2">
-                    <div class="row mb-2 align-items-end">
-                        <div class="col">
-                            <select name="MateriasReceta[@i].IdMateriaPrima" class="form-control">
-                                <option value="">Seleccione una materia prima</option>
-                                @foreach (SelectListItem item in ViewBag.MateriasPrimas)
-                                {
-                                    var isSelected = item.Value == listaMaterias[i].IdMateriaPrima.ToString();
-                                    <option value="@item.Value" selected="@(isSelected ? "selected" : null)">
-                                        @item.Text
-                                    </option>
-                                }
-                            </select>
+                                <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
+                            </div>
                         </div>
-                        <div class="col">
-                            <input name="MateriasReceta[@i].Cantidad"
-                                   value="@listaMaterias[i].Cantidad"
-                                   class="form-control"
-                                   placeholder="Cantidad" />
-                        </div>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">
-                                ❌
-                            </button>
-                        </div>
-                    </div>
+                    }
                 </div>
-            }
-        </div>
+            </div>
 
-        <button type="button" class="btn-opciones mt-2" onclick="addMateriaReceta()">+ Materia Prima</button>
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="IdProducto" class="text-danger"></span>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="button" class="geex-btn geex-btn--primary-transparent w-auto" onclick="addMateriaReceta()"><i class="uil-plus"></i> Materia Prima</button>
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Guardar</button>
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+        </form>
     </div>
-
-    <button type="submit" class="submit">Guardar</button>
-</form>
-
-<div class="back-link">
-    <a asp-action="Index">← Volver a la lista</a>
 </div>
 
 @section Scripts {
@@ -236,26 +102,20 @@
             const container = document.getElementById("materiaRecetaContainer");
 
             const div = document.createElement("div");
-            div.classList.add("materia-receta-row");
+            div.classList.add("materia-receta-row", "mb-2");
 
             div.innerHTML = `
-                    <div class="row mb-2 align-items-end">
-                        <div class="col">
-                            <select name="MateriasReceta[${index}].IdMateriaPrima" class="form-control">
-                                <option value="">Seleccione una materia prima</option>
-                                ${getOptionsHtml()}
-                            </select>
-                        </div>
-                        <div class="col">
-                            <input name="MateriasReceta[${index}].Cantidad" class="form-control" placeholder="Cantidad" />
-                        </div>
-                        <div class="col-auto">
-                            <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">
-                                ❌
-                            </button>
-                        </div>
-                    </div>
-                `;
+                <div class="geex-content__form__single__box d-flex gap-20">
+                    <select name="MateriasReceta[${index}].IdMateriaPrima" class="form-control-custom w-100">
+                        <option value="">Seleccione una materia prima</option>
+                        ${getOptionsHtml()}
+                    </select>
+
+                    <input name="MateriasReceta[${index}].Cantidad" class="form-control-custom w-100" placeholder="Cantidad" />
+
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
+                </div>
+            `;
 
             container.appendChild(div);
             index++;

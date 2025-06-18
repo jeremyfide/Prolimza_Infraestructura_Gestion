@@ -5,12 +5,220 @@
       "PackagePath": "staticwebassets\\Prolimza.bundle.scp.css"
     },
     {
-      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\content-rtl.css",
+      "PackagePath": "staticwebassets\\css\\content-rtl.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\content.css",
+      "PackagePath": "staticwebassets\\css\\content.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\header-rtl.css",
+      "PackagePath": "staticwebassets\\css\\header-rtl.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\header.css",
+      "PackagePath": "staticwebassets\\css\\header.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\sidebar-rtl.css",
+      "PackagePath": "staticwebassets\\css\\sidebar-rtl.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\sidebar.css",
+      "PackagePath": "staticwebassets\\css\\sidebar.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\style-rtl.css",
+      "PackagePath": "staticwebassets\\css\\style-rtl.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\fonts\\theme-icons.eot",
+      "PackagePath": "staticwebassets\\fonts\\theme-icons.eot"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\fonts\\theme-icons.svg",
+      "PackagePath": "staticwebassets\\fonts\\theme-icons.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\fonts\\theme-icons.ttf",
+      "PackagePath": "staticwebassets\\fonts\\theme-icons.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\fonts\\theme-icons.woff",
+      "PackagePath": "staticwebassets\\fonts\\theme-icons.woff"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\check-circle.svg",
+      "PackagePath": "staticwebassets\\icons\\check-circle.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\edit.svg",
+      "PackagePath": "staticwebassets\\icons\\edit.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\envelope-open.svg",
+      "PackagePath": "staticwebassets\\icons\\envelope-open.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\facebook-square.svg",
+      "PackagePath": "staticwebassets\\icons\\facebook-square.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\facebook.svg",
+      "PackagePath": "staticwebassets\\icons\\facebook.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\github.svg",
+      "PackagePath": "staticwebassets\\icons\\github.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\globe-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\globe-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\instagram.svg",
+      "PackagePath": "staticwebassets\\icons\\instagram.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\link-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\link-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\linkedin-in.svg",
+      "PackagePath": "staticwebassets\\icons\\linkedin-in.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\linkedin.svg",
+      "PackagePath": "staticwebassets\\icons\\linkedin.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\long-arrow-alt-left-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\long-arrow-alt-left-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\long-arrow-alt-right-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\long-arrow-alt-right-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\map-marker-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\map-marker-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\map.svg",
+      "PackagePath": "staticwebassets\\icons\\map.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\phone-alt-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\phone-alt-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\phone-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\phone-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\pinterest.svg",
+      "PackagePath": "staticwebassets\\icons\\pinterest.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\plus-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\plus-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\reddit.svg",
+      "PackagePath": "staticwebassets\\icons\\reddit.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\reply-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\reply-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\search-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\search-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-bodegas.svg",
+      "PackagePath": "staticwebassets\\icons\\side-bodegas.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-compras.svg",
+      "PackagePath": "staticwebassets\\icons\\side-compras.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-eventos.svg",
+      "PackagePath": "staticwebassets\\icons\\side-eventos.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-lab.svg",
+      "PackagePath": "staticwebassets\\icons\\side-lab.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-mapa.svg",
+      "PackagePath": "staticwebassets\\icons\\side-mapa.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-materia.svg",
+      "PackagePath": "staticwebassets\\icons\\side-materia.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-productos.svg",
+      "PackagePath": "staticwebassets\\icons\\side-productos.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-ventas.svg",
+      "PackagePath": "staticwebassets\\icons\\side-ventas.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\tbl-delete.svg",
+      "PackagePath": "staticwebassets\\icons\\tbl-delete.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\tbl-details.svg",
+      "PackagePath": "staticwebassets\\icons\\tbl-details.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\tbl-edit.svg",
+      "PackagePath": "staticwebassets\\icons\\tbl-edit.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\th-list-solid.svg",
+      "PackagePath": "staticwebassets\\icons\\th-list-solid.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\tumblr.svg",
+      "PackagePath": "staticwebassets\\icons\\tumblr.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\twitter.svg",
+      "PackagePath": "staticwebassets\\icons\\twitter.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\user.svg",
+      "PackagePath": "staticwebassets\\icons\\user.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\vimeo.svg",
+      "PackagePath": "staticwebassets\\icons\\vimeo.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\vk.svg",
+      "PackagePath": "staticwebassets\\icons\\vk.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\youtube.svg",
+      "PackagePath": "staticwebassets\\icons\\youtube.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia0.jpg",
+      "PackagePath": "staticwebassets\\img\\Multimedia0.jpg"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia1.png",
@@ -29,12 +237,124 @@
       "PackagePath": "staticwebassets\\img\\Recetas\\lab-icon.svg"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\authentication.svg",
+      "PackagePath": "staticwebassets\\img\\authentication.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\app.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\app.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\apple.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\apple.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\close.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\close.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\dark.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\dark.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\double-check.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\double-check.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\dropbox.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\dropbox.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\facebook.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\facebook.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\feature.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\feature.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\google.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\google.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\home.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\home.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\layout.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\layout.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\light.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\light.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\ltr.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\ltr.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\mastercard-icon.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\mastercard-icon.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\pages.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\pages.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\quote.png",
+      "PackagePath": "staticwebassets\\img\\icon\\quote.png"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\quotes.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\quotes.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\rtl.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\rtl.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\youtube.svg",
+      "PackagePath": "staticwebassets\\img\\icon\\youtube.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icono_usuario.png",
+      "PackagePath": "staticwebassets\\img\\icono_usuario.png"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\logo_empresa.png",
+      "PackagePath": "staticwebassets\\img\\logo_empresa.png"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\maintanence.svg",
+      "PackagePath": "staticwebassets\\img\\maintanence.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Ajax\\vistaParcial.js",
+      "PackagePath": "staticwebassets\\js\\Ajax\\vistaParcial.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\DataTables\\dataTables.css",
+      "PackagePath": "staticwebassets\\js\\DataTables\\dataTables.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\DataTables\\dataTables.js",
+      "PackagePath": "staticwebassets\\js\\DataTables\\dataTables.js"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Recetas\\MateriaReceta.js",
       "PackagePath": "staticwebassets\\js\\Recetas\\MateriaReceta.js"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\tablas.js",
+      "PackagePath": "staticwebassets\\js\\tablas.js"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\lib\\bootstrap\\LICENSE",
@@ -263,6 +583,178 @@
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\content.scss",
+      "PackagePath": "staticwebassets\\sass\\content.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\customizer.scss",
+      "PackagePath": "staticwebassets\\sass\\customizer.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\darkMode.scss",
+      "PackagePath": "staticwebassets\\sass\\darkMode.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\general.scss",
+      "PackagePath": "staticwebassets\\sass\\general.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\header.scss",
+      "PackagePath": "staticwebassets\\sass\\header.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\mixins\\helper.scss",
+      "PackagePath": "staticwebassets\\sass\\mixins\\helper.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\mixins\\kew-frames.scss",
+      "PackagePath": "staticwebassets\\sass\\mixins\\kew-frames.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\mixins\\media-queries.scss",
+      "PackagePath": "staticwebassets\\sass\\mixins\\media-queries.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\mixins\\mixins.scss",
+      "PackagePath": "staticwebassets\\sass\\mixins\\mixins.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\sidebar.scss",
+      "PackagePath": "staticwebassets\\sass\\sidebar.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\style.scss",
+      "PackagePath": "staticwebassets\\sass\\style.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\sass\\variables.scss",
+      "PackagePath": "staticwebassets\\sass\\variables.scss"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\css\\bootstrap\\bootstrap-rtl.css",
+      "PackagePath": "staticwebassets\\vendor\\css\\bootstrap\\bootstrap-rtl.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\css\\bootstrap\\bootstrap.css",
+      "PackagePath": "staticwebassets\\vendor\\css\\bootstrap\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\css\\fullcalendar@5.2.0.css",
+      "PackagePath": "staticwebassets\\vendor\\css\\fullcalendar@5.2.0.css"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\Jost-Bold.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\Jost-Bold.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\Jost-Medium.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\Jost-Medium.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\Jost-Regular.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\Jost-Regular.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\Jost-SemiBold.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\Jost-SemiBold.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\fontawesome\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\fontawesome\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\fontawesome\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\fontawesome\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-brands-400.eot",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-brands-400.eot"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-brands-400.svg",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-brands-400.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-brands-400.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-brands-400.woff",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-brands-400.woff"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-brands-400.woff2",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-regular-400.eot",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-regular-400.eot"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-regular-400.svg",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-regular-400.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-regular-400.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-regular-400.woff",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-regular-400.woff"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-regular-400.woff2",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-solid-900.eot",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-solid-900.eot"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-solid-900.svg",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-solid-900.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-solid-900.ttf",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-solid-900.woff",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-solid-900.woff"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\fonts\\la-solid-900.woff2",
+      "PackagePath": "staticwebassets\\vendor\\fonts\\la-solid-900.woff2"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\js\\apexcharts.min.js",
+      "PackagePath": "staticwebassets\\vendor\\js\\apexcharts.min.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\js\\bootstrap\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\vendor\\js\\bootstrap\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\js\\bootstrap\\popper.js",
+      "PackagePath": "staticwebassets\\vendor\\js\\bootstrap\\popper.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\js\\fullcalendar@5.2.0.js",
+      "PackagePath": "staticwebassets\\vendor\\js\\fullcalendar@5.2.0.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\js\\google-chart.js",
+      "PackagePath": "staticwebassets\\vendor\\js\\google-chart.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\js\\jquery\\jquery-3.5.1.min.js",
+      "PackagePath": "staticwebassets\\vendor\\js\\jquery\\jquery-3.5.1.min.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\vendor\\js\\jquery\\jquery-ui.js",
+      "PackagePath": "staticwebassets\\vendor\\js\\jquery\\jquery-ui.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Prolimza.Microsoft.AspNetCore.StaticWebAssets.props",
