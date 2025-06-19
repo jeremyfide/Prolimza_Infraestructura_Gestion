@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Prolimza.Models;
@@ -18,146 +14,138 @@ namespace Prolimza.Controllers
             _context = context;
         }
 
-        // GET: Alertas
+        // Listado completo de alertas
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Alertas.Include(a => a.Usuario);
-            return View(await applicationDbContext.ToListAsync());
+            var alertas = await _context.Alertas.Include(a => a.Usuario).ToListAsync();
+            return View(alertas);
         }
 
-        // GET: Alertas/Details/5
+        // Detalle de una alerta
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var alerta = await _context.Alertas
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.IdAlerta == id);
-            if (alerta == null)
-            {
-                return NotFound();
-            }
+
+            if (alerta == null) return NotFound();
 
             return View(alerta);
         }
 
-        // GET: Alertas/Create
+        // Crear nueva alerta
         public IActionResult Create()
         {
             ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario");
             return View();
         }
 
-        // POST: Alertas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("IdAlerta,Tipo,Descripcion,FechaAlerta,Estado,IdUsuario")] Alerta alerta)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(alerta);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", alerta.IdUsuario);
-            return View(alerta);
+            if (!ModelState.IsValid) return View(alerta);
+
+            _context.Add(alerta);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        // GET: Alertas/Edit/5
+        // Editar alerta
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var alerta = await _context.Alertas.FindAsync(id);
-            if (alerta == null)
-            {
-                return NotFound();
-            }
+            if (alerta == null) return NotFound();
+
             ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", alerta.IdUsuario);
             return View(alerta);
         }
 
-        // POST: Alertas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdAlerta,Tipo,Descripcion,FechaAlerta,Estado,IdUsuario")] Alerta alerta)
         {
-            if (id != alerta.IdAlerta)
+            if (id != alerta.IdAlerta) return NotFound();
+
+            if (!ModelState.IsValid) return View(alerta);
+
+            try
             {
-                return NotFound();
+                _context.Update(alerta);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AlertaExists(alerta.IdAlerta)) return NotFound();
+                throw;
             }
 
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(alerta);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AlertaExists(alerta.IdAlerta))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "IdUsuario", alerta.IdUsuario);
-            return View(alerta);
+            return RedirectToAction(nameof(Index));
         }
 
-        // GET: Alertas/Delete/5
+        // Eliminar alerta
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var alerta = await _context.Alertas
                 .Include(a => a.Usuario)
                 .FirstOrDefaultAsync(m => m.IdAlerta == id);
-            if (alerta == null)
-            {
-                return NotFound();
-            }
+
+            if (alerta == null) return NotFound();
 
             return View(alerta);
         }
 
-        // POST: Alertas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var alerta = await _context.Alertas.FindAsync(id);
-            if (alerta != null)
-            {
-                _context.Alertas.Remove(alerta);
-            }
-
+            if (alerta != null) _context.Alertas.Remove(alerta);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AlertaExists(int id)
+        private bool AlertaExists(int id) => _context.Alertas.Any(e => e.IdAlerta == id);
+
+        // GET: Alertas/GetPendientes - Solo pendientes
+        public async Task<IActionResult> GetPendientes()
         {
-            return _context.Alertas.Any(e => e.IdAlerta == id);
+            var pendientes = await _context.Alertas
+                .Where(a => a.Estado == "Pendiente")
+                .OrderByDescending(a => a.FechaAlerta)
+                .Select(a => new {
+                    a.IdAlerta,
+                    a.Descripcion,
+                    FechaAlerta = a.FechaAlerta.ToString("g")
+                })
+                .ToListAsync();
+
+            return Json(pendientes);
+        }
+
+        // POST: Alertas/Acknowledge - Marcar como revisada
+        [HttpPost]
+        public async Task<IActionResult> Acknowledge([FromBody] AcknowledgeRequest request)
+        {
+            var alerta = await _context.Alertas.FindAsync(request.Id);
+            if (alerta == null) return NotFound();
+
+            alerta.Estado = "Revisada";
+            await _context.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        public class AcknowledgeRequest
+        {
+            public int Id { get; set; }
         }
     }
 }

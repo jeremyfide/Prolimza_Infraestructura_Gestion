@@ -37,6 +37,8 @@
 
     <!-- inject:js-->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
     <script src="https://cdn.jsdelivr.net/npm/apexcharts@3.27.0/dist/apexcharts.min.js"></script>
     <script src="~/js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -46,6 +48,81 @@
     <script src="~/js/ajax/vistaparcial.js"></script>
     @RenderSection("Scripts", required: false)
     <!-- endinject-->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("📦 DOM completamente cargado");
+
+            const bell = document.getElementById("notificationIcon");
+            const dropdown = document.getElementById("notificationDropdown");
+            const alertsList = document.getElementById("alertsList");
+            const notificationCount = document.getElementById("notificationCount");
+
+        async function cargarAlertasPendientes() {
+            try {
+                const response = await fetch('/Alertas/GetPendientes');
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const alertas = await response.json();
+
+                // Aquí tomamos el array real
+                const alertasArray = alertas.$values || [];
+
+                if (!Array.isArray(alertasArray)) {
+                    throw new Error("El resultado no es un arreglo");
+                }
+
+                const container = document.getElementById('alertsList');
+                container.innerHTML = '';
+
+                alertasArray.forEach(alerta => {
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                        <strong>¡Alerta!</strong> ${alerta.descripcion} - ${alerta.fechaAlerta}
+                        <div class="form-check mt-2">
+                            <input class="form-check-input" type="checkbox" id="chk_${alerta.idAlerta}">
+                            <label class="form-check-label" for="chk_${alerta.idAlerta}">Marcar como revisada</label>
+                        </div>
+                    `;
+
+                    container.appendChild(li);
+
+                    const checkbox = li.querySelector(`#chk_${alerta.idAlerta}`);
+                    checkbox.addEventListener('change', async () => {
+                        if (checkbox.checked) {
+                            await fetch('/Alertas/Acknowledge', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ id: alerta.idAlerta })
+                            });
+                            li.remove();
+                        }
+                    });
+                });
+
+                const notificationCount = document.getElementById('notificationCount');
+                notificationCount.innerText = alertasArray.length;
+                notificationCount.style.display = alertasArray.length > 0 ? 'inline-block' : 'none';
+
+            } catch (error) {
+                console.error('Error al cargar alertas:', error);
+                const container = document.getElementById('alertsList');
+                container.innerHTML = '<li>Error cargando alertas</li>';
+                document.getElementById('notificationCount').style.display = 'none';
+            }
+        }
+
+            bell.addEventListener("click", function () {
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                } else {
+                    dropdown.style.display = "block";
+                    cargarAlertasPendientes();
+                }
+            });
+        });
+    </script>
+    @await Html.PartialAsync("Partials/_AlertaNotificaciones")
+
 </body>
 
 </html>
