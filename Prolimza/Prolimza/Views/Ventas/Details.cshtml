@@ -1,29 +1,95 @@
 ﻿@model Prolimza.Models.Venta
 
+@{
+    ViewData["Title"] = "Detalles de la Venta";
+    var estadoActual = ViewData["EstadoActual"] as string ?? "Desconocido";
+}
+
 <div class="geex-content__double-column mb-40">
     <div class="geex-content__section geex-content__market">
-        <div class="geex-content__section__header">
-            <h4 class="geex-content__section__header__title">Información de la Venta</h4>
+        <div class="geex-content__section__header text-center">
+            <h2 class="geex-content__section__header__title mb-2">Detalles de la Venta</h2>
+            <p class="text-muted">Estado actual: <strong>@estadoActual</strong></p>
         </div>
-        <div class="geex-content__section__content geex-content__market__content">
+
+        <div class="geex-content__section__content geex-content__market__content" id="detalleVenta">
             <div class="geex-content__market__single">
                 <div class="geex-content__market__single__wrapper">
                     <div class="geex-content__market__single__content">
                         <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.IdVenta)</h4>
                         <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.IdVenta)</p>
+
                         <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.FechaVenta)</h4>
                         <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.FechaVenta)</p>
+
                         <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.IdUsuario)</h4>
                         <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.IdUsuario)</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <button class="geex-btn--small-center" onclick="cerrarDetalle()">Cerrar</button>
+
+        <div class="text-center mt-4 d-flex justify-content-center gap-10 flex-wrap">
+            @if (!User.IsInRole("Operador"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model?.IdVenta" class="geex-btn geex-btn--primary-transparent">
+                    Editar
+                </a>
+            }
+
+            <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">
+                Volver a la lista
+            </a>
+
+            @if (estadoActual == "Pendiente")
+            {
+                <form asp-action="Cancelar" asp-route-id="@Model.IdVenta" method="get" style="display:inline;">
+                    <button type="submit" class="geex-btn geex-btn--danger-transparent">
+                        Cancelar orden
+                    </button>
+                </form>
+            }
+            else
+            {
+                <button type="button" class="geex-btn geex-btn--disabled" disabled title="Solo se puede cancelar si el estado es 'Pendiente'">
+                    Cancelar orden
+                </button>
+                <p class="text-white text-center mt-3">
+                    No se puede cancelar la venta porque su estado actual es "<strong>@estadoActual</strong>".
+                </p>
+
+            }
         </div>
+
+        @if (TempData["Error"] != null)
+        {
+            <div class="text-danger text-center mt-3">@TempData["Error"]</div>
+        }
+        @if (TempData["Success"] != null)
+        {
+            <div class="text-success text-center mt-3">@TempData["Success"]</div>
+        }
     </div>
 </div>
+
+<script>
+    // Animación suave al entrar en pantalla
+    document.addEventListener('DOMContentLoaded', function () {
+        const card = document.getElementById('detalleVenta');
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 100);
+    });
+
+    function cerrarDetalle() {
+        window.location.href = '@Url.Action("Index")';
+    }
+</script>
 
 @*
 <h1 class="text-center mb-4">Detalles de la Venta</h1>

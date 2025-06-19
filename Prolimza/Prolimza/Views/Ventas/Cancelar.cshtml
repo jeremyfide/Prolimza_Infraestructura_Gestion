@@ -1,0 +1,42 @@
+﻿@model Prolimza.Models.Venta
+
+@{
+    ViewData["Title"] = "Cancelar Venta";
+}
+
+<div class="geex-content__double-column mb-40">
+    <div class="geex-content__section geex-content__market">
+        <div class="geex-content__section__header">
+            <h4 class="geex-content__section__header__title">Cancelar Venta</h4>
+        </div>
+        <div class="geex-content__section__content geex-content__market__content">
+
+            @if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger" style="margin-bottom: 1rem;">@TempData["Error"]</div>
+            }
+
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success" style="margin-bottom: 1rem;">@TempData["Success"]</div>
+            }
+
+            <p>¿Estás seguro de que deseas cancelar la venta <strong>#@Model.IdVenta</strong>? Esta acción no se puede deshacer.</p>
+
+            <form asp-action="Cancelar" method="post" style="margin-top: 1.5rem;">
+                <input type="hidden" name="id" value="@Model.IdVenta" />
+
+                <div class="text-center">
+                    <button type="submit" class="geex-btn geex-btn--danger-transparent" style="margin-right: 1rem;">
+                        Confirmar Cancelación
+                    </button>
+                    <a asp-action="Index" asp-route-id="@Model.IdVenta" class="geex-btn geex-btn--dark-transparent">
+                        Volver a la lista
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
