@@ -25,6 +25,9 @@ namespace Prolimza.Models
         public DbSet<DetalleVenta> DetallesVenta { get; set; }
         public DbSet<EstadoVenta> EstadosVenta { get; set; }
         public DbSet<HistorialEstadoVenta> HistorialesEstadoVenta { get; set; }
+        public DbSet<Alerta> Alertas { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -49,6 +52,8 @@ namespace Prolimza.Models
             modelBuilder.Entity<DetalleCompraProducto>().HasKey(dcp => new { dcp.IdCompra, dcp.IdProducto });
             modelBuilder.Entity<DetalleCompraMateriaPrima>().HasKey(dcm => new { dcm.IdCompra, dcm.IdMateriaPrima });
             modelBuilder.Entity<DetalleVenta>().HasKey(dv => new { dv.IdVenta, dv.IdProducto });
+            // Clave primaria
+            modelBuilder.Entity<Alerta>().HasKey(a => a.IdAlerta);
 
             // Nombres de tablas
             modelBuilder.Entity<Venta>().ToTable("venta");
@@ -69,6 +74,8 @@ namespace Prolimza.Models
             modelBuilder.Entity<DetalleCompraProducto>().ToTable("detalleCompraProducto");
             modelBuilder.Entity<DetalleCompraMateriaPrima>().ToTable("detalleCompraMateriaPrima");
             modelBuilder.Entity<DetalleVenta>().ToTable("detalleVenta");
+            modelBuilder.Entity<Alerta>().ToTable("alerta");
+
 
             // Relaciones
             modelBuilder.Entity<Canton>()
@@ -140,6 +147,16 @@ namespace Prolimza.Models
                 .HasMany(e => e.HistorialesEstadoVenta)
                 .WithOne(h => h.EstadoVenta)
                 .HasForeignKey(h => h.IdEstadoVenta);
-            }
+
+
+
+            modelBuilder.Entity<Alerta>()
+                .HasOne(a => a.Usuario)
+                .WithMany(u => u.Alertas)
+                .HasForeignKey(a => a.IdUsuario)
+                .OnDelete(DeleteBehavior.SetNull);
+        }
+
+
     }
 }

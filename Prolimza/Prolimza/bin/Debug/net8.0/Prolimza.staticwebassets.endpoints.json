@@ -29,7 +29,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 02 Jun 2025 01:00:31 GMT"
+          "Value": "Sat, 14 Jun 2025 02:21:14 GMT"
         }
       ],
       "EndpointProperties": [
@@ -74,7 +74,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 02 Jun 2025 01:00:31 GMT"
+          "Value": "Sat, 14 Jun 2025 02:21:14 GMT"
         }
       ],
       "EndpointProperties": [
@@ -491,6 +491,170 @@
         {
           "Name": "integrity",
           "Value": "sha256-jLbxNUAc1p6gBWtNQ723HU6cD/NseWaFEX3pq9WwjLE="
+        }
+      ]
+    },
+    {
+      "Route": "img/Recetas/lab-icon.svg",
+      "AssetFile": "img/Recetas/lab-icon.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"24CTKnotzPfYmjigTnZm55RGXKiEECrCIuQ6bRlpQ90=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 01:51:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-24CTKnotzPfYmjigTnZm55RGXKiEECrCIuQ6bRlpQ90="
+        }
+      ]
+    },
+    {
+      "Route": "img/Recetas/lab-icon.taiq00ezsu.svg",
+      "AssetFile": "img/Recetas/lab-icon.svg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "7628"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/svg+xml"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"24CTKnotzPfYmjigTnZm55RGXKiEECrCIuQ6bRlpQ90=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 01:51:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "taiq00ezsu"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-24CTKnotzPfYmjigTnZm55RGXKiEECrCIuQ6bRlpQ90="
+        },
+        {
+          "Name": "label",
+          "Value": "img/Recetas/lab-icon.svg"
+        }
+      ]
+    },
+    {
+      "Route": "js/Recetas/MateriaReceta.6escinuwad.js",
+      "AssetFile": "js/Recetas/MateriaReceta.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "659"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QvfaFlhEudOZtPDkG0GFGNoB+kdv7qVJ9EMC6X2yxBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 01:51:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "6escinuwad"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-QvfaFlhEudOZtPDkG0GFGNoB+kdv7qVJ9EMC6X2yxBE="
+        },
+        {
+          "Name": "label",
+          "Value": "js/Recetas/MateriaReceta.js"
+        }
+      ]
+    },
+    {
+      "Route": "js/Recetas/MateriaReceta.js",
+      "AssetFile": "js/Recetas/MateriaReceta.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "659"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"QvfaFlhEudOZtPDkG0GFGNoB+kdv7qVJ9EMC6X2yxBE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 01:51:52 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-QvfaFlhEudOZtPDkG0GFGNoB+kdv7qVJ9EMC6X2yxBE="
         }
       ]
     },

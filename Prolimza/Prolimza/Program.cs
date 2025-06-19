@@ -33,6 +33,9 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+
+builder.Services.AddHostedService<VerificadorStockService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
