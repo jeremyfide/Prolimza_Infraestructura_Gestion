@@ -76,7 +76,34 @@ namespace Prolimza.Models
             modelBuilder.Entity<DetalleVenta>().ToTable("detalleVenta");
             modelBuilder.Entity<Alerta>().ToTable("alerta");
 
+            modelBuilder.Entity<Compra>()
+    .HasOne(c => c.Usuario)
+    .WithMany()
+    .HasForeignKey(c => c.IdUsuario);
 
+            modelBuilder.Entity<DetalleCompraMateriaPrima>()
+    .HasOne(dcm => dcm.Compra)
+    .WithMany(c => c.DetalleCompraMateriaPrimas)
+    .HasForeignKey(dcm => dcm.IdCompra)
+    .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DetalleCompraMateriaPrima>()
+                .HasOne(dcm => dcm.MateriaPrima)
+                .WithMany(mp => mp.DetallesCompraMateriaPrima)
+                .HasForeignKey(dcm => dcm.IdMateriaPrima)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<DetalleCompraProducto>()
+    .HasOne(dcp => dcp.Compra)
+    .WithMany(c => c.DetalleCompraProductos)
+    .HasForeignKey(dcp => dcp.IdCompra)
+    .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<DetalleCompraProducto>()
+                .HasOne(dcp => dcp.Producto)
+                .WithMany(p => p.DetallesCompraProductos)
+                .HasForeignKey(dcp => dcp.IdProducto)
+                .OnDelete(DeleteBehavior.Restrict);
             // Relaciones
             modelBuilder.Entity<Canton>()
                 .HasOne(c => c.Provincia)
