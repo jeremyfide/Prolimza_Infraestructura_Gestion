@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -21,7 +22,11 @@ namespace Prolimza.Controllers
         // GET: Compras
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Compras.ToListAsync());
+            var compras = await _context.Compras
+                .Include(c => c.Usuario)
+                .ToListAsync();
+
+            return View(compras);
         }
 
         // GET: Compras/Details/5
@@ -45,7 +50,17 @@ namespace Prolimza.Controllers
         // GET: Compras/Create
         public IActionResult Create()
         {
-            return View();
+            var viewModel = new CompraCreateViewModel
+            {
+                ListaProductos = _context.Productos
+                    .Select(p => new SelectListItem { Value = p.IdProducto.ToString(), Text = p.NombreProducto })
+                    .ToList(),
+                ListaMateriasPrimas = _context.MateriasPrimas
+                    .Select(mp => new SelectListItem { Value = mp.IdMateriaPrima.ToString(), Text = mp.Nombre })
+                    .ToList()
+            };
+
+            return View(viewModel);
         }
 
         // POST: Compras/Create
@@ -53,16 +68,59 @@ namespace Prolimza.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCompra,FechaCompra,IdUsuario")] Compra compra)
+
+        public async Task<IActionResult> Create(CompraCreateViewModel viewModel)
         {
+            if (
+                (viewModel.Productos == null || !viewModel.Productos.Any(p => p.Cantidad > 0)) &&
+                (viewModel.MateriasPrimas == null || !viewModel.MateriasPrimas.Any(mp => mp.Cantidad > 0))
+            )
+            {
+                ModelState.AddModelError("", "Debe agregar al menos un producto o una materia prima con cantidad mayor a 0.");
+            }
+
+
+            var userIdString = User.FindFirst("IdUsuario")?.Value;
+            if (int.TryParse(userIdString, out int idUsuario))
+            {
+                viewModel.Compra.IdUsuario = idUsuario;
+            }
+
+
             if (ModelState.IsValid)
             {
-                _context.Add(compra);
+                _context.Compras.Add(viewModel.Compra);
+                await _context.SaveChangesAsync();
+
+                foreach (var prod in viewModel.Productos.Where(p => p.Cantidad > 0))
+                {
+                    prod.IdCompra = viewModel.Compra.IdCompra;
+                    _context.DetallesCompraProductos.Add(prod);
+                }
+
+                foreach (var mp in viewModel.MateriasPrimas.Where(m => m.Cantidad > 0))
+                {
+                    mp.IdCompra = viewModel.Compra.IdCompra;
+                    _context.DetallesCompraMateriaPrimas.Add(mp);
+                }
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(compra);
+
+            // Recargar listas si hubo error
+            viewModel.ListaProductos = _context.Productos
+                .Select(p => new SelectListItem { Value = p.IdProducto.ToString(), Text = p.NombreProducto })
+                .ToList();
+
+            viewModel.ListaMateriasPrimas = _context.MateriasPrimas
+                .Select(mp => new SelectListItem { Value = mp.IdMateriaPrima.ToString(), Text = mp.Nombre })
+                .ToList();
+
+            return View(viewModel);
         }
+
+
 
         // GET: Compras/Edit/5
         public async Task<IActionResult> Edit(int? id)

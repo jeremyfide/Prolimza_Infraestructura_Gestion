@@ -14,24 +14,45 @@
         <table id="miTabla" class="display">
     <thead>
         <tr>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.IdCompra)
+                    </th>
             <th>
                 @Html.DisplayNameFor(model => model.FechaCompra)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdUsuario)
+                        @Html.DisplayNameFor(model => model.IdUsuario)
             </th>
-            <th></th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.CodigoIngreso)
+                    </th>
+            <th>
+                        @Html.DisplayNameFor(model => model.Estado)
+
+            </th>
+                    <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model) {
             <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdCompra)
+                        </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FechaCompra)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.IdUsuario)
+                            @Html.DisplayFor(modelItem => item.Usuario.Nombre)
                 </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CodigoIngreso)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Estado)
+                        </td>
                 <td>
                             <div>
                                 <div class="geex-content__todo__list__single__action">
