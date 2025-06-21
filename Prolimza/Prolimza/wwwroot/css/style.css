@@ -1908,6 +1908,18 @@ blockquote span:before {
   background-color: var(--primary-color);
 }
 
+.geex-btn[disabled],
+.geex-btn--disabled,
+.geex-btn[disabled]:hover,
+.geex-btn--disabled:hover {
+    background-color: #ccc !important;
+    color: #666 !important;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+
 .logo-dark {
   display: none;
 }

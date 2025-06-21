@@ -282,3 +282,31 @@ INSERT INTO historialEstadoVenta (idVenta, idEstadoVenta, fechaEstado) VALUES
 (3, 3, '2025-04-12'),
 (4, 4, '2025-04-13'),
 (5, 5, '2025-04-14');
+
+
+--------------------------------------------------------------
+
+ALTER TABLE producto ADD stockMinimo INT DEFAULT 10;
+ALTER TABLE materiaPrima ADD stockMinimo INT DEFAULT 10;
+
+
+----------------------------------------------
+
+CREATE TABLE alerta (
+    idAlerta INT PRIMARY KEY IDENTITY(1,1),
+    tipo VARCHAR(50) NOT NULL, -- Ej: 'Stock', 'Caducidad', 'Sistema', 'Auditoria'
+    descripcion VARCHAR(255),
+    fechaAlerta DATETIME NOT NULL DEFAULT GETDATE(),
+    estado VARCHAR(50) NOT NULL DEFAULT 'Pendiente', -- 'Pendiente', 'Revisada', 'Resuelta'
+    idUsuario INT NULL, -- Usuario relacionado que generó la alerta (opcional)
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+);
+
+
+----------------------------------
+
+ALTER TABLE compra
+ADD estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente',
+    codigoIngreso VARCHAR(50) NOT NULL DEFAULT 'Nulo';
+
+

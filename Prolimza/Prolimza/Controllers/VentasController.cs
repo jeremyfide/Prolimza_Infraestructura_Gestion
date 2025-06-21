@@ -27,19 +27,27 @@ namespace Prolimza.Controllers
         // GET: Ventas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            if (id == null) return NotFound();
 
             var venta = await _context.Ventas
+                .Include(v => v.HistorialesEstadoVenta)
                 .FirstOrDefaultAsync(m => m.IdVenta == id);
-            if (venta == null)
+            if (venta == null) return NotFound();
+
+            var ultimoEstadoHistorial = venta.HistorialesEstadoVenta?
+                .OrderByDescending(h => h.FechaEstado)
+                .FirstOrDefault();
+
+            string estadoDescripcion = "Desconocido";
+            if (ultimoEstadoHistorial != null)
             {
-                return NotFound();
+                var estado = await _context.EstadosVenta.FindAsync(ultimoEstadoHistorial.IdEstadoVenta);
+                estadoDescripcion = estado?.Descripcion ?? "Desconocido";
             }
 
-            return PartialView(venta);
+            ViewData["EstadoActual"] = estadoDescripcion;
+
+            return View(venta);
         }
 
         // GET: Ventas/Create
@@ -60,6 +68,20 @@ namespace Prolimza.Controllers
             {
                 _context.Add(venta);
                 await _context.SaveChangesAsync();
+
+                var estadoPendiente = await _context.EstadosVenta.FirstOrDefaultAsync(e => e.Descripcion == "Pendiente");
+                if (estadoPendiente != null)
+                {
+                    var historial = new HistorialEstadoVenta
+                    {
+                        IdVenta = venta.IdVenta,
+                        IdEstadoVenta = estadoPendiente.IdEstadoVenta,
+                        FechaEstado = DateTime.Now
+                    };
+                    _context.HistorialesEstadoVenta.Add(historial);
+                    await _context.SaveChangesAsync();
+                }
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre");
@@ -73,13 +95,27 @@ namespace Prolimza.Controllers
             {
                 return NotFound();
             }
+            var venta = await _context.Ventas
+                .Include(v => v.HistorialesEstadoVenta)
+                .FirstOrDefaultAsync(v => v.IdVenta == id);
 
-            var venta = await _context.Ventas.FindAsync(id);
             if (venta == null)
             {
                 return NotFound();
             }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre");
+            var ultimoEstadoHistorial = venta.HistorialesEstadoVenta?
+                    .OrderByDescending(h => h.FechaEstado)
+                    .FirstOrDefault();
+
+            string estadoDescripcion = "Desconocido";
+            if (ultimoEstadoHistorial != null)
+            {
+                var estado = await _context.EstadosVenta.FindAsync(ultimoEstadoHistorial.IdEstadoVenta);
+                estadoDescripcion = estado?.Descripcion ?? "Desconocido";
+            }
+
+            ViewData["EstadoActual"] = estadoDescripcion;
+            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre", venta.IdUsuario);
             return View(venta);
         }
 
@@ -91,31 +127,76 @@ namespace Prolimza.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("IdVenta,FechaVenta,IdUsuario")] Venta venta)
         {
             if (id != venta.IdVenta)
-            {
                 return NotFound();
+
+            var ventaOriginal = await _context.Ventas
+                .Include(v => v.HistorialesEstadoVenta)
+                .FirstOrDefaultAsync(v => v.IdVenta == id);
+
+            if (ventaOriginal == null)
+                return NotFound();
+
+            var ultimoEstado = ventaOriginal.HistorialesEstadoVenta?
+                .OrderByDescending(h => h.FechaEstado)
+                .FirstOrDefault();
+
+            string estadoDescripcion = "Desconocido";
+            if (ultimoEstado != null)
+            {
+                var estado = await _context.EstadosVenta.FindAsync(ultimoEstado.IdEstadoVenta);
+                estadoDescripcion = estado?.Descripcion ?? "Desconocido";
+            }
+
+            if (estadoDescripcion != "Pendiente")
+            {
+                ModelState.AddModelError(string.Empty, "No se puede editar la orden porque su estado no es 'Pendiente'.");
+                ViewData["EstadoActual"] = estadoDescripcion;
+                ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre", venta.IdUsuario);
+                return View(venta);
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _context.Update(venta);
+                    // Actualizar manualmente las propiedades permitidas
+                    ventaOriginal.FechaVenta = venta.FechaVenta;
+                    ventaOriginal.IdUsuario = venta.IdUsuario;
+
+                    // Auditoria
+                    var log = $"Venta Id {ventaOriginal.IdVenta} modificada. Fecha: {ventaOriginal.FechaVenta}, UsuarioId: {ventaOriginal.IdUsuario}";
+                    var auditoria = new Auditoria
+                    {
+                        Log = log,
+                        TipoEvento = "Modificación de Venta",
+                        FechaEvento = DateTime.Now,
+                        IdUsuario = ventaOriginal.IdUsuario
+                    };
+                    _context.Auditorias.Add(auditoria);
+
+                    // Alerta del sistema
+                    var alerta = new Alerta
+                    {
+                        Tipo = "Sistema",
+                        Descripcion = $"La venta con ID {ventaOriginal.IdVenta} fue modificada por el usuario con ID {ventaOriginal.IdUsuario}.",
+                        FechaAlerta = DateTime.Now,
+                        Estado = "Pendiente",
+                        IdUsuario = null // O coloca ventaOriginal.IdUsuario si la alerta es individual
+                    };
+                    _context.Alertas.Add(alerta);
+
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!VentaExists(venta.IdVenta))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    if (!VentaExists(venta.IdVenta)) return NotFound();
+                    else throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre");
+
+            ViewData["EstadoActual"] = estadoDescripcion;
+            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre", venta.IdUsuario);
             return View(venta);
         }
 
@@ -155,6 +236,85 @@ namespace Prolimza.Controllers
         private bool VentaExists(int id)
         {
             return _context.Ventas.Any(e => e.IdVenta == id);
+        }
+        // GET: Ventas/Cancelar/5
+        public async Task<IActionResult> Cancelar(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var venta = await _context.Ventas
+                .Include(v => v.HistorialesEstadoVenta)
+                .FirstOrDefaultAsync(v => v.IdVenta == id);
+
+            if (venta == null) return NotFound();
+
+            var ultimoEstadoHistorial = venta.HistorialesEstadoVenta?
+                .OrderByDescending(h => h.FechaEstado)
+                .FirstOrDefault();
+
+            string estadoDescripcion = "Desconocido";
+            if (ultimoEstadoHistorial != null)
+            {
+                var estado = await _context.EstadosVenta.FindAsync(ultimoEstadoHistorial.IdEstadoVenta);
+                estadoDescripcion = estado?.Descripcion ?? "Desconocido";
+            }
+
+            if (estadoDescripcion != "Pendiente")
+            {
+                TempData["Error"] = $"La orden no puede ser cancelada porque su estado es '{estadoDescripcion}'.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
+
+            return View(venta);
+        }
+        // POST: Ventas/Cancelar/5
+        [HttpPost, ActionName("Cancelar")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CancelarConfirmed(int id)
+        {
+            var venta = await _context.Ventas
+                .Include(v => v.HistorialesEstadoVenta)
+                .FirstOrDefaultAsync(v => v.IdVenta == id);
+
+            if (venta == null) return NotFound();
+
+            var ultimoEstadoHistorial = venta.HistorialesEstadoVenta?
+                .OrderByDescending(h => h.FechaEstado)
+                .FirstOrDefault();
+
+            string estadoDescripcion = "Desconocido";
+            if (ultimoEstadoHistorial != null)
+            {
+                var estado = await _context.EstadosVenta.FindAsync(ultimoEstadoHistorial.IdEstadoVenta);
+                estadoDescripcion = estado?.Descripcion ?? "Desconocido";
+            }
+
+            if (estadoDescripcion != "Pendiente")
+            {
+                TempData["Error"] = $"La orden no puede ser cancelada porque su estado es '{estadoDescripcion}'.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
+
+            // Agregar nuevo estado 'Cancelado' en historial
+            var estadoCancelado = await _context.EstadosVenta.FirstOrDefaultAsync(e => e.Descripcion == "Cancelado");
+            if (estadoCancelado == null)
+            {
+                TempData["Error"] = "El estado 'Cancelado' no existe.";
+                return RedirectToAction(nameof(Details), new { id });
+            }
+
+            var nuevoHistorial = new HistorialEstadoVenta
+            {
+                IdVenta = venta.IdVenta,
+                IdEstadoVenta = estadoCancelado.IdEstadoVenta,
+                FechaEstado = DateTime.Now
+            };
+
+            _context.HistorialesEstadoVenta.Add(nuevoHistorial);
+            await _context.SaveChangesAsync();
+
+            TempData["Success"] = "Orden cancelada correctamente.";
+            return RedirectToAction(nameof(Index));
         }
     }
 }
