@@ -127,6 +127,7 @@ CREATE TABLE detalleCompraMateriaPrima (
 CREATE TABLE venta (
     idVenta INT PRIMARY KEY IDENTITY(1,1),
     fechaVenta DATETIME NOT NULL,
+	codigoIngreso VARCHAR(50) NOT NULL DEFAULT 'Nulo',
     idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
 );
 
