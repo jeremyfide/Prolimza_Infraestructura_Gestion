@@ -19,73 +19,138 @@ namespace Prolimza.Controllers
         }
 
         // GET: Ventas
+        // GET: Recetas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Ventas.ToListAsync());
+            var ventas = await _context.Ventas
+                .Include(r => r.Usuario)
+                .ToListAsync();
+
+            return View(ventas);
         }
 
+
+        // GET: Ventas/Details/5
         // GET: Ventas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             var venta = await _context.Ventas
+                .Include(v => v.DetallesVenta)
+                    .ThenInclude(dv => dv.Producto)
+                .Include(v => v.Usuario)
                 .Include(v => v.HistorialesEstadoVenta)
-                .FirstOrDefaultAsync(m => m.IdVenta == id);
-            if (venta == null) return NotFound();
+                    .ThenInclude(h => h.EstadoVenta)
+                .FirstOrDefaultAsync(v => v.IdVenta == id);
 
-            var ultimoEstadoHistorial = venta.HistorialesEstadoVenta?
-                .OrderByDescending(h => h.FechaEstado)
-                .FirstOrDefault();
+            if (venta == null)
+                return NotFound();
 
-            string estadoDescripcion = "Desconocido";
-            if (ultimoEstadoHistorial != null)
-            {
-                var estado = await _context.EstadosVenta.FindAsync(ultimoEstadoHistorial.IdEstadoVenta);
-                estadoDescripcion = estado?.Descripcion ?? "Desconocido";
-            }
+            venta.DetallesVenta ??= new List<DetalleVenta>();
+            venta.HistorialesEstadoVenta ??= new List<HistorialEstadoVenta>();
 
-            ViewData["EstadoActual"] = estadoDescripcion;
-
-            return View(venta);
+            return PartialView(venta);
         }
+
 
         // GET: Ventas/Create
         public IActionResult Create()
         {
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre");
-            return View();
+            var productos = _context.Productos
+                .Select(p => new {
+                    IdProducto = p.IdProducto,
+                    NombreProducto = p.NombreProducto,
+                    Cantidad = p.Cantidad
+                }).ToList();
+
+            ViewBag.StockProductos = productos;
+            ViewBag.Productos = new SelectList(productos, "IdProducto", "NombreProducto");
+
+            return View(new Venta());
         }
 
         // POST: Ventas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdVenta,FechaVenta,IdUsuario")] Venta venta)
+        public async Task<IActionResult> Create(Venta model)
         {
-            if (ModelState.IsValid)
-            {
-                _context.Add(venta);
-                await _context.SaveChangesAsync();
+            if (!ModelState.IsValid)
+                return View(model);
 
-                var estadoPendiente = await _context.EstadosVenta.FirstOrDefaultAsync(e => e.Descripcion == "Pendiente");
-                if (estadoPendiente != null)
-                {
-                    var historial = new HistorialEstadoVenta
+            var productos = model.DetallesVenta ?? new List<DetalleVenta>();
+            var idUsuarioClaim = User.FindFirst("IdUsuario");
+
+            if (idUsuarioClaim == null)
+            {
+                ViewBag.Error = "Usuario no autenticado.";
+                return View(model);
+            }
+
+            var estadoPendiente = await _context.EstadosVenta
+                .FirstOrDefaultAsync(e => e.Descripcion == "Pendiente");
+
+            if (estadoPendiente == null)
+            {
+                ViewBag.Error = "Estado pendiente no definido en la base de datos.";
+                return View(model);
+            }
+
+            int usuarioId = int.Parse(idUsuarioClaim.Value);
+            DateTime fecha = DateTime.Now;
+
+            var venta = new Venta
+            {
+                IdUsuario = usuarioId,
+                CodigoIngreso = model.CodigoIngreso,
+                FechaVenta = fecha,
+                DetallesVenta = new List<DetalleVenta>(),
+                HistorialesEstadoVenta = new List<HistorialEstadoVenta>
                     {
-                        IdVenta = venta.IdVenta,
-                        IdEstadoVenta = estadoPendiente.IdEstadoVenta,
-                        FechaEstado = DateTime.Now
-                    };
-                    _context.HistorialesEstadoVenta.Add(historial);
-                    await _context.SaveChangesAsync();
+                        new HistorialEstadoVenta
+                        {
+                            IdEstadoVenta = estadoPendiente.IdEstadoVenta,
+                            FechaEstado = fecha
+                        }
+                    }
+            };
+
+            foreach (var detalle in productos)
+            {
+                var producto = await _context.Productos.FindAsync(detalle.IdProducto);
+                if (producto == null) continue;
+
+                if (producto.Cantidad < detalle.Cantidad)
+                {
+                    ViewBag.StockError = $"No hay suficiente stock de {producto.NombreProducto}.";
+
+                    var productosStock = _context.Productos
+                        .Select(p => new {
+                            IdProducto = p.IdProducto,
+                            NombreProducto = p.NombreProducto,
+                            Cantidad = p.Cantidad
+                        }).ToList();
+
+                    ViewBag.StockProductos = productosStock;
+                    ViewBag.Productos = new SelectList(productosStock, "IdProducto", "NombreProducto");
+
+                    return View(model);
                 }
 
-                return RedirectToAction(nameof(Index));
+                producto.Cantidad -= detalle.Cantidad;
+
+                venta.DetallesVenta.Add(new DetalleVenta
+                {
+                    IdProducto = detalle.IdProducto,
+                    Cantidad = detalle.Cantidad
+                });
             }
-            ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre");
-            return View(venta);
+
+            _context.Ventas.Add(venta);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Ventas/Edit/5

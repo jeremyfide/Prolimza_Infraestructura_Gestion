@@ -19,10 +19,16 @@ namespace Prolimza.Controllers
         }
 
         // GET: Recetas
+        // GET: Recetas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Recetas.ToListAsync());
+            var recetas = await _context.Recetas
+                .Include(r => r.Producto)
+                .ToListAsync();
+
+            return View(recetas);
         }
+
 
         // GET: Recetas/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -43,7 +49,7 @@ namespace Prolimza.Controllers
                 return NotFound();
             }
 
-            receta.MateriasReceta ??= new List<MateriaReceta>(); // ✅ Ensures it's never null
+            receta.MateriasReceta ??= new List<MateriaReceta>();
 
             return PartialView(receta);
         }
@@ -72,7 +78,6 @@ namespace Prolimza.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Ensure the list is not null
                 var materias = model.MateriasReceta ?? new List<MateriaReceta>();
 
                 var receta = new Receta
