@@ -1,4 +1,4 @@
-﻿@model Prolimza.Models.Compra
+﻿@model Prolimza.Models.CompraCreateViewModel
 
 @{
     ViewData["Title"] = "Crear Compra";
@@ -8,28 +8,108 @@
 <div class="geex-content__section geex-content__form">
     <div class="geex-content__form__wrapper">
         <form asp-action="Create" class="form-container">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="geex-content__form__single__box mb-20">
-                <label asp-for="FechaCompra" class="control-label"></label>
-                <input asp-for="FechaCompra" class="form-control" />
-            </div>
-            <div class="geex-content__form__single__box mb-20">
-                <label asp-for="IdUsuario" class="control-label"></label>
-                <input asp-for="IdUsuario" class="form-control" />
-            </div>
-            <div class="geex-validation-block text-danger mt-4 text-center">
-                <span asp-validation-for="FechaCompra" class="text-danger"></span>
-                <span asp-validation-for="IdUsuario" class="text-danger"></span>
-            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-3"></div>
 
-            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
-                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Guardar</button>
+
+
+            <h4>Productos</h4>
+            <div id="productos-container"></div>
+            <button type="button" id="agregar-producto" class="btn btn-sm btn-secondary mb-3">Agregar producto</button>
+
+            <h4>Materias Primas</h4>
+            <div id="materiasprimas-container"></div>
+            <button type="button" id="agregar-mp" class="btn btn-sm btn-secondary mb-3">Agregar materia prima</button>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center mt-4">
+                <button type="submit" class="geex-btn geex-btn--primary-transparent">
+                    <i class="uil-plus"></i> Guardar
+                </button>
                 <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
             </div>
         </form>
     </div>
 </div>
 
+<!-- Templates ocultos -->
+<div id="template-producto" class="d-none">
+    <div class="producto-item d-flex gap-2 mb-2 align-items-center geex-content__form__single__box d-flex gap-20">
+        <select class="form-control">
+            @foreach (var p in Model.ListaProductos)
+            {
+                <option value="@p.Value">@p.Text</option>
+            }
+        </select>
+        <input type="number" class="form-control" placeholder="Cantidad" min="0" />
+        <button type="button" class="btn btn-danger btn-sm eliminar-linea">X</button>
+    </div>
+</div>
+
+<div id="template-mp" class="d-none">
+    <div class="mp-item d-flex gap-2 mb-2 align-items-center geex-content__form__single__box d-flex gap-20">
+        <select class="form-control">
+            @foreach (var mp in Model.ListaMateriasPrimas)
+            {
+                <option value="@mp.Value">@mp.Text</option>
+            }
+        </select>
+        <input type="number" class="form-control" placeholder="Cantidad" min="0" />
+        <button type="button" class="btn btn-danger btn-sm eliminar-linea">X</button>
+    </div>
+</div>
+
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+
+    <script>
+        let contadorProducto = 0;
+        let contadorMP = 0;
+
+        function crearLinea(templateId, containerId, prefix, contador) {
+            const template = document.querySelector(templateId).firstElementChild.cloneNode(true);
+            const selects = template.querySelectorAll("select");
+            const inputs = template.querySelectorAll("input");
+
+            selects.forEach(select => {
+                select.name = `${prefix}[${contador}].${prefix === 'Productos' ? 'IdProducto' : 'IdMateriaPrima'}`;
+            });
+
+            inputs.forEach(input => {
+                input.name = `${prefix}[${contador}].Cantidad`;
+            });
+
+            document.querySelector(containerId).appendChild(template);
+        }
+
+        document.getElementById("agregar-producto").addEventListener("click", () => {
+            crearLinea("#template-producto", "#productos-container", "Productos", contadorProducto);
+            contadorProducto++;
+        });
+
+        document.getElementById("agregar-mp").addEventListener("click", () => {
+            crearLinea("#template-mp", "#materiasprimas-container", "MateriasPrimas", contadorMP);
+            contadorMP++;
+        });
+
+        // Eliminar línea
+        document.addEventListener("click", function (e) {
+            if (e.target.classList.contains("eliminar-linea")) {
+                const item = e.target.closest(".producto-item") || e.target.closest(".mp-item");
+                item?.remove();
+            }
+        });
+
+        // Validación antes de enviar
+        document.querySelector("form").addEventListener("submit", function (e) {
+            const productos = [...document.querySelectorAll('[name^="Productos"][name$=".Cantidad"]')];
+            const materias = [...document.querySelectorAll('[name^="MateriasPrimas"][name$=".Cantidad"]')];
+
+            const hayProductos = productos.some(p => parseInt(p.value || 0) > 0);
+            const hayMaterias = materias.some(mp => parseInt(mp.value || 0) > 0);
+
+            if (!hayProductos && !hayMaterias) {
+                alert("Debe agregar al menos un producto o una materia prima con cantidad mayor a 0.");
+                e.preventDefault();
+            }
+        });
+    </script>
 }

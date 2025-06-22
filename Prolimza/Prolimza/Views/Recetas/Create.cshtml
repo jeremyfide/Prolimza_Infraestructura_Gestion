@@ -9,17 +9,17 @@
     <div class="geex-content__form__wrapper">
         <form asp-action="Create" class="form-container animate__animated animate__fadeInUp">
             <div class="geex-content__form__single__box mb-20">
-                <select asp-for="IdProducto" asp-items="ViewBag.Productos" class="form-control-custom">
+                <select asp-for="IdProducto" asp-items="ViewBag.Productos" class="form-control-custom" required>
                     <option value="">Seleccione un Producto</option>
                 </select>
             </div>
 
             <div class="geex-content__form__single__box mb-20">
-                <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" />
+                <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" required />
             </div>
 
             <div class="geex-content__form__single__box mb-20">
-                <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" />
+                <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" required />
             </div>
 
             <div class="contenedorMateria" id="materiaRecetaContainer"></div>
@@ -54,17 +54,24 @@
             div.classList.add("materia-receta-row", "mb-2");
 
             div.innerHTML = `
-                        <div class="geex-content__form__single__box d-flex gap-20">
-                            <select name="MateriasReceta[${index}].IdMateriaPrima" class="form-control-custom w-100">
-                                <option value="">Seleccione una materia prima</option>
-                                ${getOptionsHtml()}
-                            </select>
+                <div class="geex-content__form__single__box d-flex gap-20">
+                    <select name="MateriasReceta[${index}].IdMateriaPrima"
+                            class="form-control-custom w-100"
+                            required>
+                        <option value="">Seleccione una materia prima</option>
+                        ${getOptionsHtml()}
+                    </select>
 
-                            <input name="MateriasReceta[${index}].Cantidad" class="form-control-custom w-100" placeholder="Cantidad" />
+                    <input name="MateriasReceta[${index}].Cantidad"
+                           class="form-control-custom w-100"
+                           placeholder="Cantidad"
+                           type="number"
+                           min="1"
+                           required />
 
-                            <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
-                        </div>
-                    `;
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
+                </div>
+            `;
 
             container.appendChild(div);
             index++;

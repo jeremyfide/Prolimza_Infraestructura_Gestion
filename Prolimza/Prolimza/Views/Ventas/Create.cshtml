@@ -1,5 +1,4 @@
 ﻿@model Prolimza.Models.Venta
-
 @{
     ViewData["Title"] = "Crear Venta";
     ViewData["subTitle"] = "Formulario para crear ventas desde la perspectiva de administrador.";
@@ -8,22 +7,21 @@
 <div class="geex-content__section geex-content__form">
     <div class="geex-content__form__wrapper">
         <form asp-action="Create" class="form-container">
-    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="geex-content__form__single__box mb-20">
-    <input asp-for="FechaVenta" class="form-control-custom" placeholder="Fecha de la venta" />
-            </div>
-            <div class="geex-content__form__single__box mb-20">
-    <select asp-for="IdUsuario" asp-items="ViewBag.IdUsuario" class="form-control-custom">
-        <option value="">Seleccione un Usuario</option>
-    </select>
+                <input asp-for="CodigoIngreso" class="form-control-custom" placeholder="Código de la venta" />
             </div>
 
+            <div class="contenedorProducto" id="productoContainer"></div>
+
             <div class="geex-validation-block text-danger mt-4 text-center">
-                <span asp-validation-for="FechaVenta" class="text-danger"></span>
-                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+                <span asp-validation-for="CodigoIngreso" class="text-danger"></span>
+                <span id="stockError" class="text-danger">@ViewBag.StockError</span>
             </div>
 
             <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="button" class="geex-btn geex-btn--primary-transparent w-auto" onclick="addProducto()"><i class="uil-plus"></i> Producto</button>
                 <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Crear</button>
                 <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
             </div>
@@ -35,4 +33,75 @@
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    @using System.Text.Json
+    <script>
+        const productos = @Html.Raw(JsonSerializer.Serialize(ViewBag.StockProductos));
+    </script>
+
+
+
+    <script>
+        let index = @(Model.DetallesVenta != null ? Model.DetallesVenta.Count() : 0);
+
+        function addProducto() {
+            const container = document.getElementById("productoContainer");
+
+            const div = document.createElement("div");
+            div.classList.add("producto-receta-row", "mb-2");
+
+            div.innerHTML = `
+            <div class="geex-content__form__single__box d-flex gap-20">
+                <select name="DetallesVenta[${index}].IdProducto" class="form-control-custom w-100" required>
+                    <option value="">Seleccione un producto</option>
+                    ${getOptionsHtml()}
+                </select>
+
+                <input name="DetallesVenta[${index}].Cantidad" class="form-control-custom w-100"
+                    placeholder="Cantidad"
+                    type="number"
+                    min="1"
+                    required
+                    oninput="validarCantidad(this, this.previousElementSibling.value)" />
+
+                <button type="button" class="btn btn-danger btn-sm" onclick="removeProducto(this)">❌</button>
+            </div>
+        `;
+
+            container.appendChild(div);
+            index++;
+        }
+
+        function removeProducto(button) {
+            const row = button.closest('.producto-receta-row');
+            if (row) {
+                row.remove();
+            }
+        }
+
+        function validarCantidad(input, idProducto) {
+            const producto = stockProductos.find(p => p.IdProducto == idProducto);
+            if (!producto) return;
+
+            const max = producto.Cantidad;
+            const val = parseInt(input.value) || 0;
+
+            const errorSpan = document.getElementById("stockError");
+            if (!errorSpan) return;
+
+            if (val > max) {
+                errorSpan.textContent = `No puedes seleccionar más de ${max} unidades para ${producto.NombreProducto}`;
+                input.value = max;
+            } else {
+                errorSpan.textContent = "";
+            }
+        }
+
+        function getOptionsHtml() {
+            if (!Array.isArray(productos)) return '';
+            return productos.map(p =>
+                `<option value="${p.IdProducto}">${p.NombreProducto} (${p.Cantidad} disponibles)</option>`
+            ).join('');
+        }
+    </script>
+
 }

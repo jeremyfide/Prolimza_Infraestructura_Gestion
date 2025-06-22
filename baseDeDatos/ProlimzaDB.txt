@@ -303,5 +303,10 @@ CREATE TABLE alerta (
 );
 
 
+----------------------------------
+
+ALTER TABLE compra
+ADD estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente',
+    codigoIngreso VARCHAR(50) NOT NULL DEFAULT 'Nulo';
 
 

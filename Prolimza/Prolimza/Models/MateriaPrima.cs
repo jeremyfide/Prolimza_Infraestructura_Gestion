@@ -12,5 +12,8 @@ namespace Prolimza.Models
         public int stockMinimo { get; set; }
 
         public Bodega? Bodega { get; set; }
+
+        public ICollection<DetalleCompraMateriaPrima>? DetallesCompraMateriaPrima { get; set; }
+
     }
 }
