@@ -6,6 +6,30 @@
 
 <div class="geex-content__section geex-content__blank">
     <div class="container-center animate__animated animate__fadeIn">
+        
+        @* Modal para mensajes *@
+        @if (TempData["SuccessCancelar"] != null || TempData["ErrorCancelar"] != null)
+        {
+            <div class="modal fade" id="mensajeModal" tabindex="-1" aria-labelledby="mensajeModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header @(TempData["SuccessCancelar"] != null ? "bg-success text-white" : "bg-danger text-white")">
+                            <h5 class="modal-title" id="mensajeModalLabel">
+                                @(TempData["SuccessCancelar"] != null ? "Éxito" : "Error")
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+                            @(TempData["SuccessCancelar"] ?? TempData["ErrorCancelar"])
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="geex-btn geex-btn--dark-transparent" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
         <div class="btn-wrapper">
             <a asp-action="Create" class="geex-btn geex-btn--primary-transparent">
                 <i class="uil-plus"></i> Nuevo
@@ -64,3 +88,15 @@
         </div>
 </div>
 </div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var mensajeModal = document.getElementById('mensajeModal');
+            if (mensajeModal) {
+                var modal = new bootstrap.Modal(mensajeModal);
+                modal.show();
+            }
+        });
+    </script>
+}
