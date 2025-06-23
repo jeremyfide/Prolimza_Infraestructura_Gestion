@@ -19,18 +19,20 @@ namespace Prolimza.Controllers
         }
 
         // GET: Ventas
-        // GET: Recetas
         public async Task<IActionResult> Index()
         {
             var ventas = await _context.Ventas
-                .Include(r => r.Usuario)
+                .Include(v => v.Usuario)
                 .ToListAsync();
+
+            if (TempData["SuccessCancelar"] != null)
+                ViewBag.SuccessCancelar = TempData["SuccessCancelar"];
+            if (TempData["ErrorCancelar"] != null)
+                ViewBag.ErrorCancelar = TempData["ErrorCancelar"];
 
             return View(ventas);
         }
 
-
-        // GET: Ventas/Details/5
         // GET: Ventas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -53,7 +55,6 @@ namespace Prolimza.Controllers
 
             return PartialView(venta);
         }
-
 
         // GET: Ventas/Create
         public IActionResult Create()
@@ -185,8 +186,6 @@ namespace Prolimza.Controllers
         }
 
         // POST: Ventas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdVenta,FechaVenta,IdUsuario")] Venta venta)
@@ -224,11 +223,10 @@ namespace Prolimza.Controllers
             {
                 try
                 {
-                    // Actualizar manualmente las propiedades permitidas
                     ventaOriginal.FechaVenta = venta.FechaVenta;
                     ventaOriginal.IdUsuario = venta.IdUsuario;
 
-                    // Auditoria
+                    // Auditoría
                     var log = $"Venta Id {ventaOriginal.IdVenta} modificada. Fecha: {ventaOriginal.FechaVenta}, UsuarioId: {ventaOriginal.IdUsuario}";
                     var auditoria = new Auditoria
                     {
@@ -246,7 +244,7 @@ namespace Prolimza.Controllers
                         Descripcion = $"La venta con ID {ventaOriginal.IdVenta} fue modificada por el usuario con ID {ventaOriginal.IdUsuario}.",
                         FechaAlerta = DateTime.Now,
                         Estado = "Pendiente",
-                        IdUsuario = null // O coloca ventaOriginal.IdUsuario si la alerta es individual
+                        IdUsuario = null
                     };
                     _context.Alertas.Add(alerta);
 
@@ -292,9 +290,8 @@ namespace Prolimza.Controllers
             if (venta != null)
             {
                 _context.Ventas.Remove(venta);
+                await _context.SaveChangesAsync();
             }
-
-            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
@@ -302,46 +299,23 @@ namespace Prolimza.Controllers
         {
             return _context.Ventas.Any(e => e.IdVenta == id);
         }
-        // GET: Ventas/Cancelar/5
-        public async Task<IActionResult> Cancelar(int? id)
-        {
-            if (id == null) return NotFound();
 
-            var venta = await _context.Ventas
-                .Include(v => v.HistorialesEstadoVenta)
-                .FirstOrDefaultAsync(v => v.IdVenta == id);
-
-            if (venta == null) return NotFound();
-
-            var ultimoEstadoHistorial = venta.HistorialesEstadoVenta?
-                .OrderByDescending(h => h.FechaEstado)
-                .FirstOrDefault();
-
-            string estadoDescripcion = "Desconocido";
-            if (ultimoEstadoHistorial != null)
-            {
-                var estado = await _context.EstadosVenta.FindAsync(ultimoEstadoHistorial.IdEstadoVenta);
-                estadoDescripcion = estado?.Descripcion ?? "Desconocido";
-            }
-
-            if (estadoDescripcion != "Pendiente")
-            {
-                TempData["Error"] = $"La orden no puede ser cancelada porque su estado es '{estadoDescripcion}'.";
-                return RedirectToAction(nameof(Details), new { id });
-            }
-
-            return View(venta);
-        }
-        // POST: Ventas/Cancelar/5
-        [HttpPost, ActionName("Cancelar")]
+        // POST: Ventas/Cancelar
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CancelarConfirmed(int id)
+        public async Task<IActionResult> Cancelar(int id, string motivo)
         {
             var venta = await _context.Ventas
                 .Include(v => v.HistorialesEstadoVenta)
+                .Include(v => v.DetallesVenta)
+                    .ThenInclude(dv => dv.Producto)
                 .FirstOrDefaultAsync(v => v.IdVenta == id);
 
-            if (venta == null) return NotFound();
+            if (venta == null)
+            {
+                TempData["ErrorCancelar"] = "La venta no existe.";
+                return RedirectToAction(nameof(Index));
+            }
 
             var ultimoEstadoHistorial = venta.HistorialesEstadoVenta?
                 .OrderByDescending(h => h.FechaEstado)
@@ -356,16 +330,26 @@ namespace Prolimza.Controllers
 
             if (estadoDescripcion != "Pendiente")
             {
-                TempData["Error"] = $"La orden no puede ser cancelada porque su estado es '{estadoDescripcion}'.";
-                return RedirectToAction(nameof(Details), new { id });
+                TempData["ErrorCancelar"] = $"La orden no puede ser cancelada porque su estado es '{estadoDescripcion}'.";
+                return RedirectToAction(nameof(Index));
             }
 
-            // Agregar nuevo estado 'Cancelado' en historial
             var estadoCancelado = await _context.EstadosVenta.FirstOrDefaultAsync(e => e.Descripcion == "Cancelado");
             if (estadoCancelado == null)
             {
-                TempData["Error"] = "El estado 'Cancelado' no existe.";
-                return RedirectToAction(nameof(Details), new { id });
+                TempData["ErrorCancelar"] = "El estado 'Cancelado' no está definido en la base de datos.";
+                return RedirectToAction(nameof(Index));
+            }
+
+            // Volver productos al inventario
+            foreach (var detalle in venta.DetallesVenta)
+            {
+                var producto = detalle.Producto;
+                if (producto != null)
+                {
+                    producto.Cantidad += detalle.Cantidad;
+                    _context.Productos.Update(producto);
+                }
             }
 
             var nuevoHistorial = new HistorialEstadoVenta
@@ -376,10 +360,26 @@ namespace Prolimza.Controllers
             };
 
             _context.HistorialesEstadoVenta.Add(nuevoHistorial);
+
+            // Obtener usuario actual
+            var idUsuarioClaim = User.FindFirst("IdUsuario");
+            int usuarioId = idUsuarioClaim != null ? int.Parse(idUsuarioClaim.Value) : 0;
+
+            // Guardar auditoría
+            var auditoria = new Auditoria
+            {
+                Log = $"Cancelación de venta Id {venta.IdVenta}. Motivo: {motivo}",
+                TipoEvento = "Cancelación de Venta",
+                FechaEvento = DateTime.Now,
+                IdUsuario = usuarioId
+            };
+            _context.Auditorias.Add(auditoria);
+
             await _context.SaveChangesAsync();
 
-            TempData["Success"] = "Orden cancelada correctamente.";
+            TempData["SuccessCancelar"] = "Orden cancelada correctamente.";
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
