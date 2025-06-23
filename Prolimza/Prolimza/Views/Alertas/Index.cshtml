@@ -9,8 +9,11 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
-    <thead>
+
+<div class="geex-content__section geex-content__blank">
+    <div class="container-center animate__animated animate__fadeIn">
+<table id="miTabla" class="display">
+    <thead class="table-success">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Tipo)
@@ -24,10 +27,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Estado)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th></th>
+
         </tr>
     </thead>
     <tbody>
@@ -45,15 +45,12 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Estado)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario.IdUsuario)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAlerta">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAlerta">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAlerta">Delete</a>
-            </td>
+
+
         </tr>
 }
     </tbody>
 </table>
+
+    </div>
+</div>
