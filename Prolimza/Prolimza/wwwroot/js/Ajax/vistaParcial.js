@@ -6,7 +6,7 @@
 }
 
 $(document).ready(function () {
-    $("a[id^='btn-detalle-']").click(function (e) {
+    $(document).on('click', '.btn-detalle', function (e) {
         e.preventDefault();
 
         var id = $(this).data('id');

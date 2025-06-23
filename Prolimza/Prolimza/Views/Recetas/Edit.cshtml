@@ -44,7 +44,9 @@
                     {
                         <div class="materia-receta-row mb-2">
                             <div class="geex-content__form__single__box d-flex gap-20">
-                                <select name="MateriasReceta[@i].IdMateriaPrima" class="form-control-custom w-100">
+                                <select name="MateriasReceta[@i].IdMateriaPrima"
+                                        class="form-control-custom w-100"
+                                        required>
                                     <option value="">Seleccione una materia prima</option>
                                     @foreach (SelectListItem item in ViewBag.MateriasPrimas)
                                     {
@@ -58,7 +60,10 @@
                                 <input name="MateriasReceta[@i].Cantidad"
                                        value="@listaMaterias[i].Cantidad"
                                        class="form-control-custom w-100"
-                                       placeholder="Cantidad" />
+                                       placeholder="Cantidad"
+                                       type="number"
+                                       min="1"
+                                       required />
 
                                 <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
                             </div>
@@ -106,12 +111,17 @@
 
             div.innerHTML = `
                 <div class="geex-content__form__single__box d-flex gap-20">
-                    <select name="MateriasReceta[${index}].IdMateriaPrima" class="form-control-custom w-100">
+                    <select name="MateriasReceta[${index}].IdMateriaPrima" class="form-control-custom w-100" required>
                         <option value="">Seleccione una materia prima</option>
                         ${getOptionsHtml()}
                     </select>
 
-                    <input name="MateriasReceta[${index}].Cantidad" class="form-control-custom w-100" placeholder="Cantidad" />
+                    <input name="MateriasReceta[${index}].Cantidad"
+                           class="form-control-custom w-100"
+                           placeholder="Cantidad"
+                           type="number"
+                           min="1"
+                           required />
 
                     <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
                 </div>

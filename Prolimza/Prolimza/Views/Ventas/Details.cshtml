@@ -1,136 +1,113 @@
 ﻿@model Prolimza.Models.Venta
 
-@{
-    ViewData["Title"] = "Detalles de la Venta";
-    var estadoActual = ViewData["EstadoActual"] as string ?? "Desconocido";
-}
-
 <div class="geex-content__double-column mb-40">
-    <div class="geex-content__section geex-content__market">
-        <div class="geex-content__section__header text-center">
-            <h2 class="geex-content__section__header__title mb-2">Detalles de la Venta</h2>
-            <p class="text-muted">Estado actual: <strong>@estadoActual</strong></p>
-        </div>
+  <div class="geex-content__section geex-content__market">
+    <div class="geex-content__section__header">
+      <h4 class="geex-content__section__header__title">Detalle de la Venta</h4>
+    </div>
+    <div class="geex-content__section__content geex-content__market__content">
+      <div class="geex-content__market__single">
+        <div class="geex-content__market__single__wrapper">
+          <div class="geex-content__market__single__content">
 
-        <div class="geex-content__section__content geex-content__market__content" id="detalleVenta">
-            <div class="geex-content__market__single">
-                <div class="geex-content__market__single__wrapper">
-                    <div class="geex-content__market__single__content">
-                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.IdVenta)</h4>
-                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.IdVenta)</p>
-
-                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.FechaVenta)</h4>
-                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.FechaVenta)</p>
-
-                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.IdUsuario)</h4>
-                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.IdUsuario)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center mt-4 d-flex justify-content-center gap-10 flex-wrap">
-            @if (!User.IsInRole("Operador"))
+            @* Mensajes *@
+            @if (TempData["ErrorCancelar"] != null)
             {
-                <a asp-action="Edit" asp-route-id="@Model?.IdVenta" class="geex-btn geex-btn--primary-transparent">
-                    Editar
-                </a>
+              <div class="alert alert-danger">@TempData["ErrorCancelar"]</div>
+            }
+            @if (TempData["SuccessCancelar"] != null)
+            {
+              <div class="alert alert-success">@TempData["SuccessCancelar"]</div>
             }
 
-            <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">
-                Volver a la lista
-            </a>
+            <h4 class="geex-content__market__single__title">@Html.DisplayFor(m => m.CodigoIngreso)</h4>
+            <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(m => m.CodigoIngreso)</p>
 
-            @if (estadoActual == "Pendiente")
+            <h4 class="geex-content__market__single__title">@Html.DisplayFor(m => m.FechaVenta)</h4>
+            <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(m => m.FechaVenta)</p>
+
+            <h4 class="geex-content__market__single__title">@Html.DisplayFor(m => m.Usuario.Nombre)</h4>
+            <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(m => m.Usuario)</p>
+
+            @if (Model.DetallesVenta?.Any() == true)
             {
-                <form asp-action="Cancelar" asp-route-id="@Model.IdVenta" method="get" style="display:inline;">
-                    <button type="submit" class="geex-btn geex-btn--danger-transparent">
-                        Cancelar orden
-                    </button>
-                </form>
+              <h4 class="geex-content__market__single__title mt-4">Productos Vendidos</h4>
+              <ul>
+                @foreach (var item in Model.DetallesVenta)
+                {
+                  <li class="mb-2">@item.Producto?.NombreProducto — @item.Cantidad unidades</li>
+                }
+              </ul>
             }
             else
             {
-                <button type="button" class="geex-btn geex-btn--disabled" disabled title="Solo se puede cancelar si el estado es 'Pendiente'">
-                    Cancelar orden
-                </button>
-                <p class="text-white text-center mt-3">
-                    No se puede cancelar la venta porque su estado actual es "<strong>@estadoActual</strong>".
-                </p>
-
+              <p>No se registraron productos en esta venta.</p>
             }
-        </div>
 
-        @if (TempData["Error"] != null)
-        {
-            <div class="text-danger text-center mt-3">@TempData["Error"]</div>
-        }
-        @if (TempData["Success"] != null)
-        {
-            <div class="text-success text-center mt-3">@TempData["Success"]</div>
-        }
-    </div>
-</div>
-
-<script>
-    // Animación suave al entrar en pantalla
-    document.addEventListener('DOMContentLoaded', function () {
-        const card = document.getElementById('detalleVenta');
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-
-        setTimeout(() => {
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 100);
-    });
-
-    function cerrarDetalle() {
-        window.location.href = '@Url.Action("Index")';
-    }
-</script>
-
-@*
-<h1 class="text-center mb-4">Detalles de la Venta</h1>
-
-<div class="card-custom" id="cardDetails">
-    <h4 class="card-title">Información de la Venta</h4>
-    <hr class="border-light">
-
-    <p><strong>@Html.DisplayNameFor(model => model.IdVenta):</strong></p>
-    <p>@Html.DisplayFor(model => model.IdVenta)</p>
-
-    <p><strong>@Html.DisplayNameFor(model => model.FechaVenta):</strong></p>
-    <p>@Html.DisplayFor(model => model.FechaVenta)</p>
-
-    <p><strong>@Html.DisplayNameFor(model => model.IdUsuario):</strong></p>
-    <p>@Html.DisplayFor(model => model.IdUsuario)</p>
-</div>
-
-<div class="text-center mt-4">
-    @if (!User.IsInRole("Operador"))
-    {
-        <a asp-action="Edit" asp-route-id="@Model?.IdVenta" class="btn-green">Editar</a>
-    }
-    <a asp-action="Index" class="btn-green">Volver a la lista</a>
-</div>
-
-<script>
-    // Animación suave al entrar en pantalla
-    document.addEventListener('DOMContentLoaded', function () {
-        const card = document.getElementById('cardDetails');
-
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    card.classList.add('show');
-                    observer.unobserve(card);
+            @if (Model.HistorialesEstadoVenta?.Any() == true)
+            {
+              <h4 class="geex-content__market__single__title mt-4">Historial de Estado</h4>
+              <ul>
+                @foreach (var estado in Model.HistorialesEstadoVenta.OrderByDescending(h => h.FechaEstado))
+                {
+                  <li>@estado.EstadoVenta?.Descripcion (@estado.FechaEstado.ToString("g"))</li>
                 }
-            });
-        });
+              </ul>
+            }
 
-        observer.observe(card);
-    });
+            @{
+              var estadoActual = Model.HistorialesEstadoVenta?
+                .OrderByDescending(h => h.FechaEstado)
+                .FirstOrDefault()?.EstadoVenta?.Descripcion ?? "Desconocido";
+            }
+
+            <div class="mt-3">
+              @if (estadoActual == "Pendiente")
+              {
+                <button type="button" class="btn btn-outline-danger" onclick="mostrarFormularioCancelacion()">Cancelar Orden</button>
+
+                <div id="formularioCancelacion" class="mt-3" style="display: none;">
+                  <form asp-action="Cancelar" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="id" value="@Model.IdVenta" />
+
+                    <div class="mb-3">
+                      <label for="motivo" class="form-label">Motivo de la cancelación:</label>
+                      <textarea class="form-control" id="motivo" name="motivo" rows="3" required></textarea>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                      <button type="submit" class="btn btn-outline-danger">Confirmar Cancelación</button>
+                    </div>
+                  </form>
+                </div>
+              }
+              else
+              {
+                <button class="geex-btn" disabled>Cancelar Orden</button>
+                <p class="text-muted mt-2">
+                  Esta venta no puede ser cancelada porque su estado actual es: <strong>@estadoActual</strong>.
+                </p>
+              }
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <button class="geex-btn--small-center" onclick="cerrarDetalle()">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function mostrarFormularioCancelacion() {
+    document.getElementById("formularioCancelacion").style.display = "block";
+  }
+
+  function ocultarFormularioCancelacion() {
+    document.getElementById("formularioCancelacion").style.display = "none";
+  }
 </script>
-*@

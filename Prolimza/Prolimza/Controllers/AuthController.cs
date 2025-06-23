@@ -36,12 +36,12 @@ namespace Prolimza.Controllers
             }
 
             var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, usuario.Nombre),
-            new Claim(ClaimTypes.Email, usuario.Correo),
-            new Claim(ClaimTypes.Role, usuario.Rol.Nombre),
-            new Claim("IdUsuario", usuario.IdUsuario.ToString())
-        };
+            {
+                new Claim(ClaimTypes.Name, usuario.Nombre),
+                new Claim(ClaimTypes.Email, usuario.Correo),
+                new Claim(ClaimTypes.Role, usuario.Rol.Nombre),
+                new Claim("IdUsuario", usuario.IdUsuario.ToString())
+            };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -56,5 +56,35 @@ namespace Prolimza.Controllers
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login");
         }
-    }
+
+        [HttpGet]
+        public IActionResult Registro()
+        {
+            return View();
+        }
+
+		[HttpPost]
+		public async Task<IActionResult> Registro(string emailSignIn, string username, string loginPassword)
+		{
+			if (await _context.Usuarios.AnyAsync(u => u.Correo == emailSignIn))
+			{
+				ViewBag.Error = "El correo ya está registrado.";
+				return View();
+			}
+
+			Usuario usuario = new Usuario
+			{
+				Correo = emailSignIn,
+				Nombre = username,
+				contrasenaEncriptada = PasswordHelper.HashPassword(loginPassword),
+				IdRol = 4 // rol por defecto
+			};
+
+			_context.Usuarios.Add(usuario);
+			await _context.SaveChangesAsync();
+
+			return RedirectToAction("Login");
+		}
+
+	}
 }
