@@ -188,7 +188,7 @@ namespace Prolimza.Controllers
         // POST: Ventas/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdVenta,FechaVenta,IdUsuario")] Venta venta)
+        public async Task<IActionResult> Edit(int id, [Bind("IdVenta,FechaVenta,IdUsuario,CodigoIngreso")] Venta venta)
         {
             if (id != venta.IdVenta)
                 return NotFound();
@@ -225,6 +225,7 @@ namespace Prolimza.Controllers
                 {
                     ventaOriginal.FechaVenta = venta.FechaVenta;
                     ventaOriginal.IdUsuario = venta.IdUsuario;
+                    ventaOriginal.CodigoIngreso = venta.CodigoIngreso;
 
                     // Auditoría
                     var log = $"Venta Id {ventaOriginal.IdVenta} modificada. Fecha: {ventaOriginal.FechaVenta}, UsuarioId: {ventaOriginal.IdUsuario}";
