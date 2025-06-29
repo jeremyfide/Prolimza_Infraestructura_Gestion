@@ -145,6 +145,18 @@
       "PackagePath": "staticwebassets\\icons\\search-solid.svg"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-ai.svg",
+      "PackagePath": "staticwebassets\\icons\\side-ai.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-alertas.svg",
+      "PackagePath": "staticwebassets\\icons\\side-alertas.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-bi.svg",
+      "PackagePath": "staticwebassets\\icons\\side-bi.svg"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-bodegas.svg",
       "PackagePath": "staticwebassets\\icons\\side-bodegas.svg"
     },
@@ -167,6 +179,10 @@
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-materia.svg",
       "PackagePath": "staticwebassets\\icons\\side-materia.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-opcomerciales.svg",
+      "PackagePath": "staticwebassets\\icons\\side-opcomerciales.svg"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-productos.svg",
