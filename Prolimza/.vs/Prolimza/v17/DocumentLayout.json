@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\wwwroot\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\ventas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\ventas\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\ventas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\ventas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\comprascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 63,
+          "SelectedChildIndex": 61,
           "Children": [
             {
               "$type": "Bookmark",
@@ -274,55 +270,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Venta.cs",
-              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Venta.cs",
-              "RelativeDocumentMoniker": "Prolimza\\Models\\Venta.cs",
-              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Venta.cs",
-              "RelativeToolTip": "Prolimza\\Models\\Venta.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAjAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T04:04:58.853Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Create.cshtml",
-              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Ventas\\Create.cshtml",
-              "RelativeDocumentMoniker": "Prolimza\\Views\\Ventas\\Create.cshtml",
-              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Ventas\\Create.cshtml",
-              "RelativeToolTip": "Prolimza\\Views\\Ventas\\Create.cshtml",
-              "ViewState": "AQIAAEAAAAAAAAAAAAAswGoAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-23T03:24:33.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VentasController.cs",
-              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\VentasController.cs",
-              "RelativeDocumentMoniker": "Prolimza\\Controllers\\VentasController.cs",
-              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\VentasController.cs",
-              "RelativeToolTip": "Prolimza\\Controllers\\VentasController.cs",
-              "ViewState": "AQIAAM8AAAAAAAAAAAAAwOMAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-23T03:11:59.468Z",
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\style.css",
+              "RelativeDocumentMoniker": "Prolimza\\wwwroot\\css\\style.css",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\style.css",
+              "RelativeToolTip": "Prolimza\\wwwroot\\css\\style.css",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAkwL0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-06-26T03:24:36.737Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Ventas\\Edit.cshtml",
-              "RelativeDocumentMoniker": "Prolimza\\Views\\Ventas\\Edit.cshtml",
-              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Ventas\\Edit.cshtml",
-              "RelativeToolTip": "Prolimza\\Views\\Ventas\\Edit.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAB4AAABRAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-23T03:17:04.993Z",
+              "Title": "Compra.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Compra.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Models\\Compra.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Compra.cs",
+              "RelativeToolTip": "Prolimza\\Models\\Compra.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABCAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T23:50:33.662Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ComprasController.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\ComprasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\ComprasController.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\ComprasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\ComprasController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-23T23:50:16.375Z"
             }
           ]
         },
