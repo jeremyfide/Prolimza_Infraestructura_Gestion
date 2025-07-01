@@ -857,7 +857,7 @@
 			max: 75,
 			tickAmount: 3,
 		},
-		colors: ["#AB54DB", "#00A389", "#FF5B5B"],
+		colors: ["#4DAA57", "#00A389", "#FF5B5B"],
 		fill: {
 			colors: ['transparent', 'transparent', 'transparent'],
 			type: ['solid', 'solid', 'solid'],
@@ -951,7 +951,7 @@
 				show: false,
 			},
 		},
-		colors: ["#AB54DB26"],
+		colors: ["#4DAA5726"],
 		plotOptions: {
 		bar: {
 			columnWidth: 50,
@@ -1021,7 +1021,7 @@
 	let pieOptions = {
 		series: [44, 55, 41],
 		labels: ['Fixed Servers', 'Down Servers', 'Running'],
-		colors: ["#AB54DB", "#EF9A91", "#F1E6B9"],
+		colors: ["#4DAA57", "#EF9A91", "#F1E6B9"],
 		plotOptions: {
 			pie: {
 				expandOnClick: false,
