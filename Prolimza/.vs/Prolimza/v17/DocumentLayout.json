@@ -1,20 +1,7 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\compra.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\shared\\partials\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\shared\\partials\\_sidebar.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\controllers\\materiaprimascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\materiaprimascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "WorkspaceRootPath": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,16 +9,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 61,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -127,6 +106,10 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -254,6 +237,10 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
@@ -267,45 +254,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Compra.cs",
-              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Compra.cs",
-              "RelativeDocumentMoniker": "Prolimza\\Models\\Compra.cs",
-              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Compra.cs",
-              "RelativeToolTip": "Prolimza\\Models\\Compra.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T00:50:43.492Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MateriaPrimasController.cs",
-              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\MateriaPrimasController.cs",
-              "RelativeDocumentMoniker": "Prolimza\\Controllers\\MateriaPrimasController.cs",
-              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\MateriaPrimasController.cs",
-              "RelativeToolTip": "Prolimza\\Controllers\\MateriaPrimasController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-01T00:14:51.936Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_Sidebar.cshtml",
-              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Shared\\Partials\\_Sidebar.cshtml",
-              "RelativeDocumentMoniker": "Prolimza\\Views\\Shared\\Partials\\_Sidebar.cshtml",
-              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Shared\\Partials\\_Sidebar.cshtml",
-              "RelativeToolTip": "Prolimza\\Views\\Shared\\Partials\\_Sidebar.cshtml",
-              "ViewState": "AQIAAD0AAAAAAAAAAAAswLgAAABmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-06-30T06:08:36.306Z",
-              "EditorCaption": ""
             }
           ]
         },

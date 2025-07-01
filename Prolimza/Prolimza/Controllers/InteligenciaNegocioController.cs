@@ -1,5 +1,6 @@
 ﻿// Controlador: InteligenciaNegocioController.cs
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Prolimza.Models;
 using System.Globalization;
@@ -101,5 +102,53 @@ namespace Prolimza.Controllers
 
             return Json(data);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> ReporteRecetas(DateTime? fechaInicio, DateTime? fechaFin, string? tipoProducto)
+        {
+            string sql = @"
+        SELECT 
+            dv.idVenta,
+            v.fechaVenta,
+            p.nombreProducto,
+            CASE 
+                WHEN r.idReceta IS NOT NULL THEN 'Producido'
+                ELSE 'Comprado'
+            END AS tipoProducto,
+            mp.nombre AS nombreMateriaPrima,
+            mr.cantidad * dv.cantidad AS cantidadMateriaPrimaUsada,
+            dv.cantidad AS cantidadProductoVendido
+        FROM 
+            detalleVenta dv
+        JOIN venta v ON v.idVenta = dv.idVenta
+        JOIN producto p ON p.idProducto = dv.idProducto
+        LEFT JOIN receta r ON r.idProducto = p.idProducto
+        LEFT JOIN materiaReceta mr ON mr.idReceta = r.idReceta
+        LEFT JOIN materiaPrima mp ON mp.idMateriaPrima = mr.idMateriaPrima
+        WHERE 
+            (@fechaInicio IS NULL OR v.fechaVenta >= @fechaInicio) AND
+            (@fechaFin IS NULL OR v.fechaVenta <= @fechaFin) AND
+            (@tipoProducto IS NULL OR 
+                (@tipoProducto = 'Producido' AND r.idReceta IS NOT NULL) OR
+                (@tipoProducto = 'Comprado' AND r.idReceta IS NULL)
+            )
+        ORDER BY dv.idVenta, p.nombreProducto;
+    ";
+
+            var reporte = await _context.ReporteUsoMateriaPrimaViewModel
+                .FromSqlRaw(sql,
+                    new SqlParameter("@fechaInicio", (object?)fechaInicio ?? DBNull.Value),
+                    new SqlParameter("@fechaFin", (object?)fechaFin ?? DBNull.Value),
+                    new SqlParameter("@tipoProducto", (object?)tipoProducto ?? DBNull.Value)
+                )
+                .ToListAsync();
+
+            ViewData["FechaInicio"] = fechaInicio?.ToString("yyyy-MM-dd");
+            ViewData["FechaFin"] = fechaFin?.ToString("yyyy-MM-dd");
+            ViewData["TipoProducto"] = tipoProducto;
+
+            return View(reporte);
+        }
+
     }
 }

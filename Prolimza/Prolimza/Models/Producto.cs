@@ -14,7 +14,7 @@ namespace Prolimza.Models
         public Bodega? Bodega { get; set; }
 
         public ICollection<Receta>? Recetas { get; set; } = new List<Receta>();
-        public ICollection<DetalleCompraProducto> DetallesCompraProductos { get; set; }
+        public ICollection<DetalleCompraProducto>? DetallesCompraProductos { get; set; }
 
     }
 }
