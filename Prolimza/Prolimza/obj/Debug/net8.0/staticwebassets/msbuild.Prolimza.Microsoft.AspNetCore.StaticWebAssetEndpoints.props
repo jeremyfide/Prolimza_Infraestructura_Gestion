@@ -84,17 +84,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-TgOspp4J6sZQ\u002BU6qVbW6dimoSM0DYaTFEYrSujvjCxg="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"246"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022TgOspp4J6sZQ\u002BU6qVbW6dimoSM0DYaTFEYrSujvjCxg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Jun 2025 02:53:14 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/Prolimza/css/style.5zg43oi9cu.css">
+    <StaticWebAssetEndpoint Include="_content/Prolimza/css/style.bayaaewviy.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"5zg43oi9cu"},{"Name":"integrity","Value":"sha256-Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos="},{"Name":"label","Value":"_content/Prolimza/css/style.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"272998"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos=\u0022"},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 23:38:04 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bayaaewviy"},{"Name":"integrity","Value":"sha256-E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y="},{"Name":"label","Value":"_content/Prolimza/css/style.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"273585"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Jun 2025 23:08:22 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Prolimza/css/style.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\style.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"272998"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos=\u0022"},{"Name":"Last-Modified","Value":"Mon, 23 Jun 2025 23:38:04 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"273585"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y=\u0022"},{"Name":"Last-Modified","Value":"Mon, 30 Jun 2025 23:08:22 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Prolimza/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
@@ -1744,13 +1744,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Prolimza.ohh4f1xgrw.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-dKtRuuAmNBndAzI/B6TvBIr2sXEIVFLI5woAGuvd5Lg="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022dKtRuuAmNBndAzI/B6TvBIr2sXEIVFLI5woAGuvd5Lg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 20 Jun 2025 18:22:32 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022dKtRuuAmNBndAzI/B6TvBIr2sXEIVFLI5woAGuvd5Lg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 01:03:58 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Prolimza/Prolimza.ohh4f1xgrw.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Prolimza.ohh4f1xgrw.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ohh4f1xgrw"},{"Name":"integrity","Value":"sha256-dKtRuuAmNBndAzI/B6TvBIr2sXEIVFLI5woAGuvd5Lg="},{"Name":"label","Value":"_content/Prolimza/Prolimza.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022dKtRuuAmNBndAzI/B6TvBIr2sXEIVFLI5woAGuvd5Lg=\u0022"},{"Name":"Last-Modified","Value":"Fri, 20 Jun 2025 18:22:32 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022dKtRuuAmNBndAzI/B6TvBIr2sXEIVFLI5woAGuvd5Lg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 01 Jul 2025 01:03:58 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/Prolimza/sass/content.0angkuym6w.scss">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\sass\content.scss'))</AssetFile>

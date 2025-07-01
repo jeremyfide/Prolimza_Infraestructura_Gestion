@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6z4NZBazJ6nFyGPHW3Kbc5skstNvD4rY+ew6AKAVEMs=",
+  "Hash": "0N8X7EiF3gG7+0gdlzeA0Zss1TQ/xZSSK1xmP/jXtkE=",
   "Source": "Prolimza",
   "BasePath": "_content/Prolimza",
   "Mode": "Default",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "5zg43oi9cu",
-      "Integrity": "Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos=",
+      "Fingerprint": "bayaaewviy",
+      "Integrity": "E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
@@ -4501,7 +4501,7 @@
       ]
     },
     {
-      "Route": "css/style.5zg43oi9cu.css",
+      "Route": "css/style.bayaaewviy.css",
       "AssetFile": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\css\\style.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4511,7 +4511,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "272998"
+          "Value": "273585"
         },
         {
           "Name": "Content-Type",
@@ -4519,11 +4519,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos=\""
+          "Value": "\"E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 23 Jun 2025 23:38:04 GMT"
+          "Value": "Mon, 30 Jun 2025 23:08:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4533,7 +4533,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "5zg43oi9cu"
+          "Value": "bayaaewviy"
         },
         {
           "Name": "label",
@@ -4541,7 +4541,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos="
+          "Value": "sha256-E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y="
         }
       ]
     },
@@ -4556,7 +4556,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "272998"
+          "Value": "273585"
         },
         {
           "Name": "Content-Type",
@@ -4564,11 +4564,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos=\""
+          "Value": "\"E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 23 Jun 2025 23:38:04 GMT"
+          "Value": "Mon, 30 Jun 2025 23:08:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4578,7 +4578,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Dy4tJ5uRzR7SwDln1d35EZSBn01nAz8GLAJQJLoFwos="
+          "Value": "sha256-E87SNk4Zf0Jg1Xc8I9uSLUy8u0EchLOyHxatCXfLA7Y="
         }
       ]
     },
@@ -15921,7 +15921,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Jun 2025 18:22:32 GMT"
+          "Value": "Tue, 01 Jul 2025 01:03:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -15958,7 +15958,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Jun 2025 18:22:32 GMT"
+          "Value": "Tue, 01 Jul 2025 01:03:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16003,7 +16003,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Jun 2025 18:22:32 GMT"
+          "Value": "Tue, 01 Jul 2025 01:03:58 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -16048,7 +16048,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 20 Jun 2025 18:22:32 GMT"
+          "Value": "Tue, 01 Jul 2025 01:03:58 GMT"
         },
         {
           "Name": "Cache-Control",
