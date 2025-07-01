@@ -1,0 +1,47 @@
+﻿<div id="alertas-container" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
+@section Scripts {
+    <script>
+        async function cargarAlertasPendientes() {
+            const response = await fetch('/Alertas/GetPendientes');
+            const alertas = await response.json();
+
+            const container = document.getElementById('alertas-container');
+            container.innerHTML = '';
+
+            alertas.forEach(alerta => {
+                const alertaDiv = document.createElement('div');
+                alertaDiv.className = 'alert alert-warning alert-dismissible fade show';
+                alertaDiv.role = 'alert';
+                alertaDiv.innerHTML = `
+                    <strong>¡Alerta!</strong> ${alerta.Descripcion} - ${alerta.FechaAlerta}
+                    <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" id="chk_${alerta.IdAlerta}">
+                        <label class="form-check-label" for="chk_${alerta.IdAlerta}">
+                            Marcar como revisada
+                        </label>
+                    </div>
+                `;
+
+                container.appendChild(alertaDiv);
+
+                const checkbox = alertaDiv.querySelector(`#chk_${alerta.IdAlerta}`);
+                checkbox.addEventListener('change', async () => {
+                    if (checkbox.checked) {
+                        await fetch('/Alertas/Acknowledge', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ id: alerta.IdAlerta })
+                        });
+                        alertaDiv.remove();
+                    }
+                });
+            });
+        }
+
+        // Cargar alertas al cargar la página
+        document.addEventListener('DOMContentLoaded', cargarAlertasPendientes);
+    </script>
+}

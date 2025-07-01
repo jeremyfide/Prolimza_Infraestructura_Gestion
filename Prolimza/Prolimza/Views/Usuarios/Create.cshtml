@@ -1,0 +1,38 @@
+﻿@model Prolimza.Models.Usuario
+
+@{
+    ViewData["Title"] = "Crear Usuario";
+    ViewData["subTitle"] = "Formulario para registrar nuevos usuarios desde la perspectiva de administrador.";
+}
+
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Create" class="form-container">
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre del usuario" />
+            </div>
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Correo" class="form-control-custom" placeholder="Correo electrónico" />
+            </div>
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="contrasenaEncriptada" class="form-control-custom" placeholder="Contraseña" type="password" />
+            </div>
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="Correo" class="text-danger"></span>
+                <span asp-validation-for="contrasenaEncriptada" class="text-danger"></span>
+            </div>
+                
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Crear</button>
+                <a asp-action="Index" asp-controller="Usuarios" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

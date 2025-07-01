@@ -1,0 +1,42 @@
+﻿@model Prolimza.Models.Bodega
+
+@{
+    ViewData["Title"] = "Crear Bodega";
+    ViewData["subTitle"] = "Formulario para crear bodegas desde la perspectiva de administrador.";
+}
+
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Create" class="form-container">
+            <div class="geex-content__form__single__box mb-20">
+    <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la bodega" />
+            </div>
+                <div class="geex-content__form__single__box mb-20">
+    <input asp-for="DetalleDireccion" class="form-control-custom" placeholder="Dirección detallada" />
+                </div>
+                    <div class="geex-content__form__single__box mb-20">
+    <select asp-for="IdDistrito" asp-items="ViewBag.IdDistrito" class="form-control-custom">
+        <option value="">Seleccione un distrito</option>
+    </select>
+                    </div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="DetalleDireccion" class="text-danger"></span>
+                <span asp-validation-for="IdDistrito" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Crear</button>
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

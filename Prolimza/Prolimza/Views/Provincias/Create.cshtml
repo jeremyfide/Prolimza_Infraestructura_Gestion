@@ -1,0 +1,33 @@
+﻿@model Prolimza.Models.Provincia
+
+@{
+    ViewData["Title"] = "Crear Provincia";
+    ViewData["subTitle"] = "Formulario para crear provincias desde la perspectiva de administrador.";
+}
+
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Create" class="form-container animate__animated animate__fadeInUp">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la provincia" />
+            </div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Crear</button>
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

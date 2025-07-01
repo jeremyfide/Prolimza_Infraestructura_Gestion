@@ -1,0 +1,26 @@
+﻿@model Prolimza.Models.Bodega
+
+<div class="geex-content__double-column mb-40">
+    <div class="geex-content__section geex-content__market">
+        <div class="geex-content__section__header">
+            <h4 class="geex-content__section__header__title">Información del Usuario</h4>
+        </div>
+        <div class="geex-content__section__content geex-content__market__content">
+            <div class="geex-content__market__single">
+                <div class="geex-content__market__single__wrapper">
+                    <div class="geex-content__market__single__content">
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Nombre)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Nombre)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.DetalleDireccion)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.DetalleDireccion)</p>
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.Distrito.Nombre)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.Distrito)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="geex-btn--small-center" onclick="cerrarDetalle()">Cerrar</button>
+        </div>
+    </div>
+</div>

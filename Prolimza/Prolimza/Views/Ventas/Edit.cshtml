@@ -1,0 +1,93 @@
+﻿@model Prolimza.Models.Venta
+
+@{
+    ViewData["Title"] = "Editar Venta";
+    ViewData["subTitle"] = "Formulario para editar ventas desde la perspectiva de administrador.";
+    var estadoActual = ViewData["EstadoActual"] as string ?? "Desconocido";
+    bool puedeEditar = estadoActual == "Pendiente";
+}
+
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+
+        <div class="text-white mb-4 text-center">
+            Estado actual: <strong>@estadoActual</strong>
+        </div>
+
+        <form asp-action="Edit" class="form-container" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdVenta" />
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="IdVenta" placeholder="ID de la venta" readonly />
+            </div>
+            <div class="geex-content__form__single__box mb-20">
+                @if (puedeEditar)
+                {
+                    <input asp-for="CodigoIngreso" placeholder="Codigo de ingreso" />
+                }
+                else
+                {
+                    <input asp-for="CodigoIngreso" placeholder="Codigo de ingreso" readonly />
+                }
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                @if (puedeEditar)
+                {
+                    <input asp-for="FechaVenta" placeholder="Fecha de la venta" />
+                }
+                else
+                {
+                    <input asp-for="FechaVenta" placeholder="Fecha de la venta" readonly />
+                }
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                @if (puedeEditar)
+                {
+                    <select asp-for="IdUsuario" asp-items="@(ViewData["IdUsuario"] as SelectList)"></select>
+                }
+                else
+                {
+                    <select asp-for="IdUsuario" asp-items="@(ViewData["IdUsuario"] as SelectList)" disabled></select>
+                }
+            </div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="IdVenta" class="text-danger"></span>
+                <span asp-validation-for="FechaVenta" class="text-danger"></span>
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center mt-4">
+                @if (puedeEditar)
+                {
+                    <button type="submit" class="geex-btn geex-btn--primary-transparent">
+                        <i class="uil-plus"></i> Guardar
+                    </button>
+                }
+                else
+                {
+                    <button type="submit" class="geex-btn geex-btn--disabled" disabled>
+                        <i class="uil-plus"></i> Guardar
+                    </button>
+                }
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+
+            @if (!puedeEditar)
+            {
+                <p class="text-white text-center mt-3">
+                    No se puede editar la venta porque su estado actual es "<strong>@estadoActual</strong>".
+                </p>
+            }
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

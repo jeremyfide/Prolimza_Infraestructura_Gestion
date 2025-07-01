@@ -1,0 +1,145 @@
+﻿@model Prolimza.Models.Receta
+
+@{
+    ViewData["Title"] = "Editar Receta";
+    ViewData["subTitle"] = "Formulario para editar recetas desde la perspectiva de administrador.";
+}
+
+<!-- Formulario Editar -->
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Edit" class="form-container">
+
+            <input type="hidden" asp-for="IdReceta" />
+
+            <div class="geex-content__form__single__box mb-20">
+                <select asp-for="IdProducto" asp-items="ViewBag.Productos" class="form-control-custom">
+                    <option value="">Seleccione un producto</option>
+                </select>
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" />
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" />
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <!-- Template oculto para opciones -->
+                <template id="materiaPrimaOptionsTemplate">
+                    @foreach (var item in (SelectList)ViewBag.MateriasPrimas)
+                    {
+                        <option value="@item.Value">@item.Text</option>
+                    }
+                </template>
+
+                <div class="contenedorMateria" id="materiaRecetaContainer">
+                    @{
+                        var listaMaterias = Model.MateriasReceta?.ToList() ?? new List<Prolimza.Models.MateriaReceta>();
+                    }
+
+                    @for (int i = 0; i < listaMaterias.Count; i++)
+                    {
+                        <div class="materia-receta-row mb-2">
+                            <div class="geex-content__form__single__box d-flex gap-20">
+                                <select name="MateriasReceta[@i].IdMateriaPrima"
+                                        class="form-control-custom w-100"
+                                        required>
+                                    <option value="">Seleccione una materia prima</option>
+                                    @foreach (SelectListItem item in ViewBag.MateriasPrimas)
+                                    {
+                                        var isSelected = item.Value == listaMaterias[i].IdMateriaPrima.ToString();
+                                        <option value="@item.Value" selected="@(isSelected ? "selected" : null)">
+                                            @item.Text
+                                        </option>
+                                    }
+                                </select>
+
+                                <input name="MateriasReceta[@i].Cantidad"
+                                       value="@listaMaterias[i].Cantidad"
+                                       class="form-control-custom w-100"
+                                       placeholder="Cantidad"
+                                       type="number"
+                                       min="1"
+                                       required />
+
+                                <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="IdProducto" class="text-danger"></span>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="button" class="geex-btn geex-btn--primary-transparent w-auto" onclick="addMateriaReceta()"><i class="uil-plus"></i> Materia Prima</button>
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Guardar</button>
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <!-- Hidden template for select options -->
+    <template id="materiaPrimaOptionsTemplate">
+        @foreach (var item in (SelectList)ViewBag.MateriasPrimas)
+        {
+            <option value="@item.Value">@item.Text</option>
+        }
+    </template>
+
+    <script>
+        let index = @(Model.MateriasReceta?.Count() ?? 0);
+
+        function addMateriaReceta() {
+            const container = document.getElementById("materiaRecetaContainer");
+
+            const div = document.createElement("div");
+            div.classList.add("materia-receta-row", "mb-2");
+
+            div.innerHTML = `
+                <div class="geex-content__form__single__box d-flex gap-20">
+                    <select name="MateriasReceta[${index}].IdMateriaPrima" class="form-control-custom w-100" required>
+                        <option value="">Seleccione una materia prima</option>
+                        ${getOptionsHtml()}
+                    </select>
+
+                    <input name="MateriasReceta[${index}].Cantidad"
+                           class="form-control-custom w-100"
+                           placeholder="Cantidad"
+                           type="number"
+                           min="1"
+                           required />
+
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
+                </div>
+            `;
+
+            container.appendChild(div);
+            index++;
+        }
+
+        function removeMateriaReceta(button) {
+            const row = button.closest('.materia-receta-row');
+            if (row) row.remove();
+        }
+
+        function getOptionsHtml() {
+            const template = document.getElementById("materiaPrimaOptionsTemplate");
+            return template.innerHTML;
+        }
+    </script>
+
+}

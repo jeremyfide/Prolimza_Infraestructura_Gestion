@@ -1,0 +1,49 @@
+﻿@model Prolimza.Models.Usuario
+
+@{
+    ViewData["Title"] = "Edit";
+    ViewData["subTitle"] = "Formulario para editar usuarios desde la perspectiva de administrador.";
+}
+
+<!-- Formulario Editar Usuario -->
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Edit" class="form-container">
+            <input type="hidden" asp-for="IdUsuario" />
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Nombre" placeholder="Nombre del usuario" />
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Correo" placeholder="Correo del usuario" />
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="contrasenaEncriptada" placeholder="Contraseña" />
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <select asp-for="IdRol" asp-items="ViewBag.IdRol"></select>
+            </div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="Correo" class="text-danger"></span>
+                <span asp-validation-for="contrasenaEncriptada" class="text-danger"></span>
+                <span asp-validation-for="IdRol" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Guardar</button>
+                <a asp-action="Index" asp-controller="Usuarios" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

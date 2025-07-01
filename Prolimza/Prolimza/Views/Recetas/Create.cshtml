@@ -1,0 +1,95 @@
+﻿@model Prolimza.Models.Receta
+
+@{
+    ViewData["Title"] = "Crear Receta";
+    ViewData["subTitle"] = "Formulario para crear recetas desde la perspectiva de administrador.";
+}
+
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Create" class="form-container animate__animated animate__fadeInUp">
+            <div class="geex-content__form__single__box mb-20">
+                <select asp-for="IdProducto" asp-items="ViewBag.Productos" class="form-control-custom" required>
+                    <option value="">Seleccione un Producto</option>
+                </select>
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Nombre" class="form-control-custom" placeholder="Nombre de la receta" required />
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" required />
+            </div>
+
+            <div class="contenedorMateria" id="materiaRecetaContainer"></div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="IdProducto" class="text-danger"></span>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="button" class="geex-btn geex-btn--primary-transparent w-auto" onclick="addMateriaReceta()"><i class="uil-plus"></i> Materia Prima</button>
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Crear</button>
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        let index = @(Model.MateriasReceta != null ? Model.MateriasReceta.Count() : 0);
+
+        function addMateriaReceta() {
+            const container = document.getElementById("materiaRecetaContainer");
+
+            const div = document.createElement("div");
+            div.classList.add("materia-receta-row", "mb-2");
+
+            div.innerHTML = `
+                <div class="geex-content__form__single__box d-flex gap-20">
+                    <select name="MateriasReceta[${index}].IdMateriaPrima"
+                            class="form-control-custom w-100"
+                            required>
+                        <option value="">Seleccione una materia prima</option>
+                        ${getOptionsHtml()}
+                    </select>
+
+                    <input name="MateriasReceta[${index}].Cantidad"
+                           class="form-control-custom w-100"
+                           placeholder="Cantidad"
+                           type="number"
+                           min="1"
+                           required />
+
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeMateriaReceta(this)">❌</button>
+                </div>
+            `;
+
+            container.appendChild(div);
+            index++;
+        }
+
+        function removeMateriaReceta(button) {
+            const row = button.closest('.materia-receta-row');
+            if (row) {
+                row.remove();
+            }
+        }
+
+        function getOptionsHtml() {
+            return `@foreach (var item in (SelectList)ViewBag.MateriasPrimas)
+        {
+            <text><option value="@item.Value">@item.Text</option></text>
+        }`;
+        }
+    </script>
+
+}

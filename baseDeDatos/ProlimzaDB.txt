@@ -1,0 +1,312 @@
+-- Crear Base de Datos
+CREATE DATABASE ProlimzaDB;
+GO
+
+USE ProlimzaDB;
+GO
+
+-- Tabla: provincia
+CREATE TABLE provincia (
+    idProvincia INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL
+);
+
+-- Tabla: canton
+CREATE TABLE canton (
+    idCanton INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    idProvincia INT FOREIGN KEY REFERENCES provincia(idProvincia)
+);
+
+-- Tabla: distrito
+CREATE TABLE distrito (
+    idDistrito INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    idCanton INT FOREIGN KEY REFERENCES canton(idCanton)
+);
+
+-- Tabla: bodega
+CREATE TABLE bodega (
+    idBodega INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    detalleDireccion VARCHAR(255),
+    idDistrito INT FOREIGN KEY REFERENCES distrito(idDistrito)
+);
+
+-- Tabla: materiaPrima
+CREATE TABLE materiaPrima (
+    idMateriaPrima INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255),
+    sku VARCHAR(50) UNIQUE,
+    cantidad INT NOT NULL,
+    fechaCaducidad DATETIME,
+    idBodega INT FOREIGN KEY REFERENCES bodega(idBodega)
+);
+
+-- Tabla: producto
+CREATE TABLE producto (
+    idProducto INT PRIMARY KEY IDENTITY(1,1),
+    nombreProducto VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255),
+    sku VARCHAR(50) UNIQUE,
+    cantidad INT NOT NULL,
+    fechaCaducidad DATETIME,
+    idBodega INT FOREIGN KEY REFERENCES bodega(idBodega)
+);
+
+-- Tabla: roles
+CREATE TABLE roles (
+    idRol INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255)
+);
+
+-- Tabla: usuario
+CREATE TABLE usuario (
+    idUsuario INT PRIMARY KEY IDENTITY(1,1),
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) UNIQUE NOT NULL,
+    contrasenaEncriptada VARCHAR(255) NOT NULL,
+    idRol INT FOREIGN KEY REFERENCES roles(idRol)
+);
+
+-- Tabla: auditoria (actualizada)
+CREATE TABLE auditoria (
+    idAuditoria INT PRIMARY KEY IDENTITY(1,1),
+    log VARCHAR(255) NOT NULL,
+    tipoEvento VARCHAR(100) NOT NULL,
+    fechaEvento DATETIME NOT NULL DEFAULT GETDATE(),
+    idUsuario INT NOT NULL FOREIGN KEY REFERENCES usuario(idUsuario)
+);
+
+-- Tabla: receta
+CREATE TABLE receta (
+    idReceta INT PRIMARY KEY IDENTITY(1,1),
+    idProducto INT FOREIGN KEY REFERENCES producto(idProducto) ON DELETE CASCADE,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255)
+);
+
+-- Tabla: materiaReceta
+CREATE TABLE materiaReceta (
+    idReceta INT FOREIGN KEY REFERENCES receta(idReceta) ON DELETE CASCADE,
+    idMateriaPrima INT FOREIGN KEY REFERENCES materiaPrima(idMateriaPrima) ON DELETE CASCADE,
+    cantidad INT NOT NULL,
+    PRIMARY KEY (idReceta, idMateriaPrima)
+);
+
+-- Tabla: compra
+CREATE TABLE compra (
+    idCompra INT PRIMARY KEY IDENTITY(1,1),
+    fechaCompra DATETIME NOT NULL,
+    idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
+);
+
+-- Tabla: detalleCompraProducto
+CREATE TABLE detalleCompraProducto (
+    idCompra INT FOREIGN KEY REFERENCES compra(idCompra),
+    idProducto INT FOREIGN KEY REFERENCES producto(idProducto),
+    cantidad INT NOT NULL,
+    PRIMARY KEY (idCompra, idProducto)
+);
+
+-- Tabla: detalleCompraMateriaPrima
+CREATE TABLE detalleCompraMateriaPrima (
+    idCompra INT FOREIGN KEY REFERENCES compra(idCompra),
+    idMateriaPrima INT FOREIGN KEY REFERENCES materiaPrima(idMateriaPrima),
+    cantidad INT NOT NULL,
+    PRIMARY KEY (idCompra, idMateriaPrima)
+);
+
+-- Tabla: venta
+CREATE TABLE venta (
+    idVenta INT PRIMARY KEY IDENTITY(1,1),
+    fechaVenta DATETIME NOT NULL,
+    idUsuario INT FOREIGN KEY REFERENCES usuario(idUsuario)
+);
+
+-- Tabla: detalleVenta
+CREATE TABLE detalleVenta (
+    idVenta INT FOREIGN KEY REFERENCES venta(idVenta),
+    idProducto INT FOREIGN KEY REFERENCES producto(idProducto),
+    cantidad INT NOT NULL,
+    PRIMARY KEY (idVenta, idProducto)
+);
+
+-- Tabla: estadoVenta
+CREATE TABLE estadoVenta (
+    idEstadoVenta INT PRIMARY KEY IDENTITY(1,1),
+    descripcion VARCHAR(255) NOT NULL
+);
+
+-- Tabla: historialEstadoVenta
+CREATE TABLE historialEstadoVenta (
+    idHistorialEstadoVenta INT PRIMARY KEY IDENTITY(1,1),
+    idVenta INT FOREIGN KEY REFERENCES venta(idVenta),
+    idEstadoVenta INT FOREIGN KEY REFERENCES estadoVenta(idEstadoVenta),
+    fechaEstado DATETIME NOT NULL
+);
+
+-- =======================================
+-- ============ INSERTS ==================
+-- =======================================
+
+-- provincia
+INSERT INTO provincia (nombre) VALUES 
+('San José'), ('Alajuela'), ('Cartago'), ('Heredia'), ('Guanacaste');
+
+-- canton
+INSERT INTO canton (nombre, idProvincia) VALUES 
+('Central', 1), ('Desamparados', 1), ('Alajuela', 2), ('Orotina', 2), ('Cartago', 3);
+
+-- distrito
+INSERT INTO distrito (nombre, idCanton) VALUES 
+('Carmen', 1), ('San Juan de Dios', 2), ('El Coyol', 3), ('Mastate', 4), ('Occidental', 5);
+
+-- bodega
+INSERT INTO bodega (nombre, detalleDireccion, idDistrito) VALUES 
+('Bodega Central', 'Avenida 1, Calle 2', 1),
+('Bodega Norte', 'Ruta 32, km 15', 2),
+('Bodega Este', 'Zona Industrial', 3),
+('Bodega Sur', 'Frente a Plaza Real', 4),
+('Bodega Oeste', 'Al lado del hospital', 5);
+
+-- materiaPrima
+INSERT INTO materiaPrima (nombre, descripcion, sku, cantidad, fechaCaducidad, idBodega) VALUES 
+('Harina', 'Harina de trigo 000', 'MP001', 100, '2025-12-31', 1),
+('Azúcar', 'Azúcar refinada', 'MP002', 200, '2026-01-15', 2),
+('Sal', 'Sal marina', 'MP003', 50, '2027-03-01', 3),
+('Levadura', 'Levadura seca activa', 'MP004', 25, '2025-10-10', 4),
+('Manteca', 'Manteca vegetal', 'MP005', 80, '2025-11-05', 5);
+
+-- producto
+INSERT INTO producto (nombreProducto, descripcion, sku, cantidad, fechaCaducidad, idBodega) VALUES 
+('Pan Integral', 'Pan saludable con fibra', 'P001', 30, '2025-06-15', 1),
+('Galletas', 'Galletas con chispas de chocolate', 'P002', 100, '2025-07-20', 2),
+('Pastel', 'Pastel de tres leches', 'P003', 10, '2025-05-01', 3),
+('Donas', 'Donas glaseadas', 'P004', 50, '2025-05-10', 4),
+('Queque', 'Queque de vainilla', 'P005', 20, '2025-06-10', 5);
+
+-- roles
+INSERT INTO roles (nombre, descripcion) VALUES 
+('Administrador', 'Acceso total al sistema'),
+('Contador', 'Acceso a Modulo de inventario y productos'),
+('Productor', 'Acceso a funcionalidades de produccion y recetas'),
+('Operador', 'Puede registrar compras y ventas, sin permiso de modificacion');
+
+-- usuario
+INSERT INTO usuario (nombre, correo, contrasenaEncriptada, idRol) VALUES 
+('Carlos López', 'carlos@prolimza.com', '1234hash', 1),
+('María Gómez', 'maria@prolimza.com', 'abcdhash', 2),
+('Pedro Ruiz', 'pedro@prolimza.com', 'efghhash', 3),
+('Ana Vargas', 'ana@prolimza.com', 'ijklhash', 4),
+('Luis Mora', 'luis@prolimza.com', 'mnophash', 4);
+
+-- auditoria (actualizada)
+INSERT INTO auditoria (log, tipoEvento, idUsuario) VALUES 
+('Se modificó cantidad', 'Actualización', 1),
+('Se eliminó producto', 'Eliminación', 2),
+('Ingreso de materia prima', 'Creación', 3),
+('Actualización de stock', 'Actualización', 4),
+('Ingreso nuevo producto', 'Creación', 5);
+
+-- receta
+INSERT INTO receta (idProducto, nombre, descripcion) VALUES 
+(1, 'Receta Pan Integral', 'Mezcla de ingredientes integrales'),
+(2, 'Receta Galletas', 'Galletas con chips'),
+(3, 'Receta Pastel', 'Pastel húmedo y suave'),
+(4, 'Receta Donas', 'Donas dulces'),
+(5, 'Receta Queque', 'Receta tradicional');
+
+-- materiaReceta
+INSERT INTO materiaReceta (idReceta, idMateriaPrima, cantidad) VALUES 
+(1, 1, 20),
+(2, 2, 10),
+(3, 4, 5),
+(4, 1, 10),
+(5, 5, 7);
+
+-- compra
+INSERT INTO compra (fechaCompra, idUsuario) VALUES 
+('2025-04-01', 4),
+('2025-04-02', 4),
+('2025-04-03', 4),
+('2025-04-04', 4),
+('2025-04-05', 4);
+
+-- detalleCompraProducto
+INSERT INTO detalleCompraProducto (idCompra, idProducto, cantidad) VALUES 
+(1, 1, 10),
+(2, 2, 20),
+(3, 3, 5),
+(4, 4, 8),
+(5, 5, 7);
+
+-- detalleCompraMateriaPrima
+INSERT INTO detalleCompraMateriaPrima (idCompra, idMateriaPrima, cantidad) VALUES 
+(1, 1, 30),
+(2, 2, 40),
+(3, 3, 15),
+(4, 4, 12),
+(5, 5, 18);
+
+-- venta
+INSERT INTO venta (fechaVenta, idUsuario) VALUES 
+('2025-04-10', 3),
+('2025-04-11', 3),
+('2025-04-12', 3),
+('2025-04-13', 3),
+('2025-04-14', 3);
+
+-- detalleVenta
+INSERT INTO detalleVenta (idVenta, idProducto, cantidad) VALUES 
+(1, 1, 5),
+(2, 2, 10),
+(3, 3, 2),
+(4, 4, 6),
+(5, 5, 3);
+
+-- estadoVenta
+INSERT INTO estadoVenta (descripcion) VALUES 
+('Pendiente'),
+('Procesando'),
+('Enviado'),
+('Entregado'),
+('Cancelado');
+
+-- historialEstadoVenta
+INSERT INTO historialEstadoVenta (idVenta, idEstadoVenta, fechaEstado) VALUES 
+(1, 1, '2025-04-10'),
+(2, 2, '2025-04-11'),
+(3, 3, '2025-04-12'),
+(4, 4, '2025-04-13'),
+(5, 5, '2025-04-14');
+
+
+--------------------------------------------------------------
+
+ALTER TABLE producto ADD stockMinimo INT DEFAULT 10;
+ALTER TABLE materiaPrima ADD stockMinimo INT DEFAULT 10;
+
+
+----------------------------------------------
+
+CREATE TABLE alerta (
+    idAlerta INT PRIMARY KEY IDENTITY(1,1),
+    tipo VARCHAR(50) NOT NULL, -- Ej: 'Stock', 'Caducidad', 'Sistema', 'Auditoria'
+    descripcion VARCHAR(255),
+    fechaAlerta DATETIME NOT NULL DEFAULT GETDATE(),
+    estado VARCHAR(50) NOT NULL DEFAULT 'Pendiente', -- 'Pendiente', 'Revisada', 'Resuelta'
+    idUsuario INT NULL, -- Usuario relacionado que generó la alerta (opcional)
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+);
+
+
+----------------------------------
+
+ALTER TABLE compra
+ADD estado VARCHAR(20) NOT NULL DEFAULT 'Pendiente',
+    codigoIngreso VARCHAR(50) NOT NULL DEFAULT 'Nulo';
+
+

@@ -1,0 +1,146 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Reporte de Ventas";
+    var ventas = ViewData["Ventas"] as List<Prolimza.Models.Venta>;
+}
+
+<div class="geex-content__wrapper">
+    <div class="geex-content__section-wrapper">
+        <!--Cards-->
+        <div class="geex-content__feature mb-40">
+
+            <!-- CARD START -->
+            <div class="geex-content__feature__card">
+                <div class="geex-content__feature__card__text">
+                    <p class="geex-content__feature__card__subtitle">Memory</p>
+                    <h4 class="geex-content__feature__card__title">200TB</h4>
+                    <span class="geex-content__feature__card__badge">+2.5%</span>
+                </div>
+            </div>
+            <!-- CARD END -->
+        </div>
+
+        <!--Grafico principal-->
+        <div class="geex-content__section geex-content__server-request mb-40">
+            <div class="geex-content__section__header">
+                <div class="geex-content__section__header__title-part">
+                    <h4 class="geex-content__section__header__title">Server Request</h4>
+                </div>
+            </div>
+            <div class="geex-content__section__content">
+                <div id="line-chart" class="server-request-chart"></div>
+            </div>
+        </div>
+
+        <!--Graficos secundarios-->
+        <div class="geex-content__double-column mb-40">
+
+            <!-- COLUMN CHART START -->
+            <div class="geex-content__section geex-content__visitor-count">
+                <div class="geex-content__section__header">
+                    <div class="geex-content__section__header__title-part">
+                        <h4 class="geex-content__section__header__title">Visitors</h4>
+                    </div>
+                    <div class="geex-content__section__header__content-part">
+                        <div class="geex-content__section__header__btn">
+                            <a href="#" class="geex-content__section__header__link">
+                                View More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="geex-content__section__content">
+                    <div class="geex-content__visitor-count__number">
+                        <h2 class="geex-content__visitor-count__number__title">98,425k</h2>
+                        <div class="geex-content__visitor-count__number__text">
+                            <span class="geex-content__visitor-count__number__subtitle">+2.5%</span>
+                            <p class="geex-content__visitor-count__number__desc">Than last week</p>
+                        </div>
+                    </div>
+                    <div id="column-chart"></div>
+                </div>
+            </div>
+            <!-- COLUMN CHART END -->
+            <!-- PIE CHART START -->
+            <div class="geex-content__section geex-content__chat-summary">
+                <div class="geex-content__section__header">
+                    <div class="geex-content__section__header__title-part">
+                        <h4 class="geex-content__section__header__title">Chart Summary</h4>
+                    </div>
+                    <div class="geex-content__section__header__content-part">
+                        <div class="geex-content__section__header__btn">
+                            <a href="#" class="geex-content__section__header__link">
+                                Download Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="geex-content__section__content">
+                    <div id="pie-chart"></div>
+                </div>
+            </div>
+            <!-- PIE CHART END -->
+        </div>
+
+        <!--Ordenes-->
+        <!-- TESTIMONIALS START -->
+        <div class="geex-content__section geex-content__section--transparent geex-content__review">
+            <div class="geex-content__section__header">
+                <div class="geex-content__section__header__title-part">
+                    <h4 class="geex-content__section__header__title">User Review</h4>
+                    <p class="geex-content__section__header__subtitle">Eum fuga consequuntur ut et.</p>
+                </div>
+                <div class="geex-content__section__header__content-part">
+                    <div class="geex-content__section__header__btn geex-content__section__header__swiper-btn">
+                        <div class="swiper-btn swiper-btn-prev">
+                            <i class="uil-arrow-left"></i>
+                        </div>
+                        <div class="swiper-btn swiper-btn-next">
+                            <i class="uil-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="geex-content__section__content">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="geex-content__review__single">
+                                <div class="geex-content__review__single__header">
+                                    <div class="geex-content__review__single__header__text">
+                                        <h4 class="geex-content__review__single__header__title">John Doe</h4>
+                                        <p class="geex-content__review__single__header__subtitle">4 days ago</p>
+                                    </div>
+                                </div>
+                                <div class="geex-content__review__single__content">
+                                    <p class="geex-content__review__single__content__text">Ab architecto provident ex accusantium deserunt. Aut aspernatur deleniti sit maiores ut id cum accusamus. Beatae n</p>
+                                </div>
+                                <div class="geex-content__review__single__bottom">
+                                    <a href="#" class="geex-content__review__single__btn danger-color">Archive</a>
+                                    <a href="#" class="geex-content__review__single__btn success-color">Accept</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add more slides as needed -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Grafico terciario-->
+    <div class="geex-content__widget">
+        <div class="geex-content__widget__single">
+            <div class="geex-content__widget__single__header">
+                <h4 class="geex-content__widget__single__title">Server Status</h4>
+                <p class="geex-content__widget__single__subtitle">Consectetur et quo dolor vero.</p>
+            </div>
+            <div class="geex-content__widget__single__content">
+                <div id="stack-chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/inteligencianegocio/graficoventas.js"></script>
+}

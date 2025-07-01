@@ -1,0 +1,102 @@
+﻿@page
+@model dynamic
+@using System.Security.Claims
+@{
+    var nombreUsuario = User.Identity?.Name;
+    var rolUsuario = User.FindFirst(ClaimTypes.Role)?.Value;
+}
+<div class="geex-content__header__action">
+    <div class="geex-content__header__customizer">
+        <button class="geex-btn geex-btn__toggle-sidebar">
+            <i class="uil uil-align-center-alt"></i>
+        </button>
+        <button class="geex-btn geex-btn__customizer">
+            <i class="uil uil-pen"></i>
+            <span>Customizar</span>
+        </button>
+    </div>
+    <div class="geex-content__header__action__wrap">
+
+        <!-- Notificaciones -->
+        <div class="notification-wrapper" style="position: relative; margin-left: 20px; cursor: pointer;">
+            <i id="notificationIcon" class="bi bi-bell" style="font-size: 24px; position: relative;"></i>
+            <span id="notificationCount" style="position: absolute; top: -5px; right: -5px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; display:none;">0</span>
+            <div id="notificationDropdown" style="display:none; position: absolute; right: 0; background: white; border: 1px solid #ccc; width: 320px; max-height: 400px; overflow-y: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.15); z-index: 1000;">
+                <ul id="alertsList" style="list-style: none; padding: 10px; margin: 0;">
+                    <!-- Las alertas se cargarán aquí -->
+                </ul>
+            </div>
+        </div>
+
+        <ul class="geex-content__header__quickaction">
+            <li class="geex-content__header__quickaction__item">
+                <a href="#" class="geex-content__header__quickaction__link">
+                    <img class="user-img" src="~/img/icono_usuario.png" alt="user" />
+                </a>
+                <div class="geex-content__header__popup geex-content__header__popup--author">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <div class="geex-content__header__popup__header">
+                            <div class="geex-content__header__popup__header__content">
+                                <h3 class="geex-content__header__popup__header__title">Hola, @nombreUsuario</h3>
+                                <span class="geex-content__header__popup__header__subtitle">@rolUsuario</span>
+                            </div>
+                        </div>
+
+                        @if (rolUsuario == "Administrador")
+                        {
+                            <div class="geex-content__header__popup__content">
+                                <ul class="geex-content__header__popup__items">
+                                    <li class="geex-content__header__popup__item">
+                                        <a class="geex-content__header__popup__link" asp-controller="Usuarios" asp-action="Index">
+                                            <i class="uil uil-users-alt"></i>
+                                            Usuarios
+                                        </a>
+                                    </li>
+                                    <li class="geex-content__header__popup__item">
+                                        <a class="geex-content__header__popup__link" asp-controller="Roles" asp-action="Index">
+                                            <i class="uil uil-cog"></i>
+                                            Roles
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="geex-content__header__popup__content">
+                                <ul class="geex-content__header__popup__items">
+                                    <li class="geex-content__header__popup__item"></li>
+                                </ul>
+                            </div>
+                        }
+
+                        <div class="geex-content__header__popup__footer">
+                            <a href="/Auth/Logout" class="geex-content__header__popup__footer__link">
+                                <i class="uil uil-arrow-up-left"></i>Cerrar sesión
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="geex-content__header__popup__content">
+                            <ul class="geex-content__header__popup__items">
+                                <li class="geex-content__header__popup__item"></li>
+                            </ul>
+                        </div>
+                        <div class="geex-content__header__popup__footer">
+                            <a href="/Auth/Login" class="geex-content__header__popup__footer__link">
+                                <i class="uil uil-arrow-up-left"></i>Iniciar sesión
+                            </a>
+                        </div>
+                        <div class="geex-content__header__popup__footer">
+                            <a href="/Auth/Registro" class="geex-content__header__popup__footer__link">
+                                <i class="uil uil-arrow-up-left"></i>Registrarse
+                            </a>
+                        </div>
+                    }
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

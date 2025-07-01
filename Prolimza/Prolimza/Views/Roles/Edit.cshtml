@@ -1,0 +1,42 @@
+﻿@model Prolimza.Models.Rol
+
+@{
+    ViewData["Title"] = "Editar Rol";
+    ViewData["subTitle"] = "Formulario para editar roles desde la perspectiva de administrador.";
+}
+
+<!-- Formulario Editar -->
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Edit" class="form-container">
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="IdRol" />
+
+    <div class="geex-content__form__single__box mb-20">
+        <input asp-for="Nombre" placeholder="Nombre del rol" />
+        
+    </div>
+
+    <div class="geex-content__form__single__box mb-20">
+        <input asp-for="Descripcion" placeholder="Descripción" />
+    </div>
+
+    <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+
+    <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+        <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Guardar</button>
+        <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+    </div>
+</form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

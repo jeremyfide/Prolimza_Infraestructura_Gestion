@@ -1,0 +1,91 @@
+﻿@page
+@{
+	Layout = "";
+}
+
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Registro - Prolimza Dashboard</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+	<!-- inject:css-->
+	<link rel="stylesheet" href="~/vendor/css/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+	<link rel="stylesheet" href="~/css/style.css">
+	<!-- endinject -->
+	<link rel="icon" type="image/png" sizes="16x16" href="~/img/logo_empresa.png">
+	<!-- Fonts -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@iconscout/unicons@4.0.8/css/line.min.css">
+
+	<script>
+		// Render localStorage JS:
+		if (localStorage.theme) document.documentElement.setAttribute("data-theme", localStorage.theme);
+		if (localStorage.layout) document.documentElement.setAttribute("data-nav", localStorage.navbar);
+		if (localStorage.layout) document.documentElement.setAttribute("dir", localStorage.layout);
+	</script>
+</head>
+
+<body class="geex-dashboard authentication-page">
+	<main class="geex-content">
+		<div class="geex-content__authentication">
+			<div class="geex-content__authentication__content">
+				<div class="geex-content__authentication__content__wrapper">
+					<div class="geex-content__authentication__content__logo">
+						<a href="~/Home/Index">
+							<img class="logo-lite" src="~/img/logo_empresa.png" alt="logo">
+							<img class="logo-dark" src="~/img/logo_empresa.png" alt="logo">
+						</a>
+					</div>
+					<!-- SIGNUP FORM START -->
+					<form id="signInForm" asp-action="Registro" asp-controller="Auth" method="post" class="geex-content__authentication__form">
+						<div class="geex-content__authentication__form-group">
+							<label for="emailSignIn">Su correo electrónico</label>
+							<input type="email" id="emailSignIn" name="emailSignIn" placeholder="Ingrese su correo electrónico" required>
+							<i class="uil-envelope"></i>
+						</div>
+						<div class="geex-content__authentication__form-group">
+							<label for="username">Su nombre</label>
+							<input type="username" id="username" name="username" placeholder="Ingrese su nombre" required>
+							<i class="uil-user"></i>
+						</div>
+						<div class="geex-content__authentication__form-group">
+							<div class="geex-content__authentication__label-wrapper">
+								<label for="loginPassword">Contraseña</label>
+							</div>
+							<input type="password" id="loginPassword" name="loginPassword" placeholder="Password" required>
+							<i class="uil-eye toggle-password-type"></i>
+						</div>
+						<button type="submit" class="geex-content__authentication__form-submit">Registrarse</button>
+						<span class="geex-content__authentication__form-separator">O</span>
+
+						<div class="geex-content__authentication__form-footer">
+							¿Ya tiene una cuenta? <a href="~/Auth/Login">Inicie sesión</a> o<a href="~/Home/Index">Inicio</a>
+						</div>
+					</form>
+					<!-- SIGNUP FORM END -->
+				</div>
+			</div>
+
+			<!-- SIDE IMAGE SECTION START -->
+			<div class="geex-content__authentication__img">
+				<img src="~/img/authentication.svg" alt="">
+			</div>
+			<!-- SIDE IMAGE SECTION END -->
+		</div>
+	</main>
+
+	<!-- inject:js-->
+	<script src="~/vendor/js/jquery/jquery-3.5.1.min.js"></script>
+	<script src="~/vendor/js/jquery/jquery-ui.js"></script>
+	<script src="~/vendor/js/bootstrap/bootstrap.min.js"></script>
+	<script src="~/js/main.js"></script>
+	<!-- endinject-->
+</body>
+
+</html>

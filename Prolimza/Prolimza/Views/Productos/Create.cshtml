@@ -1,0 +1,49 @@
+﻿@model Prolimza.Models.Producto
+
+@{
+    ViewData["Title"] = "Crear Producto";
+    ViewData["subTitle"] = "Formulario para crear productos desde la perspectiva de administrador.";
+}
+
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Create" class="form-container">
+            <div class="geex-content__form__single__box mb-20">
+    <input asp-for="NombreProducto" class="form-control-custom" placeholder="Nombre del producto" />
+            </div>
+                <div class="geex-content__form__single__box mb-20">
+    <input asp-for="Descripcion" class="form-control-custom" placeholder="Descripción" />
+                </div>
+                    <div class="geex-content__form__single__box mb-20">
+    <input asp-for="Sku" class="form-control-custom" placeholder="SKU" />
+                </div>
+                        <div class="geex-content__form__single__box mb-20">
+    <input asp-for="Cantidad" class="form-control-custom" placeholder="Cantidad" type="number" />
+                </div>
+                            <div class="geex-content__form__single__box mb-20">
+    <input asp-for="FechaCaducidad" class="form-control-custom" type="date" />
+                </div>
+                                <div class="geex-content__form__single__box mb-20">
+    <select asp-for="IdBodega" class="form-control-custom" asp-items="ViewBag.IdBodega"></select>
+                </div>
+    <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="FechaCaducidad" class="text-danger"></span>
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+                <span asp-validation-for="Sku" class="text-danger"></span>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+                <span asp-validation-for="NombreProducto" class="text-danger"></span>
+    </div>
+
+    <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+        <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Crear</button>
+        <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+    </div>
+</form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

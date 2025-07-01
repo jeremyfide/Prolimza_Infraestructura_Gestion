@@ -1,0 +1,66 @@
+﻿@model Prolimza.Models.Producto
+
+@{
+    ViewData["Title"] = "Editar Productos";
+    ViewData["subTitle"] = "Formulario para editar productos desde la perspectiva de administrador.";
+}
+
+<div class="geex-content__section geex-content__form">
+    <div class="geex-content__form__wrapper">
+        <form asp-action="Edit" class="form-container">
+            <input type="hidden" asp-for="IdProducto" />
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="NombreProducto" placeholder="Nombre del producto" />
+                
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Descripcion" placeholder="Descripción" />
+                
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Sku" placeholder="SKU" />
+                
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="Cantidad" placeholder="Cantidad" />
+                
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <input asp-for="FechaCaducidad" type="date" placeholder="Fecha de caducidad" />
+                
+            </div>
+
+            <div class="geex-content__form__single__box mb-20">
+                <select asp-for="IdBodega" asp-items="ViewBag.IdBodega">
+                    <option value="">Seleccione una bodega</option>
+                </select>
+                
+            </div>
+
+            <div class="geex-validation-block text-danger mt-4 text-center">
+                <span asp-validation-for="NombreProducto" class="text-danger"></span>
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+                <span asp-validation-for="Sku" class="text-danger"></span>
+                <span asp-validation-for="Cantidad" class="text-danger"></span>
+                <span asp-validation-for="FechaCaducidad" class="text-danger"></span>
+                <span asp-validation-for="IdBodega" class="text-danger"></span>
+            </div>
+
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button type="submit" class="geex-btn geex-btn--primary-transparent"><i class="uil-plus"></i> Guardar</button>
+                <a asp-action="Index" class="geex-btn geex-btn--dark-transparent">Volver a la lista</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
