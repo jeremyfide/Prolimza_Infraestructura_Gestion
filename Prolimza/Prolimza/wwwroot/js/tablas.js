@@ -1,5 +1,28 @@
 ﻿$(document).ready(function () {
     $('#miTabla').DataTable({
+        dom: 'Bfrtip', // ← importante: define la ubicación de los botones
+        buttons: [
+            {
+                extend: 'copyHtml5',
+                text: 'Copiar',
+                exportOptions: { columns: ':visible' }
+            },
+            {
+                extend: 'excelHtml5',
+                text: 'Exportar a Excel',
+                exportOptions: { columns: ':visible' }
+            },
+            {
+                extend: 'pdfHtml5',
+                text: 'Exportar a PDF',
+                exportOptions: { columns: ':visible' }
+            },
+            {
+                extend: 'print',
+                text: 'Imprimir',
+                exportOptions: { columns: ':visible' }
+            }
+        ],
         language: {
             decimal: ",",
             thousands: ".",
@@ -21,14 +44,19 @@
             aria: {
                 sortAscending: ": activar para ordenar ascendente",
                 sortDescending: ": activar para ordenar descendente"
+            },
+            buttons: {
+                copy: "Copiar",
+                excel: "Excel",
+                pdf: "PDF",
+                print: "Imprimir"
             }
         },
         paging: true,
-        pagingTag: 'button',
-        searching: true,   
-        ordering: true,    
+        searching: true,
+        ordering: true,
         info: true,
         lengthChange: false,
-        pageLength: 7 
+        pageLength: 15
     });
 });

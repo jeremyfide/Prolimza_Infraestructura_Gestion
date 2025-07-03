@@ -1,0 +1,129 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "Reporte de Ventas";
+    var ventas = ViewData["Ventas"] as List<Prolimza.Models.Venta>;
+}
+
+<div class="geex-content__wrapper">
+    <div class="geex-content__section-wrapper">
+
+        <div class="geex-content__section geex-content__server-request mb-40">
+
+            <h3 class="mb-4">Reporte de Recetas</h3>
+
+            <form method="get" asp-action="ReporteRecetas" class="mb-4">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Desde</label>
+                        <input type="date" name="fechaInicio" value="@ViewData["FechaInicio"]" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Hasta</label>
+                        <input type="date" name="fechaFin" value="@ViewData["FechaFin"]" class="form-control" />
+                    </div>
+                    <div class="col-md-3">
+                        <label>Tipo Producto</label>
+                        <select name="tipoProducto" class="form-control">
+                            <option value="">-- Todos --</option>
+                            <option value="Producido" selected="@(ViewData["TipoProducto"]?.ToString() == "Producido")">Producido</option>
+                            <option value="Comprado" selected="@(ViewData["TipoProducto"]?.ToString() == "Comprado")">Comprado</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button type="submit" class="geex-btn geex-btn--primary-transparent">Filtrar</button>
+                    </div>
+                </div>
+            </form>
+
+            <table id="miTabla" class="display">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Producto</th>
+                        <th>Tipo</th>
+                        <th>Materia Prima</th>
+                        <th>Cantidad MP Usada</th>
+                        <th>Cantidad Vendida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.FechaVenta.ToString("yyyy-MM-dd")</td>
+                            <td>@item.NombreProducto</td>
+                            <td>@item.TipoProducto</td>
+                            <td>@item.NombreMateriaPrima</td>
+                            <td>@item.CantidadMateriaPrimaUsada?.ToString("0.##")</td>
+                            <td>@item.CantidadProductoVendido</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <!--Graficos secundarios-->
+        <div class="geex-content__double-column mb-40">
+
+            <!-- COLUMN CHART START -->
+            <div class="geex-content__section geex-content__visitor-count">
+                <div class="geex-content__section__header">
+                    <div class="geex-content__section__header__title-part">
+                        <h4 class="geex-content__section__header__title">Visitors</h4>
+                    </div>
+                    <div class="geex-content__section__header__content-part">
+                        <div class="geex-content__section__header__btn">
+                            <a href="#" class="geex-content__section__header__link">
+                                View More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="geex-content__section__content">
+                    <div class="geex-content__visitor-count__number">
+                        <h2 class="geex-content__visitor-count__number__title">98,425k</h2>
+                        <div class="geex-content__visitor-count__number__text">
+                            <span class="geex-content__visitor-count__number__subtitle">+2.5%</span>
+                            <p class="geex-content__visitor-count__number__desc">Than last week</p>
+                        </div>
+                    </div>
+                    <div id="column-chart"></div>
+                </div>
+            </div>
+            <!-- COLUMN CHART END -->
+            <!-- PIE CHART START -->
+            <div class="geex-content__section geex-content__chat-summary">
+                <div class="geex-content__section__header">
+                    <div class="geex-content__section__header__title-part">
+                        <h4 class="geex-content__section__header__title">Chart Summary</h4>
+                    </div>
+                    <div class="geex-content__section__header__content-part">
+                        <div class="geex-content__section__header__btn">
+                            <a href="#" class="geex-content__section__header__link">
+                                Download Report
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="geex-content__section__content">
+                    <div id="pie-chart"></div>
+                </div>
+            </div>
+            <!-- PIE CHART END -->
+        </div>
+
+        </div>
+
+        <!--Ordenes-->
+
+
+
+
+
+</div>
+
+@section Scripts {
+    <script src="~/js/inteligencianegocio/graficoventas.js"></script>
+}
