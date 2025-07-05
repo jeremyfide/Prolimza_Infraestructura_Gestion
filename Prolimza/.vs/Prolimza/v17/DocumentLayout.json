@@ -1,7 +1,32 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\vse10\\Documents\\GitHub\\Prolimza_Infraestructura_Gestion\\Prolimza\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\inteligencianegocio\\reporteventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\inteligencianegocio\\reporteventas.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\views\\ventas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\views\\ventas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\models\\venta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\controllers\\inteligencianegociocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\inteligencianegociocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\wwwroot\\js\\inteligencianegocio\\graficoventas.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\wwwroot\\js\\inteligencianegocio\\graficoventas.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|c:\\vs\\prolimza\\prolimza_infraestructura_gestion\\prolimza\\prolimza\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C983E7B5-5490-488B-953B-5E48FA0FDBBA}|Prolimza\\Prolimza.csproj|solutionrelative:prolimza\\controllers\\ventascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,8 +34,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 65,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -106,10 +139,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
               "$type": "Bookmark",
@@ -237,10 +266,6 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
@@ -254,6 +279,84 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "VentasController.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\VentasController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\VentasController.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\VentasController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\VentasController.cs",
+              "ViewState": "AQIAACEAAAAAAAAAAAAowDcAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T08:21:14.096Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InteligenciaNegocioController.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\InteligenciaNegocioController.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Controllers\\InteligenciaNegocioController.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Controllers\\InteligenciaNegocioController.cs",
+              "RelativeToolTip": "Prolimza\\Controllers\\InteligenciaNegocioController.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T01:32:20.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Venta.cs",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Venta.cs",
+              "RelativeDocumentMoniker": "Prolimza\\Models\\Venta.cs",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Models\\Venta.cs",
+              "RelativeToolTip": "Prolimza\\Models\\Venta.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T07:54:53.515Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Ventas\\Index.cshtml",
+              "RelativeDocumentMoniker": "Prolimza\\Views\\Ventas\\Index.cshtml",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\Ventas\\Index.cshtml",
+              "RelativeToolTip": "Prolimza\\Views\\Ventas\\Index.cshtml",
+              "ViewState": "AQIAACEAAAAAAAAAAAAAADsAAADBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-05T07:31:38.153Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ReporteVentas.cshtml",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\InteligenciaNegocio\\ReporteVentas.cshtml",
+              "RelativeDocumentMoniker": "Prolimza\\Views\\InteligenciaNegocio\\ReporteVentas.cshtml",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Views\\InteligenciaNegocio\\ReporteVentas.cshtml",
+              "RelativeToolTip": "Prolimza\\Views\\InteligenciaNegocio\\ReporteVentas.cshtml",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAH0AAADJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-07-01T01:34:08.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GraficoVentas.js",
+              "DocumentMoniker": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\InteligenciaNegocio\\GraficoVentas.js",
+              "RelativeDocumentMoniker": "Prolimza\\wwwroot\\js\\InteligenciaNegocio\\GraficoVentas.js",
+              "ToolTip": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\InteligenciaNegocio\\GraficoVentas.js",
+              "RelativeToolTip": "Prolimza\\wwwroot\\js\\InteligenciaNegocio\\GraficoVentas.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-07-01T01:34:27.286Z",
+              "EditorCaption": ""
             }
           ]
         },
