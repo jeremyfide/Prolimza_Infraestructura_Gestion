@@ -32,6 +32,58 @@ namespace Prolimza.Models
             using var scope = _scopeFactory.CreateScope();
             var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
+            //Verificación de Ventas
+            var ventasConEstados = await dbContext.Ventas
+                .Include(v => v.HistorialesEstadoVenta)
+                    .ThenInclude(h => h.EstadoVenta)
+                .ToListAsync();
+
+
+            foreach (var venta in ventasConEstados)
+            {
+                var ultimoEstado = venta.HistorialesEstadoVenta
+                    .OrderByDescending(h => h.FechaEstado)
+                    .FirstOrDefault();
+
+                if (ultimoEstado?.EstadoVenta?.Descripcion == "Pendiente")
+                    {
+                    var diasEnPendiente = (DateTime.Now - ultimoEstado.FechaEstado).TotalDays;
+
+                    if (diasEnPendiente > 8)
+                    {
+                        string mensaje = $"La venta con código {venta.CodigoIngreso} está en estado 'Pendiente' desde hace más de 8 días.";
+
+                        bool yaExiste = await dbContext.Alertas
+                            .AnyAsync(a => a.Tipo == "Venta" && a.Estado == "Pendiente" && a.Descripcion == mensaje);
+
+                        if (!yaExiste)
+                        {
+                            dbContext.Alertas.Add(new Alerta
+                            {
+                                Tipo = "Venta",
+                                Descripcion = mensaje,
+                                FechaAlerta = DateTime.Now,
+                                Estado = "Pendiente"
+                            });
+                        }
+                    }
+
+                }
+                else
+                {
+                    // La venta ya no está pendiente, pero puede tener una alerta activa
+                    string mensajeParcial = $"La venta con código {venta.CodigoIngreso} está en estado 'Pendiente'";
+                    var alertasPendientes = await dbContext.Alertas
+                        .Where(a => a.Tipo == "Venta" && a.Estado == "Pendiente" && a.Descripcion.Contains(mensajeParcial))
+                        .ToListAsync();
+
+                    foreach (var alerta in alertasPendientes)
+                    {
+                        alerta.Estado = "Resuelta";
+                    }
+                }
+            }
+
             // Verificación de Productos
             var productos = await dbContext.Productos.ToListAsync();
             foreach (var p in productos)
