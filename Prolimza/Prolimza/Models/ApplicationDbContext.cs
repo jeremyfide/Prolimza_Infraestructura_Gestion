@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Prolimza.Controllers;
 
 namespace Prolimza.Models
 {
@@ -26,12 +27,15 @@ namespace Prolimza.Models
         public DbSet<EstadoVenta> EstadosVenta { get; set; }
         public DbSet<HistorialEstadoVenta> HistorialesEstadoVenta { get; set; }
         public DbSet<Alerta> Alertas { get; set; }
+        public DbSet<ReporteUsoMateriaPrimaViewModel> ReporteUsoMateriaPrimaViewModel { get; set; }
 
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Llaves primarias
+            modelBuilder.Entity<ReporteUsoMateriaPrimaViewModel>().HasNoKey().ToView(null);
+
             modelBuilder.Entity<Provincia>().HasKey(p => p.IdProvincia);
             modelBuilder.Entity<Canton>().HasKey(c => c.IdCanton);
             modelBuilder.Entity<Distrito>().HasKey(d => d.IdDistrito);

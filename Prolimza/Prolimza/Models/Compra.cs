@@ -10,8 +10,9 @@ namespace Prolimza.Models
 
         public int IdUsuario { get; set; }
 
-        [Required(ErrorMessage = "El campo Código de Ingreso es obligatorio.")]
-        public string CodigoIngreso { get; set; } = string.Empty;
+        [Required(ErrorMessage = "El campo Cï¿½digo de Ingreso es obligatorio.")]
+        public string CodigoIngreso { get; set; } 
+
 
         public string Estado { get; set; } = "Pendiente";
 

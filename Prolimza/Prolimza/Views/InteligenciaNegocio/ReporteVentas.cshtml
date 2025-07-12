@@ -1,0 +1,168 @@
+﻿@model IEnumerable<Prolimza.Models.Venta>
+
+@{
+    ViewData["Title"] = "Reporte de Ventas";
+    var ventas = ViewData["Ventas"] as List<Prolimza.Models.Venta>;
+    var tiempos = ViewBag.TiemposPendientes as Dictionary<int, string>;
+}
+
+<div class="geex-content__wrapper">
+    <div class="geex-content__section-wrapper">
+        @*
+        <!--Cards-->
+        <div class="geex-content__feature mb-40">
+
+            <!-- CARD START -->
+            <div class="geex-content__feature__card">
+                <div class="geex-content__feature__card__text">
+                    <p class="geex-content__feature__card__subtitle">Memory</p>
+                    <h4 class="geex-content__feature__card__title">200TB</h4>
+                    <span class="geex-content__feature__card__badge">+2.5%</span>
+                </div>
+            </div>
+            <!-- CARD END -->
+        </div>
+        *@
+        <div class="row" style="margin-bottom: 20px;">
+            <div class="col-md-3">
+                <label>Desde:</label>
+                <input type="date" id="fecha-inicio" class="form-control" />
+            </div>
+            <div class="col-md-3">
+                <label>Hasta:</label>
+                <input type="date" id="fecha-fin" class="form-control" />
+            </div>
+            <div class="geex-content__form__single d-flex gap-10 justify-content-center">
+                <button id="btn-filtrar" class="geex-btn geex-btn--primary-transparent">Filtrar</button>
+                <button id="descargar-pdf" class="geex-btn geex-btn--primary-transparent">Descargar</button>
+
+            </div>
+        </div>
+
+        <!--Grafico principal-->
+        <div class="geex-content__section geex-content__server-request mb-40">
+            <div class="geex-content__section__header">
+                <div class="geex-content__section__header__title-part">
+                    <h4 class="geex-content__section__header__title">Ventas por usuario</h4>
+                </div>
+            </div>
+            <div class="geex-content__section__content">
+                <div id="line-chart" class="server-request-chart"></div>
+            </div>
+        </div>
+
+        <!--Graficos secundarios-->
+        <div class="geex-content__double-column mb-40">
+
+            <!-- COLUMN CHART START -->
+            <div class="geex-content__section geex-content__visitor-count">
+                <div class="geex-content__section__header">
+                    <div class="geex-content__section__header__title-part">
+                        <h4 class="geex-content__section__header__title">Ventas por semana</h4>
+                    </div>
+                </div>
+                <div class="geex-content__section__content">
+                    <div class="geex-content__visitor-count__number">
+                        <h2 class="geex-content__visitor-count__number__title" id="ventas-totales"></h2>
+                    </div>
+                    <div id="column-chart"></div>
+                </div>
+            </div>
+            <!-- COLUMN CHART END -->
+            <!-- PIE CHART START -->
+            <div class="geex-content__section geex-content__chat-summary">
+                <div class="geex-content__section__header">
+                    <div class="geex-content__section__header__title-part">
+                        <h4 class="geex-content__section__header__title">Ventas por productos</h4>
+                    </div>
+                </div>
+                <div class="geex-content__section__content">
+                    <div id="pie-chart"></div>
+                </div>
+            </div>
+            <!-- PIE CHART END -->
+        </div>
+
+        <!--Ordenes-->
+        <!-- TESTIMONIALS START -->
+        <div class="geex-content__section geex-content__section--transparent geex-content__review">
+            <div class="geex-content__section__header">
+                <div class="geex-content__section__header__title-part">
+                    <h4 class="geex-content__section__header__title">Ventas en estado pendiente</h4>
+                    <p class="geex-content__section__header__subtitle">Se muestra el código, usuario responsable y la cantidad de días que una orden ha estado pendiente.</p>
+                </div>
+                <div class="geex-content__section__header__content-part">
+                    <div class="geex-content__section__header__btn geex-content__section__header__swiper-btn">
+                        <div class="swiper-btn swiper-btn-prev">
+                            <i class="uil-arrow-left"></i>
+                        </div>
+                        <div class="swiper-btn swiper-btn-next">
+                            <i class="uil-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="geex-content__section__content">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach (var venta in Model)
+                        {
+                            string tiempo = tiempos != null && tiempos.ContainsKey(venta.IdVenta) ? tiempos[venta.IdVenta] : "N/A";
+
+                            <div class="swiper-slide">
+                                <div class="geex-content__review__single">
+                                    <div class="geex-content__review__single__header">
+                                        <div class="geex-content__review__single__header__text">
+                                            <h4 class="geex-content__review__single__header__title"># @venta.CodigoIngreso</h4>
+                                            <p class="geex-content__review__single__header__subtitle">@tiempo</p>
+                                        </div>
+                                    </div>
+                                    <div class="geex-content__review__single__content">
+                                        <p class="geex-content__review__single__content__text">
+                                            @venta.Usuario?.Nombre
+                                        </p>
+                                    </div>
+                                    <div class="geex-content__review__single__bottom">
+                                        <a href="#" id="btn-detalle-@venta.IdVenta" data-id="@venta.IdVenta" data-controller="Ventas" class="geex-content__review__single__btn success-color  btn-detalle">Detalles</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <!-- Add more slides as needed -->
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!--Grafico terciario-->
+    <div class="geex-content__widget">
+        <div class="geex-content__widget__single">
+            <div class="geex-content__widget__single__header">
+                <h4 class="geex-content__widget__single__title">Venta de productos por usuario</h4>
+            </div>
+            <div class="geex-content__widget__single__content">
+                <div id="stack-chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade custom-modal" id="detalleModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body p-0" id="detalle-container">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/inteligencianegocio/graficoventas.js"></script>
+    <script src="~/js/reportes/html2canvas.min.js"></script>
+    <script src="~/js/reportes/jspdf.min.js"></script>
+    <script src="~/js/inteligencianegocio/reportepdf.js"></script>
+}

@@ -180,6 +180,27 @@ CSS INDEX
   color: var(--primary-color);
 }
 
+.geex-header__menu__link svg {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    overflow: visible;
+    display: inline-block;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.geex-header__menu__item,
+.geex-header__menu__link {
+    overflow: visible;
+}
+
+.geex-header__menu__link {
+    height: auto;
+    line-height: 1.5;
+    align-items: center;
+}
 
 .geex-header__action {
   display: -webkit-box;
@@ -455,13 +476,25 @@ Sidebar
   background: transparent;
 }
 
+.geex-sidebar__menu__link svg {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+
+
+
 .geex-sidebar__footer__title {
-  display: inline-block;
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 600;
-  color: var(--body-color);
-  margin-bottom: 10px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    color: var(--body-color);
+    margin-bottom: 10px;
 }
 
 .geex-sidebar__footer__copyright {
@@ -9693,7 +9726,7 @@ blockquote span:before {
           align-items: center;
   padding: 30px;
   border-radius: 24px;
-  background-color: #AB54DB;
+  background-color: #4DAA57;
 }
 
 @media only screen and (max-width: 1600px) {

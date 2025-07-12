@@ -270,6 +270,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/InteligenciaNegocio/ReporteRecetas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZWxpZ2VuY2lhTmVnb2Npb1xSZXBvcnRlUmVjZXRhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/InteligenciaNegocio/ReporteVentas.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW50ZWxpZ2VuY2lhTmVnb2Npb1xSZXBvcnRlVmVudGFzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/MateriaPrimas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWF0ZXJpYVByaW1hc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

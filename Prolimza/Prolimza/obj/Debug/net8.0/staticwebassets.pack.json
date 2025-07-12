@@ -145,6 +145,18 @@
       "PackagePath": "staticwebassets\\icons\\search-solid.svg"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-ai.svg",
+      "PackagePath": "staticwebassets\\icons\\side-ai.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-alertas.svg",
+      "PackagePath": "staticwebassets\\icons\\side-alertas.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-bi.svg",
+      "PackagePath": "staticwebassets\\icons\\side-bi.svg"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-bodegas.svg",
       "PackagePath": "staticwebassets\\icons\\side-bodegas.svg"
     },
@@ -167,6 +179,10 @@
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-materia.svg",
       "PackagePath": "staticwebassets\\icons\\side-materia.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-opcomerciales.svg",
+      "PackagePath": "staticwebassets\\icons\\side-opcomerciales.svg"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\icons\\side-productos.svg",
@@ -341,8 +357,28 @@
       "PackagePath": "staticwebassets\\js\\DataTables\\dataTables.js"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\DataTables\\datatables.min.js",
+      "PackagePath": "staticwebassets\\js\\DataTables\\datatables.min.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\InteligenciaNegocio\\GraficoVentas.js",
+      "PackagePath": "staticwebassets\\js\\InteligenciaNegocio\\GraficoVentas.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\InteligenciaNegocio\\ReportePDF.js",
+      "PackagePath": "staticwebassets\\js\\InteligenciaNegocio\\ReportePDF.js"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Recetas\\MateriaReceta.js",
       "PackagePath": "staticwebassets\\js\\Recetas\\MateriaReceta.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Reportes\\html2canvas.min.js",
+      "PackagePath": "staticwebassets\\js\\Reportes\\html2canvas.min.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Reportes\\jspdf.min.js",
+      "PackagePath": "staticwebassets\\js\\Reportes\\jspdf.min.js"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\main.js",
