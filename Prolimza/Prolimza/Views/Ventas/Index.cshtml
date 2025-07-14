@@ -10,6 +10,7 @@
         @* Modal para mensajes *@
         @if (TempData["SuccessCancelar"] != null || TempData["ErrorCancelar"] != null)
         {
+<<<<<<< HEAD
             <div class="modal fade show d-block" id="mensajeModal" tabindex="-1" aria-labelledby="mensajeModalLabel" aria-modal="true" role="dialog">
                 <div class="modal-dialog modal-dialog-centered" style="max-width: 600px;">
                     <div class="modal-content geex-content__section" style="border-radius: 20px; border: none;">
@@ -20,6 +21,18 @@
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
 
                         <div class="modal-body geex-content__section__content" style="padding: 1.5rem; color: var(--body-color);">
+=======
+            <div class="modal fade" id="mensajeModal" tabindex="-1" aria-labelledby="mensajeModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header @(TempData["SuccessCancelar"] != null ? "geex-btn--primary-transparent text-white" : "bg-danger text-white")">
+                            <h5 class="modal-title" id="mensajeModalLabel">
+                                @(TempData["SuccessCancelar"] != null ? "Éxito" : "Error")
+                            </h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body">
+>>>>>>> ad2ac3cabd3f50ad11078e90187462fe61c01da8
                             @(TempData["SuccessCancelar"] ?? TempData["ErrorCancelar"])
                         </div>
 
