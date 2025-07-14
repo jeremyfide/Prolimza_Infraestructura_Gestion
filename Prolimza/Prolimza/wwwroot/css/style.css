@@ -11589,3 +11589,38 @@ html[data-theme="dark"] table.dataTable th,
 html[data-theme="dark"] table.dataTable td {
     border-color: rgba(255, 255, 255, 0.2)!important;
 }
+
+.dt-button {
+    background-color: var(--primary-color-transparent);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    font-family: var(--poppins);
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.dt-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.dt-buttons {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px; 
+    flex-wrap: wrap;
+}
+
+table.dataTable td,
+table.dataTable th {
+    text-align: left !important;
+}
+
+table.dataTable thead th .dt-column-order {
+    float: right;
+    margin-left: 8px; /* espacio entre texto y el ícono */
+}

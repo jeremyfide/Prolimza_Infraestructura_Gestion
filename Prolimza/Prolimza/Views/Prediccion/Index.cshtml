@@ -1,0 +1,44 @@
+﻿@model int
+@{
+    ViewData["Title"] = "Predicción de Ventas";
+}
+
+<h2>Predicción de Ventas</h2>
+
+<form asp-action="Predecir" method="post" class="mb-4">
+    <div class="form-group">
+        <label for="IdProducto">Seleccione un producto</label>
+        <select name="idProducto" class="form-control" required>
+            @foreach (var item in (SelectList)ViewBag.Productos)
+            {
+                var selected = item.Value == Model.ToString() ? "selected=\"selected\"" : "";
+                @:<option value="@item.Value" @Html.Raw(selected)>@item.Text</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="geex-btn geex-btn--primary-transparent">Predecir</button>
+</form>
+
+@if (ViewBag.Resultados != null)
+{
+    <h4>Resultados de predicción para: @ViewBag.Producto</h4>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>Mes</th>
+                <th>Año</th>
+                <th>Predicción (unidades)</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var resultado in ViewBag.Resultados)
+        {
+            <tr>
+                <td>@resultado.Item1</td> <!-- Mes -->
+                <td>@resultado.Item2</td> <!-- Año -->
+                <td>@Math.Round(resultado.Item3, 2)</td> <!-- Predicción -->
+            </tr>
+        }
+        </tbody>
+    </table>
+}
