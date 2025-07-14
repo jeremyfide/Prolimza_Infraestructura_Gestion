@@ -112,5 +112,76 @@ namespace Prolimza.Controllers
             return View(reporte);
         }
 
+
+        [HttpGet]
+        public async Task<IActionResult> GetRecetasPorDia(DateTime? fechaInicio, DateTime? fechaFin)
+        {
+            // Si no se especifican fechas, usar los últimos 7 días
+            if (!fechaInicio.HasValue || !fechaFin.HasValue)
+            {
+                fechaFin = DateTime.Today.AddDays(1); // para incluir todo el día de hoy
+                fechaInicio = fechaFin.Value.AddDays(-7);
+            }
+
+            string sql = @"
+        SELECT 
+            CONVERT(date, v.fechaVenta) AS Fecha,
+            r.idReceta,
+            r.nombre AS NombreReceta,
+            SUM(dv.cantidad) AS CantidadProductosVendidos
+        FROM 
+            detalleVenta dv
+        JOIN venta v ON v.idVenta = dv.idVenta
+        JOIN producto p ON p.idProducto = dv.idProducto
+        JOIN receta r ON r.idProducto = p.idProducto
+        WHERE 
+            v.fechaVenta >= @fechaInicio AND v.fechaVenta < @fechaFin
+        GROUP BY 
+            CONVERT(date, v.fechaVenta), r.idReceta, r.nombre
+        ORDER BY Fecha, r.idReceta;";
+
+            var data = await _context.RecetasPorDiaViewModel
+                .FromSqlRaw(sql,
+                    new SqlParameter("@fechaInicio", fechaInicio),
+                    new SqlParameter("@fechaFin", fechaFin)
+                )
+                .ToListAsync();
+
+            return Json(data);
+        }
+
+
+
+
+
+        [HttpGet]
+public async Task<IActionResult> GetTopProductos(DateTime? fechaInicio, DateTime? fechaFin)
+{
+    string sql = @"
+        SELECT TOP 3
+            p.nombreProducto AS NombreProducto,
+            SUM(dv.cantidad) AS CantidadVendida
+        FROM 
+            detalleVenta dv
+        JOIN venta v ON v.idVenta = dv.idVenta
+        JOIN producto p ON p.idProducto = dv.idProducto
+        JOIN receta r ON r.idProducto = p.idProducto
+        WHERE 
+            (@fechaInicio IS NULL OR v.fechaVenta >= @fechaInicio) AND
+            (@fechaFin IS NULL OR v.fechaVenta <= @fechaFin)
+        GROUP BY p.nombreProducto
+        ORDER BY CantidadVendida DESC";
+
+    var data = await _context.TopProductosViewModel
+        .FromSqlRaw(sql,
+            new SqlParameter("@fechaInicio", (object?)fechaInicio ?? DBNull.Value),
+            new SqlParameter("@fechaFin", (object?)fechaFin ?? DBNull.Value)
+        )
+        .ToListAsync();
+
+    return Json(data);
+}
+
+
     }
 }

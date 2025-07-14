@@ -22,6 +22,8 @@ namespace Prolimza.Models
         public DbSet<Compra> Compras { get; set; }
         public DbSet<DetalleCompraProducto> DetallesCompraProductos { get; set; }
         public DbSet<DetalleCompraMateriaPrima> DetallesCompraMateriaPrimas { get; set; }
+        public DbSet<RecetasPorDiaViewModel> RecetasPorDiaViewModel { get; set; }
+
         public DbSet<Venta> Ventas { get; set; }
         public DbSet<DetalleVenta> DetallesVenta { get; set; }
         public DbSet<EstadoVenta> EstadosVenta { get; set; }
@@ -29,12 +31,16 @@ namespace Prolimza.Models
         public DbSet<Alerta> Alertas { get; set; }
         public DbSet<ReporteUsoMateriaPrimaViewModel> ReporteUsoMateriaPrimaViewModel { get; set; }
 
+        public DbSet<TopProductosViewModel> TopProductosViewModel { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Llaves primarias
             modelBuilder.Entity<ReporteUsoMateriaPrimaViewModel>().HasNoKey().ToView(null);
+
+            modelBuilder.Entity<RecetasPorDiaViewModel>().HasNoKey();
+            modelBuilder.Entity<TopProductosViewModel>().HasNoKey();
 
             modelBuilder.Entity<Provincia>().HasKey(p => p.IdProvincia);
             modelBuilder.Entity<Canton>().HasKey(c => c.IdCanton);
