@@ -3208,7 +3208,8 @@ fieldset:disabled .btn {
 	background-color: transparent;
 }
 
-.btn-outline-danger {
+.btn-
+{
 	color: #FF0F0F;
 	border-color: #FF0F0F;
 }
@@ -3230,7 +3231,8 @@ fieldset:disabled .btn {
 .btn-outline-danger:active,
 .btn-outline-danger.active,
 .btn-outline-danger.dropdown-toggle.show {
-	color: #000;
+	color: #0
+	00;
 	background-color: #FF0F0F;
 	border-color: #FF0F0F;
 }
@@ -3260,6 +3262,7 @@ fieldset:disabled .btn {
 	background-color: #FF0F0F;
 	border-color: #FF0F0F;
 }
+
 
 .btn-check:focus + .btn-outline-dangers,
 .btn-outline-dangers:focus {
