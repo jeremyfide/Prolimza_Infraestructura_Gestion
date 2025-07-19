@@ -87,9 +87,13 @@ wwwroot\js\Ajax\vistaParcial.js
 wwwroot\js\DataTables\dataTables.css
 wwwroot\js\DataTables\dataTables.js
 wwwroot\js\DataTables\datatables.min.js
+wwwroot\js\InteligenciaNegocio\GraficoRecetas.js
 wwwroot\js\InteligenciaNegocio\GraficoVentas.js
+wwwroot\js\InteligenciaNegocio\ReportePDF.js
 wwwroot\js\main.js
 wwwroot\js\Recetas\MateriaReceta.js
+wwwroot\js\Reportes\html2canvas.min.js
+wwwroot\js\Reportes\jspdf.min.js
 wwwroot\js\site.js
 wwwroot\js\tablas.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css

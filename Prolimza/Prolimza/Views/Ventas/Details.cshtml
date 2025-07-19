@@ -64,7 +64,7 @@
             <div class="mt-3">
               @if (estadoActual == "Pendiente")
               {
-                <button type="button" class="btn btn-outline-danger" onclick="mostrarFormularioCancelacion()">Cancelar Orden</button>
+                <button type="button" class="btn btn-cancelar" onclick="mostrarFormularioCancelacion()">Cancelar Orden</button>
 
                 <div id="formularioCancelacion" class="mt-3" style="display: none;">
                   <form asp-action="Cancelar" method="post">
@@ -77,7 +77,7 @@
                     </div>
 
                     <div class="d-flex gap-2">
-                      <button type="submit" class="btn btn-outline-danger">Confirmar Cancelación</button>
+                      <button type="submit" class="btn btn-cancelar">Confirmar Cancelación</button>
                     </div>
                   </form>
                 </div>
