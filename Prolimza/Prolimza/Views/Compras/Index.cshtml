@@ -22,16 +22,12 @@
                 @Html.DisplayNameFor(model => model.FechaCompra)
             </th>
             <th>
-                        @Html.DisplayNameFor(model => model.IdUsuario)
+                        @Html.DisplayNameFor(model => model.Usuario.Nombre)
             </th>
 
                     <th>
                         @Html.DisplayNameFor(model => model.CodigoIngreso)
                     </th>
-            <th>
-                        @Html.DisplayNameFor(model => model.Estado)
-
-            </th>
                     <th>Acciones</th>
         </tr>
     </thead>
@@ -49,9 +45,6 @@
                 </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.CodigoIngreso)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Estado)
                         </td>
                 <td>
                             <div>

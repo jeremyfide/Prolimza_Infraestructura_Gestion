@@ -3,21 +3,52 @@
 <div class="geex-content__double-column mb-40">
     <div class="geex-content__section geex-content__market">
         <div class="geex-content__section__header">
-            <h4 class="geex-content__section__header__title">Información del Usuario</h4>
+            <h4 class="geex-content__section__header__title">Detalle de la Compra</h4>
         </div>
         <div class="geex-content__section__content geex-content__market__content">
             <div class="geex-content__market__single">
                 <div class="geex-content__market__single__wrapper">
                     <div class="geex-content__market__single__content">
-                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.IdUsuario)</h4>
-                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.IdUsuario)</p>
-                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(model => model.FechaCompra)</h4>
-                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(model => model.FechaCompra)</p>
+
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(m => m.CodigoIngreso)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(m => m.CodigoIngreso)</p>
+
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(m => m.FechaCompra)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(m => m.FechaCompra)</p>
+
+                        <h4 class="geex-content__market__single__title">@Html.DisplayFor(m => m.Usuario.Nombre)</h4>
+                        <p class="geex-content__market__single__subtitle">@Html.DisplayNameFor(m => m.Usuario)</p>
+
+                        @* Productos Comprados *@
+                        @if (Model.DetalleCompraProductos?.Any() == true)
+                        {
+                            <h4 class="geex-content__market__single__title mt-4">Productos Comprados</h4>
+                            <ul>
+                                @foreach (var producto in Model.DetalleCompraProductos)
+                                {
+                                    <li class="mb-2">@producto.Producto?.NombreProducto — Cantidad: @producto.Cantidad</li>
+                                }
+                            </ul>
+                        }
+
+                        @* Materias Primas Compradas *@
+                        @if (Model.DetalleCompraMateriaPrimas?.Any() == true)
+                        {
+                            <h4 class="geex-content__market__single__title mt-4">Materias Primas Compradas</h4>
+                            <ul>
+                                @foreach (var materia in Model.DetalleCompraMateriaPrimas)
+                                {
+                                    <li class="mb-2">@materia.MateriaPrima?.Nombre — Cantidad: @materia.Cantidad</li>
+                                }
+                            </ul>
+                        }
+
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-center">
+
+        <div class="text-center mt-3">
             <button class="geex-btn--small-center" onclick="cerrarDetalle()">Cerrar</button>
         </div>
     </div>

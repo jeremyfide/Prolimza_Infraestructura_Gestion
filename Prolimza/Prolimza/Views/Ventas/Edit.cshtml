@@ -4,19 +4,34 @@
     ViewData["Title"] = "Editar Venta";
     ViewData["subTitle"] = "Formulario para editar ventas desde la perspectiva de administrador.";
     var estadoActual = ViewData["EstadoActual"] as string ?? "Desconocido";
-    bool puedeEditar = estadoActual == "Pendiente";
+    bool puedeEditar = estadoActual == "Pendiente" || estadoActual == "Procesando" || estadoActual == "Enviado";
 }
 
 <div class="geex-content__section geex-content__form">
     <div class="geex-content__form__wrapper">
 
-        <div class="text-white mb-4 text-center">
-            Estado actual: <strong>@estadoActual</strong>
-        </div>
-
         <form asp-action="Edit" class="form-container" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdVenta" />
+
+            <div class="geex-content__form__single__box mb-20">
+                @if (puedeEditar)
+                {
+                    <select name="EstadoVentaSeleccionado" class="form-control">
+                        @foreach (var estado in (SelectList)ViewData["EstadosVenta"])
+                        {
+                            var selected = estado.Text == estadoActual ? "selected" : "";
+                            <option value="@estado.Value" selected="@selected">@estado.Text</option>
+                        }
+
+                    </select>
+                }
+                else
+                {
+                    <input class="form-control" value="@estadoActual" readonly />
+                }
+            </div>
+
 
             <div class="geex-content__form__single__box mb-20">
                 @if (puedeEditar)

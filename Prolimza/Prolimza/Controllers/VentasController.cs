@@ -23,7 +23,18 @@ namespace Prolimza.Controllers
         {
             var ventas = await _context.Ventas
                 .Include(v => v.Usuario)
+                .Include(v => v.HistorialesEstadoVenta)
+                    .ThenInclude(h => h.EstadoVenta)
                 .ToListAsync();
+
+            foreach (var venta in ventas)
+            {
+                var ultimoEstado = venta.HistorialesEstadoVenta
+                    .OrderByDescending(h => h.FechaEstado)
+                    .FirstOrDefault()?.EstadoVenta?.Descripcion;
+
+                venta.EstadoActual = ultimoEstado ?? "Desconocido";
+            }
 
             if (TempData["SuccessCancelar"] != null)
                 ViewBag.SuccessCancelar = TempData["SuccessCancelar"];
@@ -180,6 +191,11 @@ namespace Prolimza.Controllers
                 estadoDescripcion = estado?.Descripcion ?? "Desconocido";
             }
 
+            var estadosValidos = await _context.EstadosVenta
+                .Where(e => e.Descripcion != "Cancelado")
+                .ToListAsync();
+
+            ViewData["EstadosVenta"] = new SelectList(estadosValidos, "Descripcion", "Descripcion", estadoDescripcion);
             ViewData["EstadoActual"] = estadoDescripcion;
             ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre", venta.IdUsuario);
             return View(venta);
@@ -211,9 +227,9 @@ namespace Prolimza.Controllers
                 estadoDescripcion = estado?.Descripcion ?? "Desconocido";
             }
 
-            if (estadoDescripcion != "Pendiente")
+            if (estadoDescripcion != "Pendiente" && estadoDescripcion != "Procesando" && estadoDescripcion != "Enviado")
             {
-                ModelState.AddModelError(string.Empty, "No se puede editar la orden porque su estado no es 'Pendiente'.");
+                ModelState.AddModelError(string.Empty, "No se puede editar la orden porque su estado no es válido.");
                 ViewData["EstadoActual"] = estadoDescripcion;
                 ViewData["IdUsuario"] = new SelectList(_context.Usuarios, "IdUsuario", "Nombre", venta.IdUsuario);
                 return View(venta);
@@ -248,6 +264,27 @@ namespace Prolimza.Controllers
                         IdUsuario = null
                     };
                     _context.Alertas.Add(alerta);
+
+                    // Estados cambios
+                    var nuevoEstadoDescripcion = Request.Form["EstadoVentaSeleccionado"].ToString();
+
+                    if (!string.IsNullOrEmpty(nuevoEstadoDescripcion) && nuevoEstadoDescripcion != estadoDescripcion)
+                    {
+                        var nuevoEstado = await _context.EstadosVenta
+                            .FirstOrDefaultAsync(e => e.Descripcion == nuevoEstadoDescripcion);
+
+                        if (nuevoEstado != null)
+                        {
+                            var nuevoHistorial = new HistorialEstadoVenta
+                            {
+                                IdVenta = ventaOriginal.IdVenta,
+                                IdEstadoVenta = nuevoEstado.IdEstadoVenta,
+                                FechaEstado = DateTime.Now
+                            };
+
+                            _context.HistorialesEstadoVenta.Add(nuevoHistorial);
+                        }
+                    }
 
                     await _context.SaveChangesAsync();
                 }

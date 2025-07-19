@@ -14,6 +14,8 @@ namespace Prolimza.Models
         public string CodigoIngreso { get; set; } = string.Empty;
         public ICollection<DetalleVenta>? DetallesVenta { get; set; } = new List<DetalleVenta>();
         public ICollection<HistorialEstadoVenta>? HistorialesEstadoVenta { get; set; }
+        [NotMapped]
+        public string EstadoActual { get; set; } = "Desconocido";
 
     }
 }

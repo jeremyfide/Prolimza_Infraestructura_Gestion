@@ -33,16 +33,21 @@ namespace Prolimza.Controllers
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
-            {
                 return NotFound();
-            }
 
             var compra = await _context.Compras
+                .Include(c => c.Usuario)
+                .Include(c => c.DetalleCompraProductos)
+                    .ThenInclude(dc => dc.Producto)
+                .Include(c => c.DetalleCompraMateriaPrimas)
+                    .ThenInclude(mpc => mpc.MateriaPrima)
                 .FirstOrDefaultAsync(m => m.IdCompra == id);
+
             if (compra == null)
-            {
                 return NotFound();
-            }
+
+            compra.DetalleCompraProductos ??= new List<DetalleCompraProducto>();
+            compra.DetalleCompraMateriaPrimas ??= new List<DetalleCompraMateriaPrima>();
 
             return PartialView(compra);
         }
@@ -92,21 +97,38 @@ namespace Prolimza.Controllers
                 _context.Compras.Add(viewModel.Compra);
                 await _context.SaveChangesAsync();
 
+                // Agregar productos comprados y actualizar stock
                 foreach (var prod in viewModel.Productos.Where(p => p.Cantidad > 0))
                 {
                     prod.IdCompra = viewModel.Compra.IdCompra;
                     _context.DetallesCompraProductos.Add(prod);
+
+                    var productoEnBD = await _context.Productos.FindAsync(prod.IdProducto);
+                    if (productoEnBD != null)
+                    {
+                        productoEnBD.Cantidad += prod.Cantidad;
+                        _context.Productos.Update(productoEnBD);
+                    }
                 }
 
+                // Agregar materias primas compradas y actualizar stock
                 foreach (var mp in viewModel.MateriasPrimas.Where(m => m.Cantidad > 0))
                 {
                     mp.IdCompra = viewModel.Compra.IdCompra;
                     _context.DetallesCompraMateriaPrimas.Add(mp);
+
+                    var materiaEnBD = await _context.MateriasPrimas.FindAsync(mp.IdMateriaPrima);
+                    if (materiaEnBD != null)
+                    {
+                        materiaEnBD.Cantidad += mp.Cantidad;
+                        _context.MateriasPrimas.Update(materiaEnBD);
+                    }
                 }
 
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
 
             // Recargar listas si hubo error
             viewModel.ListaProductos = _context.Productos
@@ -135,6 +157,12 @@ namespace Prolimza.Controllers
             {
                 return NotFound();
             }
+            var usuarios = await _context.Usuarios
+                .Select(u => new { u.IdUsuario, u.Nombre })
+                .ToListAsync();
+
+            ViewData["Usuarios"] = new SelectList(usuarios, "IdUsuario", "Nombre", compra.IdUsuario);
+    
             return View(compra);
         }
 
@@ -143,7 +171,7 @@ namespace Prolimza.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCompra,FechaCompra,IdUsuario")] Compra compra)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCompra,FechaCompra,IdUsuario,CodigoIngreso")] Compra compra)
         {
             if (id != compra.IdCompra)
             {
