@@ -8,7 +8,6 @@
 		document.getElementById("fecha-inicio").value = haceUnMes.toISOString().split("T")[0];
 		document.getElementById("fecha-fin").value = hoy.toISOString().split("T")[0];
 
-		// Cargar gráficos inicialmente
 		const desde = document.getElementById("fecha-inicio").value;
 		const hasta = new Date(document.getElementById("fecha-fin").value);
 		hasta.setHours(23, 59, 59, 999);
@@ -29,22 +28,17 @@
 			return;
 		}
 
-		// Ajustar la fecha final para incluir todo el día (23:59:59)
 		const fechaFinCompleta = new Date(hasta);
 		fechaFinCompleta.setHours(23, 59, 59, 999);
 
 		const fechaFinISO = fechaFinCompleta.toISOString();
 
-		// Recargar todos los gráficos con estas fechas
 		cargarGraficoVentasPorUsuario(desde, fechaFinISO);
 		cargarDatosBarChartVentas(desde, fechaFinISO);
 		cargarPieChartProductos(desde, fechaFinISO);
 		cargarStackChartVentas(desde, fechaFinISO);
 	});
 
-
-	//Graficos ventas
-	//Ventas por semana
 	async function cargarDatosBarChartVentas(fechaInicio, fechaFin) {
 		const url = `/api/ventasapi/ventas-por-semana?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`;
 
@@ -118,7 +112,6 @@
 	}
 
 
-	//Ventas por usuario
 	async function cargarGraficoVentasPorUsuario(fechaInicio, fechaFin) {
 		const url = `/api/ventasapi/ventas-por-semana-por-usuario?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`;
 
@@ -195,9 +188,6 @@
 		window.lineChartInstance.render();
 	}
 
-
-	// Productos por ventas
-	// Pie - Ventas por producto
 	async function cargarPieChartProductos(fechaInicio, fechaFin) {
 		const url = `/api/ventasapi/ventas-por-producto?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`;
 
@@ -251,8 +241,6 @@
 		window.pieChartInstance.render();
 	}
 
-
-	// Stack Chart - Cantidad de productos vendidos por usuario
 	async function cargarStackChartVentas(fechaInicio, fechaFin) {
 		const url = `/api/ventasapi/ventas-por-usuario-producto?fechaInicio=${fechaInicio}&fechaFin=${fechaFin}`;
 

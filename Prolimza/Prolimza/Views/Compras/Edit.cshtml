@@ -12,19 +12,18 @@
             <input type="hidden" asp-for="IdCompra" />
 
             <div class="geex-content__form__single__box mb-20">
-                <label asp-for="FechaCompra" class="control-label"></label>
-                <input asp-for="FechaCompra" class="form-control" />
-                
+                <input asp-for="CodigoIngreso" class="form-control"/>
             </div>
 
             <div class="geex-content__form__single__box mb-20">
-                <label asp-for="IdUsuario" class="control-label"></label>
-                <input asp-for="IdUsuario" class="form-control" />
-                
+                <select asp-for="IdUsuario" class="form-control" asp-items="@(ViewData["Usuarios"] as SelectList)">
+                    <option value="">Seleccione un usuario</option>
+                </select>
             </div>
 
+
             <div class="geex-validation-block text-danger mt-4 text-center">
-                <span asp-validation-for="FechaCompra" class="text-danger"></span>
+                <span asp-validation-for="CodigoIngreso" class="text-danger"></span>
                 <span asp-validation-for="IdUsuario" class="text-danger"></span>
             </div>
 

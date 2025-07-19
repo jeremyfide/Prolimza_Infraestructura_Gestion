@@ -62,7 +62,7 @@
             }
 
             <div class="mt-3">
-              @if (estadoActual == "Pendiente")
+            @if (estadoActual == "Pendiente" || estadoActual == "Procesando" || estadoActual == "Enviado")
               {
                 <button type="button" class="btn btn-cancelar" onclick="mostrarFormularioCancelacion()">Cancelar Orden</button>
 

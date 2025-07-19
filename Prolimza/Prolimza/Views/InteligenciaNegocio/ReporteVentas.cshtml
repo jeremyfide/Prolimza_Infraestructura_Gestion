@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Prolimza.Models.Venta>
 
 @{
-    ViewData["Title"] = "Reporte de Ventas";
+    ViewData["Title"] = "Reporte Comercial";
     var ventas = ViewData["Ventas"] as List<Prolimza.Models.Venta>;
     var tiempos = ViewBag.TiemposPendientes as Dictionary<int, string>;
 }
@@ -135,17 +135,19 @@
             
         </div>
     </div>
-    <!--Grafico terciario-->
-    <div class="geex-content__widget">
-        <div class="geex-content__widget__single">
-            <div class="geex-content__widget__single__header">
-                <h4 class="geex-content__widget__single__title">Venta de productos por usuario</h4>
-            </div>
-            <div class="geex-content__widget__single__content">
-                <div id="stack-chart"></div>
+
+    <div class="geex-content__section sin-fondo">
+        <div class="geex-content__section__header">
+            <div class="geex-content__section__header__title-part">
+                <h4 class="geex-content__section__header__title">Venta de productos por usuario</h4>
             </div>
         </div>
+        <div class="geex-content__section__content">
+            <div id="stack-chart"></div>
+        </div>
     </div>
+
+
 
     <div class="modal fade custom-modal" id="detalleModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">

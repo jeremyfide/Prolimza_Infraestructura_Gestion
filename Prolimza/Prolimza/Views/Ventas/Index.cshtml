@@ -45,6 +45,7 @@
                 <th>@Html.DisplayNameFor(model => model.CodigoIngreso)</th>
                 <th>@Html.DisplayNameFor(model => model.FechaVenta)</th>
                 <th>@Html.DisplayNameFor(model => model.Usuario)</th>
+                <th>Estado</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -56,6 +57,7 @@
                     <td>@Html.DisplayFor(modelItem => item.CodigoIngreso)</td>
                     <td>@Html.DisplayFor(modelItem => item.FechaVenta)</td>
                     <td>@Html.DisplayFor(modelItem => item.Usuario.Nombre)</td>
+                    <td>@Html.DisplayFor(modelItem => item.EstadoActual)</td>
                     <td>
                             <div>
                                 <div class="geex-content__todo__list__single__action">

@@ -51,6 +51,12 @@ namespace Prolimza.Controllers
 
         }
 
+        [HttpGet]
+        public async Task<IActionResult> ReporteRecetas()
+        {
+            return View();
+        }
+
         private string CalcularTiempoDesde(DateTime? fecha)
         {
             if (fecha == null) return "Desconocido";
@@ -64,7 +70,7 @@ namespace Prolimza.Controllers
             return $"{(int)tiempo.TotalMinutes} minutos";
         }
 
-
+        /*
         [HttpGet]
         public async Task<IActionResult> ReporteRecetas(DateTime? fechaInicio, DateTime? fechaFin, string? tipoProducto)
         {
@@ -181,6 +187,7 @@ public async Task<IActionResult> GetTopProductos(DateTime? fechaInicio, DateTime
 
     return Json(data);
 }
+        */
 
 
     }

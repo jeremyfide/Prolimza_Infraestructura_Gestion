@@ -11635,5 +11635,35 @@ table.dataTable th {
 
 table.dataTable thead th .dt-column-order {
     float: right;
-    margin-left: 8px; /* espacio entre texto y el ícono */
+    margin-left: 8px;
 }
+
+.geex-content__section.sin-fondo {
+    background-color: transparent !important;
+}
+
+/*Sweet alert, dark theme*/
+
+html[data-theme="dark"] .swal2-popup {
+    background-color: #1e1e2d !important;
+    color: #f0f0f0 !important;
+    border: 1px solid #333 !important;
+}
+
+html[data-theme="dark"] .swal2-title {
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .swal2-icon {
+    color: #ffffff !important;
+    border-color: #555 !important;
+}
+
+html[data-theme="dark"] .swal2-success-ring {
+    border-color: #00c896 !important;
+}
+
+html[data-theme="dark"] .swal2-timer-progress-bar {
+    background: #00c896 !important;
+}
+
