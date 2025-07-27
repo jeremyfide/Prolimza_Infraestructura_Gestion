@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Prolimza.Models;
 using System.Linq;
 
 namespace Prolimza.Controllers
 {
+    [Authorize(Roles = "Administrador,Contador")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProduccionApiController : Controller

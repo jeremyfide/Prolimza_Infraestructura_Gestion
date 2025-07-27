@@ -3,42 +3,24 @@
     ViewData["Title"] = "Predicción de Ventas";
 }
 
-<h2>Predicción de Ventas</h2>
-
-<form asp-action="Predecir" method="post" class="mb-4">
-    <div class="form-group">
-        <label for="IdProducto">Seleccione un producto</label>
-        <select name="idProducto" class="form-control" required>
+<form id="form-prediccion" class="row align-items-end mb-4" style="gap: 10px;">
+    <div class="col-md-4">
+        <label for="idProducto">Seleccione un producto</label>
+        <select id="idProducto" name="idProducto" class="form-control" required>
             @foreach (var item in (SelectList)ViewBag.Productos)
             {
-                var selected = item.Value == Model.ToString() ? "selected=\"selected\"" : "";
-                @:<option value="@item.Value" @Html.Raw(selected)>@item.Text</option>
+                <option value="@item.Value">@item.Text</option>
             }
         </select>
     </div>
-    <button type="submit" class="geex-btn geex-btn--primary-transparent">Predecir</button>
+
+    <div class="col-md-3 d-flex align-items-end">
+        <button type="submit" class="geex-btn geex-btn--primary-transparent">Predecir</button>
+    </div>
 </form>
 
-@if (ViewBag.Resultados != null)
-{
-    <h4>Resultados de predicción para: @ViewBag.Producto</h4>
-    <table class="table table-bordered mt-3">
-        <thead>
-            <tr>
-                <th>Mes</th>
-                <th>Año</th>
-                <th>Predicción (unidades)</th>
-            </tr>
-        </thead>
-        <tbody>
-        @foreach (var resultado in ViewBag.Resultados)
-        {
-            <tr>
-                <td>@resultado.Item1</td> <!-- Mes -->
-                <td>@resultado.Item2</td> <!-- Año -->
-                <td>@Math.Round(resultado.Item3, 2)</td> <!-- Predicción -->
-            </tr>
-        }
-        </tbody>
-    </table>
-}
+<div id="barra-carga" class="text-center my-4" style="display: none;">
+    <span id="texto-cargando" class="cargando-texto">Cargando predicción<span class="puntos"></span></span>
+</div>
+
+<div id="resultado-prediccion" class="mt-4"></div>

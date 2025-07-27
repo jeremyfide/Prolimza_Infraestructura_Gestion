@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using Prolimza.Models;
 
 namespace Prolimza.Controllers
 {
+    [Authorize(Roles = "Administrador,Operador")]
     public class DetalleCompraMateriaPrimasController : Controller
     {
         private readonly ApplicationDbContext _context;

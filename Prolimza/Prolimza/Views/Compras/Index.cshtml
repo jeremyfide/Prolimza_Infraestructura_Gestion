@@ -14,10 +14,6 @@
         <table id="miTabla" class="display">
     <thead>
         <tr>
-
-                    <th>
-                        @Html.DisplayNameFor(model => model.IdCompra)
-                    </th>
             <th>
                 @Html.DisplayNameFor(model => model.FechaCompra)
             </th>
@@ -34,9 +30,6 @@
     <tbody>
         @foreach (var item in Model) {
             <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IdCompra)
-                        </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FechaCompra)
                 </td>
