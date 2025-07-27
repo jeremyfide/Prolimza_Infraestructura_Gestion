@@ -11667,3 +11667,30 @@ html[data-theme="dark"] .swal2-timer-progress-bar {
     background: #00c896 !important;
 }
 
+.cargando-texto {
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+@keyframes puntosAnimacion {
+    0% {
+        content: "";
+    }
+
+    33% {
+        content: ".";
+    }
+
+    66% {
+        content: "..";
+    }
+
+    100% {
+        content: "...";
+    }
+}
+
+.cargando-texto .puntos::after {
+    content: "";
+    animation: puntosAnimacion 1.2s steps(3, end) infinite;
+}

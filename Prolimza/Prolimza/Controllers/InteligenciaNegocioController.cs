@@ -1,4 +1,5 @@
 ﻿// Controlador: InteligenciaNegocioController.cs
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -7,6 +8,7 @@ using System.Globalization;
 
 namespace Prolimza.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class InteligenciaNegocioController : Controller
     {
         private readonly ApplicationDbContext _context;

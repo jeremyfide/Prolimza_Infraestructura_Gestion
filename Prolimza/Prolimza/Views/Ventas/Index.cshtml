@@ -41,7 +41,6 @@
         <table id="miTabla" class="display">
         <thead class="table-success">
             <tr>
-                <th>@Html.DisplayNameFor(model => model.IdVenta)</th>
                 <th>@Html.DisplayNameFor(model => model.CodigoIngreso)</th>
                 <th>@Html.DisplayNameFor(model => model.FechaVenta)</th>
                 <th>@Html.DisplayNameFor(model => model.Usuario)</th>
@@ -53,7 +52,6 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@Html.DisplayFor(modelItem => item.IdVenta)</td>
                     <td>@Html.DisplayFor(modelItem => item.CodigoIngreso)</td>
                     <td>@Html.DisplayFor(modelItem => item.FechaVenta)</td>
                     <td>@Html.DisplayFor(modelItem => item.Usuario.Nombre)</td>

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Prolimza.Models;
 
 namespace Prolimza.Controllers
 {
+    [Authorize(Roles = "Administrador")]
     public class AlertasController : Controller
     {
         private readonly ApplicationDbContext _context;

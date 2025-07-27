@@ -345,6 +345,10 @@
       "PackagePath": "staticwebassets\\img\\maintanence.svg"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Ajax\\prediccionVentasAsync.js",
+      "PackagePath": "staticwebassets\\js\\Ajax\\prediccionVentasAsync.js"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Ajax\\vistaParcial.js",
       "PackagePath": "staticwebassets\\js\\Ajax\\vistaParcial.js"
     },
@@ -359,6 +363,10 @@
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\DataTables\\datatables.min.js",
       "PackagePath": "staticwebassets\\js\\DataTables\\datatables.min.js"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\InteligenciaNegocio\\GraficoPrediccion.js",
+      "PackagePath": "staticwebassets\\js\\InteligenciaNegocio\\GraficoPrediccion.js"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\InteligenciaNegocio\\GraficoRecetas.js",

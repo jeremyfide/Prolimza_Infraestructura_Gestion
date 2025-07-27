@@ -1,0 +1,48 @@
+﻿@model int
+@{
+    var producto = ViewBag.Producto;
+    var resultados = (List<(int Mes, int Anno, float Prediccion)>)ViewBag.Resultados;
+    var labels = string.Join(",", resultados.Select(r => $"'{r.Mes}/{r.Anno}'"));
+    var valores = string.Join(",", resultados.Select(r => Math.Round(r.Prediccion, 2)));
+}
+
+@if (resultados.Count > 0)
+{
+    <div class="geex-content__section geex-content__server-request mb-40">
+        <div class="geex-content__section__content">
+            <div class="geex-content__section__header">
+                <div class="geex-content__section__header__title-part">
+                    <h4 class="geex-content__section__header__title">Predicción para @producto</h4>
+                </div>
+            </div>
+            <div id="prediccion-line-chart" class="server-request-chart" data-labels="@string.Join(",", resultados.Select(r => $"{r.Mes}/{r.Anno}"))" data-valores="@string.Join(",", resultados.Select(r => Math.Round(r.Prediccion, 2)))"></div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">No hay datos suficientes para realizar la predicción.</div>
+}
+
+<div class="mt-3">
+    <h5>Recomendaciones:</h5>
+    <ul>
+        @{
+            var total = resultados.Sum(r => r.Prediccion);
+            var promedio = total / resultados.Count;
+
+            if (promedio < 10)
+            {
+                <li>La demanda proyectada es baja. Considere reducir producción o compras.</li>
+            }
+            else if (promedio > 50)
+            {
+                <li>Se espera alta demanda. Verifique el inventario de materias primas.</li>
+            }
+            else
+            {
+                <li>La demanda es estable. Mantenga su ritmo actual.</li>
+            }
+        }
+    </ul>
+</div>
