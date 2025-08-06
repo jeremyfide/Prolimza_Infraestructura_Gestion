@@ -32,11 +32,21 @@ namespace Prolimza.Models
         public DbSet<ReporteUsoMateriaPrimaViewModel> ReporteUsoMateriaPrimaViewModel { get; set; }
 
         public DbSet<TopProductosViewModel> TopProductosViewModel { get; set; }
-
+        public DbSet<RegistroCadenaProduccion> RegistroCadenaProduccion { get; set; }
+        public DbSet<DetalleRegistroMateriaPrima> DetalleRegistroMateriaPrima { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Llaves primarias
+
+            modelBuilder.Entity<DetalleRegistroMateriaPrima>()
+     .HasKey(d => new { d.IdRegistro, d.IdMateriaPrima });
+
+            modelBuilder.Entity<DetalleRegistroMateriaPrima>()
+                .HasOne(d => d.Registro)
+                .WithMany(r => r.Detalles)
+                .HasForeignKey(d => d.IdRegistro);
+
             modelBuilder.Entity<ReporteUsoMateriaPrimaViewModel>().HasNoKey().ToView(null);
 
             modelBuilder.Entity<RecetasPorDiaViewModel>().HasNoKey();

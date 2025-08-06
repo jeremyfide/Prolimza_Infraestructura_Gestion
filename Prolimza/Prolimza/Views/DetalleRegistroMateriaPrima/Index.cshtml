@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Prolimza.Models.DetalleRegistroMateriaPrima>
+
+@{
+    ViewData["Title"] = "Detalle Consumo Materia Prima";
+}
+
+
+
+<table id ="miTabla" class="display">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.NombreMateriaPrima)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadConsumida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Registro)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreMateriaPrima)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadConsumida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Registro.IdRegistro)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>

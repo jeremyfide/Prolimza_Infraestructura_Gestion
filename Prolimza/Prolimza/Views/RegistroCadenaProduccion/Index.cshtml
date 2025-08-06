@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Prolimza.Models.RegistroCadenaProduccion>
+
+@{
+    ViewData["Title"] = "Registro Produccion";
+}
+
+
+
+<table id="miTabla" class="display">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sku)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.NombreProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadFinal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exito)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mensaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sku)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadFinal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exito)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mensaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
