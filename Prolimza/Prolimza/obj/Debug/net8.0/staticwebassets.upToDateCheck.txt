@@ -83,10 +83,12 @@ wwwroot\img\Multimedia1.png
 wwwroot\img\Multimedia2.png
 wwwroot\img\Multimedia3.png
 wwwroot\img\Recetas\lab-icon.svg
+wwwroot\js\Ajax\prediccionVentasAsync.js
 wwwroot\js\Ajax\vistaParcial.js
 wwwroot\js\DataTables\dataTables.css
 wwwroot\js\DataTables\dataTables.js
 wwwroot\js\DataTables\datatables.min.js
+wwwroot\js\InteligenciaNegocio\GraficoPrediccion.js
 wwwroot\js\InteligenciaNegocio\GraficoRecetas.js
 wwwroot\js\InteligenciaNegocio\GraficoVentas.js
 wwwroot\js\InteligenciaNegocio\ReportePDF.js
@@ -95,6 +97,7 @@ wwwroot\js\Recetas\MateriaReceta.js
 wwwroot\js\Reportes\html2canvas.min.js
 wwwroot\js\Reportes\jspdf.min.js
 wwwroot\js\site.js
+wwwroot\js\SweetAlert\sweetalert2@11.js
 wwwroot\js\tablas.js
 wwwroot\lib\bootstrap\dist\css\bootstrap.css
 wwwroot\lib\bootstrap\dist\css\bootstrap.css.map

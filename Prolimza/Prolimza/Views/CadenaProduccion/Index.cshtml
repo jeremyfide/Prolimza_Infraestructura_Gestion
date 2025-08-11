@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Vista Producción en Tiempo Real";
+}
+
+<h2>Productos generados en tiempo real</h2>
+
+<table id="miTablaDatos" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Nombre Producto</th>
+            <th>SKU</th>
+            <th>Cantidad</th>
+            <th>Fecha Caducidad</th>
+            <th>Bodega</th>
+        </tr>
+    </thead>
+</table>
+
+
+
+<!-- SignalR -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/7.0.5/signalr.min.js"></script>
+
+<script>
+    let tabla;
+
+    $(document).ready(function () {
+    if ($.fn.DataTable.isDataTable('#miTablaDatos')) {
+        $('#miTablaDatos').DataTable().clear().destroy();
+    }
+    tabla = $('#miTablaDatos').DataTable();
+
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/productoHub")
+            .build();
+
+        connection.on("ProductoConsultado", function (producto) {
+            // Agrega nueva fila usando la API de DataTables
+            tabla.row.add([
+                producto.nombreProducto,
+                producto.sku,
+                producto.cantidad,
+                producto.fechaCaducidad
+                    ? new Date(producto.fechaCaducidad).toLocaleDateString()
+                    : "-",
+                producto.bodega?.nombre || "-"
+            ]).draw(false);
+        });
+
+        connection.start().catch(function (err) {
+            console.error(err.toString());
+        });
+    });
+</script>
