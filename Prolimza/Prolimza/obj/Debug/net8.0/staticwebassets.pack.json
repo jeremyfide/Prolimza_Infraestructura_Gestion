@@ -233,6 +233,10 @@
       "PackagePath": "staticwebassets\\icons\\youtube.svg"
     },
     {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Equipo.jpg",
+      "PackagePath": "staticwebassets\\img\\Equipo.jpg"
+    },
+    {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Multimedia0.jpg",
       "PackagePath": "staticwebassets\\img\\Multimedia0.jpg"
     },
@@ -343,6 +347,10 @@
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\maintanence.svg",
       "PackagePath": "staticwebassets\\img\\maintanence.svg"
+    },
+    {
+      "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\producto.png",
+      "PackagePath": "staticwebassets\\img\\producto.png"
     },
     {
       "Id": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\js\\Ajax\\prediccionVentasAsync.js",

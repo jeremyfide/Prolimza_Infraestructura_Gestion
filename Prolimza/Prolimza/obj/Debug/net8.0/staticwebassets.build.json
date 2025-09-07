@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kVEou1aj6ztvlzMKx9hsKvRybDiqmYq8SPR21bRh4k8=",
+  "Hash": "jARFMv+0SZVIISOwaIPdA9+46/bxL/sNqijBwLFAYhU=",
   "Source": "Prolimza",
   "BasePath": "_content/Prolimza",
   "Mode": "Default",
@@ -1157,6 +1157,25 @@
       "OriginalItemSpec": "wwwroot\\img\\authentication.svg"
     },
     {
+      "Identity": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Equipo.jpg",
+      "SourceId": "Prolimza",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\",
+      "BasePath": "_content/Prolimza",
+      "RelativePath": "img/Equipo.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Equipo.jpg"
+    },
+    {
       "Identity": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\icon\\app.svg",
       "SourceId": "Prolimza",
       "SourceType": "Discovered",
@@ -1649,6 +1668,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\Multimedia3.png"
+    },
+    {
+      "Identity": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\producto.png",
+      "SourceId": "Prolimza",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\",
+      "BasePath": "_content/Prolimza",
+      "RelativePath": "img/producto.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\producto.png"
     },
     {
       "Identity": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\wwwroot\\img\\Recetas\\lab-icon.svg",
