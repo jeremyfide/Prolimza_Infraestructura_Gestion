@@ -53,9 +53,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_81D3723220274835814BD4B89F3C9CE5 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8BA58009656448DA8481FB20B89497D9 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1528D086AEE548088B542099C337704E }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6CE290F868244C03A19977B5322E5992 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_41625870DB0945C1844DC83E99147478 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_79A201E1CBDE47619F00EE887D5A1E08 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
@@ -64,4 +64,5 @@ jobs:
           app-name: 'prolimza'
           slot-name: 'Production'
           package: .
+
           
