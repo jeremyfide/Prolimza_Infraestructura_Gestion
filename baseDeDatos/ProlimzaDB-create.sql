@@ -1,6 +1,6 @@
 -- Crear Base de Datos
-CREATE DATABASE ProlimzaDB;
-GO
+--CREATE DATABASE ProlimzaDB;
+--GO
 
 USE ProlimzaDB;
 GO
@@ -153,6 +153,7 @@ CREATE TABLE historialEstadoVenta (
     fechaEstado DATETIME NOT NULL
 );
 
+-- Tabla: alerta
 CREATE TABLE alerta (
     idAlerta INT PRIMARY KEY IDENTITY(1,1),
     tipo VARCHAR(50) NOT NULL,
@@ -162,3 +163,104 @@ CREATE TABLE alerta (
     idUsuario INT NULL,
     FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
 );
+
+-- Tabla: registroCadenaProduccion
+
+CREATE TABLE registroCadenaProduccion (
+    idRegistro INT PRIMARY KEY IDENTITY(1,1),
+    sku VARCHAR(50) NOT NULL,
+    idProducto INT NOT NULL,
+    nombreProducto VARCHAR(100),
+    cantidadFinal INT,
+    exito BIT NOT NULL,
+    mensaje VARCHAR(255),
+    fechaRegistro DATETIME NOT NULL DEFAULT GETDATE(),
+    idUsuario INT NULL, -- si en el futuro quieres enlazar con usuarios
+    FOREIGN KEY (idProducto) REFERENCES producto(idProducto),
+    FOREIGN KEY (idUsuario) REFERENCES usuario(idUsuario)
+);
+
+-- Tabla: registroCadenaProduccion
+
+CREATE TABLE detalleRegistroMateriaPrima (
+    idDetalle INT PRIMARY KEY IDENTITY(1,1),
+    idRegistro INT NOT NULL,
+    idMateriaPrima INT NOT NULL,
+    nombreMateriaPrima VARCHAR(100),
+    cantidadConsumida INT NOT NULL,
+    FOREIGN KEY (idRegistro) REFERENCES registroCadenaProduccion(idRegistro),
+    FOREIGN KEY (idMateriaPrima) REFERENCES materiaPrima(idMateriaPrima)
+);
+GO
+
+---- STORED PROCEDURES ----
+
+CREATE PROCEDURE AumentarCantidadProductoPorSKU
+    @sku VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (SELECT 1 FROM producto WHERE sku = @sku)
+    BEGIN
+        UPDATE producto
+        SET cantidad = cantidad + 1
+        WHERE sku = @sku;
+
+        PRINT 'Cantidad actualizada correctamente.';
+    END
+    ELSE
+    BEGIN
+        PRINT 'Producto con ese SKU no existe.';
+    END
+END;
+GO
+
+------------------------------------
+
+CREATE PROCEDURE ConsumirMateriaPrimaPorSKUProducto
+    @sku VARCHAR(50),
+    @resultado INT OUTPUT -- 1 = éxito, <0 = error
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @idProducto INT;
+
+    SELECT @idProducto = idProducto FROM producto WHERE sku = @sku;
+
+    IF @idProducto IS NULL
+    BEGIN
+        SET @resultado = -1; -- Producto no encontrado
+        RETURN;
+    END
+
+    IF NOT EXISTS (SELECT 1 FROM receta WHERE idProducto = @idProducto)
+    BEGIN
+        SET @resultado = -2; -- Sin receta
+        RETURN;
+    END
+
+    IF EXISTS (
+        SELECT 1
+        FROM materiaPrima mp
+        INNER JOIN materiaReceta mr ON mp.idMateriaPrima = mr.idMateriaPrima
+        INNER JOIN receta r ON r.idReceta = mr.idReceta
+        WHERE r.idProducto = @idProducto
+        AND mp.cantidad < mr.cantidad
+    )
+    BEGIN
+        SET @resultado = -3; -- Sin stock suficiente
+        RETURN;
+    END
+
+    UPDATE mp
+    SET mp.cantidad = mp.cantidad - mr.cantidad
+    FROM materiaPrima mp
+    INNER JOIN materiaReceta mr ON mp.idMateriaPrima = mr.idMateriaPrima
+    INNER JOIN receta r ON r.idReceta = mr.idReceta
+    WHERE r.idProducto = @idProducto;
+
+    SET @resultado = 1; -- Éxito
+END;
+GO
