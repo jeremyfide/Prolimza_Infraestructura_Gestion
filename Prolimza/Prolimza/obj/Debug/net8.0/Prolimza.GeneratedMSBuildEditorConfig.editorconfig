@@ -25,6 +25,8 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
 build_property.MSBuildProjectDirectory = C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
 [C:/VS/Prolimza/Prolimza_Infraestructura_Gestion/Prolimza/Prolimza/Views/Alertas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRhc1xDcmVhdGUuY3NodG1s

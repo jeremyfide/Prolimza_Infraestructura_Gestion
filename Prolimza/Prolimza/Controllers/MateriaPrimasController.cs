@@ -62,6 +62,7 @@ namespace Prolimza.Controllers
         {
             if (ModelState.IsValid)
             {
+                materiaPrima.IdBodega = 1;
                 _context.Add(materiaPrima);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

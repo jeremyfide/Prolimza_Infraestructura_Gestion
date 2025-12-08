@@ -1444,11 +1444,6 @@ C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\bin\Debug\net8
 C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets.build.json
 C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets.development.json
-C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets\msbuild.Prolimza.Microsoft.AspNetCore.StaticWebAssets.props
-C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets\msbuild.build.Prolimza.props
-C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Prolimza.props
-C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Prolimza.props
-C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets.pack.json
 C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\scopedcss\bundle\Prolimza.styles.css
 C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\scopedcss\projectbundle\Prolimza.bundle.scp.css
@@ -1778,3 +1773,11 @@ C:\Users\vse10\Documents\GitHub\Prolimza_Infraestructura_Gestion\Prolimza\Prolim
 C:\Users\vse10\Documents\GitHub\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\Prolimza.pdb
 C:\Users\vse10\Documents\GitHub\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\Prolimza.genruntimeconfig.cache
 C:\Users\vse10\Documents\GitHub\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\ref\Prolimza.dll
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\bin\Debug\net8.0\Prolimza.staticwebassets.endpoints.json
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\VS\Prolimza\Prolimza_Infraestructura_Gestion\Prolimza\Prolimza\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

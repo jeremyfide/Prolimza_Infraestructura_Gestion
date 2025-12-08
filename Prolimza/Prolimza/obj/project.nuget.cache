@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "esQUsRBQAk6GzDrZlvFPDn1ow02OTUsk3Falqrn+v54sDBFk21cwMtXMQYp85f9fXAuBHzsp/EITgpcIuGsizQ==",
+  "dgSpecHash": "2qRA1+kvdig=",
   "success": true,
   "projectFilePath": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Prolimza.csproj",
   "expectedPackageFiles": [
@@ -187,8 +187,10 @@
     {
       "code": "NU1701",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'Microsoft.AspNet.Identity.Core 2.2.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Prolimza.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\VS\\Prolimza\\Prolimza_Infraestructura_Gestion\\Prolimza\\Prolimza\\Prolimza.csproj",
       "libraryId": "Microsoft.AspNet.Identity.Core",
       "targetGraphs": [
         "net8.0"
